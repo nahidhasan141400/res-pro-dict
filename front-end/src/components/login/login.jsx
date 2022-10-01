@@ -37,7 +37,7 @@ const Login = () => {
     const fromsubmit = async(e)=>{
         e.preventDefault()
         try {
-            const res = await axios.post('http://localhost:3300/login',{username,password});
+            const res = await axios.post('/login',{username,password});
             if(res.status === 200){
                 console.log(res);
                 document.cookie = `me=${res.data.me}`;

@@ -44,6 +44,8 @@
               font-weight: 600;
               color: rgb(255, 255, 255);
               text-transform: capitalize;
+              transition: all 0.3s linear;
+              transition-delay: 1s;
             }
           }
         }

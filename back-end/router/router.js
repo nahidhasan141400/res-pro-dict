@@ -1,6 +1,8 @@
 
 const LoginCon = require("../controller/loginCon.js");
 const Auth = require("../controller/AuthChacker.js")
+const Course = require("../controller/courseCon");
+const auth = require('../middleware/auth')
 function rout(app){
            
             
@@ -19,6 +21,9 @@ function rout(app){
 
         //chack auth 
         app.get('/chackAuth',Auth().chackBycookie);
+
+        // add course
+        app.post('/addcourse',auth,Course().addCourse)
 }
 
 module.exports = rout;
