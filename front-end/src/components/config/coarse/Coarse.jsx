@@ -3,7 +3,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import style from "./coarse.module.scss";
 import List from './list/List';
 
-const Coarse = ({setForm}) => {
+const Coarse = ({setForm,data,setData}) => {
   return (
     <div className={style.main}>
         <div className={style.con}>
@@ -18,8 +18,8 @@ const Coarse = ({setForm}) => {
             <div className={style.table}>
             {
           
-        [1,2,3,4,5,6,7,8,9,10,11,12,13,141,15,16].map((n)=>{
-         return ( <List key={n}/>)
+          data.map((n)=>{
+         return ( <List key={n._id} data={n} setData={setData}/>)
 
         })}
             </div>

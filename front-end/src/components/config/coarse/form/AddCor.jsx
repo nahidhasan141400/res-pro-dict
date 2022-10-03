@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaPowerOff } from "react-icons/fa";
+import { toast } from "react-toastify";
 import style from './add.module.scss';
-
-const AddCor = ({setForm}) => {
+const AddCor = ({setForm,data,setData}) => {
     const [value,setValue] = useState('');
     const submit = (e)=>{
         e.preventDefault()
@@ -16,9 +16,17 @@ const AddCor = ({setForm}) => {
         let send = async ()=>{
             try {
                 let res = await fetch(`/addcourse`, settings);
-                let data = await res.json();
-                console.log(data);
+                let resData = await res.json();
+                let status = await res.status;
+                if(status === 200){
+                    toast.success("course add successfully 👌")
+                    let nd = [...data];
+                    nd.push(resData)
+                    setData(nd)
+                    return setForm(false)
+                }
             } catch (error) {
+                toast.error("something is wrong 😥")
                 console.log(error);
             }
         }
