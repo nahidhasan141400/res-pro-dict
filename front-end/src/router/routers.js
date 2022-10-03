@@ -1,6 +1,7 @@
 import Config from "../components/config/Config";
 import Layout from "../components/layout/Layout";
 import Login from "../components/login/login";
+import Query from "../components/query/Query";
 import SecretRoute from "./SecretRoute";
 
 import {
@@ -19,6 +20,10 @@ import {
     {
         path: "/config",
         element: <SecretRoute Element ={Layout} Ch={Config}/>,
+    },
+    {
+        path: "/query",
+        element: <SecretRoute Element ={Layout} Ch={Query}/>,
     }
   ]);
 
