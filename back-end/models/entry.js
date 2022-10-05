@@ -28,6 +28,10 @@ const EntrySchema = new mongoose.Schema({
     type: String,
     default:"no comments"
   },
+  nextCD: {
+    type: String,
+    default:""
+  },
   admited: {
     type: Boolean,
     default:false

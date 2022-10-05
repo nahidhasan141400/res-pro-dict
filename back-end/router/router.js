@@ -3,6 +3,7 @@ const LoginCon = require("../controller/loginCon.js");
 const Auth = require("../controller/AuthChacker.js")
 const Course = require("../controller/courseCon");
 const auth = require('../middleware/auth')
+const entry = require('../controller/entry');
 function rout(app){
            
             
@@ -25,6 +26,10 @@ function rout(app){
         app.get("/getallcourse",auth,Course().getallcourse)
         app.get("/deletecourse/:id",auth,Course().delete)
         app.post("/cstatus/:id",auth,Course().CStatus)
+
+        //entry route
+        app.post('addentry',entry().addEntry)
+
 }
 
 module.exports = rout;
