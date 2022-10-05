@@ -1,10 +1,13 @@
+import axios from "axios";
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import style from "./entry.module.scss";
 import Inp from './inputs/Inp';
 import Opt, { Opt2, Opt3 } from './inputs/Opt';
 
 const Entry = () => {
+    const n = useNavigate()
     // state int start 
     const [name, setname] = useState("");
     const [mobile,setmobile] = useState("");
@@ -23,6 +26,31 @@ const Entry = () => {
         if(name === "" || cc === "" || htk === ""){
             return toast.error("please fill the form")
         }
+        const data = {
+            name:name,
+            mobile,
+            company,
+            HTK:htk,
+            decision,
+            cc,
+            nextd,
+            course1,
+            course2,
+            course3
+        }
+        let send = async()=>{
+            try {
+                const res = await axios.post('/addentry',data);
+                if(res.status === 200){
+                    toast.success("add succesfuly")
+                    return n('/query')
+                }
+            } catch (error) {
+                console.log(error);
+                toast('error')
+            }
+        }
+        send()
     }
   return (
     <div className={style.main}>

@@ -47,6 +47,15 @@ const coures = ()=>{
                 console.log(error);
                 return res.status(500).send(error)
             }
+        },
+        getActiveCourse:async (req,res)=>{
+            try {
+                const resDb = await Course.find({status:true});
+                res.json(resDb);
+            } catch (error) {
+                console.log(error);
+                res.status(500).send({msg:error})
+            }
         }
     }
 }

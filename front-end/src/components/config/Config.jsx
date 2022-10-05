@@ -5,11 +5,15 @@ import { toast } from "react-toastify";
 import Coarse from "./coarse/Coarse.jsx";
 import AddCor from './coarse/form/AddCor.jsx';
 import style from './config.module.scss';
+import AddHtk from './wtk/form/AddHtk.jsx';
+import Wtk from "./wtk/wtk.jsx";
 
 const Config = () => {
     const Navigate = useNavigate();
     const [form,setForm] = useState(false);
+    const [form2,setForm2] = useState(false);
     const [allCourse , setAllCourse] = useState([])
+    const [allHtk , setAllHtk] = useState([])
     const  [oldPass,setOldPass] = useState("")
     const  [Pass,setPass] = useState("")
     const  [cPass,setcPass] = useState("")
@@ -80,9 +84,16 @@ const Config = () => {
             <div className={style.coarseSection}>
                 <Coarse setForm={setForm} data={allCourse} setData={setAllCourse}/>
             </div>
+            <div className={style.coarseSection}>
+                <Wtk setForm={setForm2} data={allHtk} setData={setAllHtk}/>
+            </div>
         </div>
         <div className={style.over}>
             {form?<AddCor data={allCourse} setData={setAllCourse} setForm={setForm}/>:<></>}
+            
+        </div>
+        <div className={style.over}>
+            {form2?<AddHtk data={allHtk} setData={setAllHtk} setForm={setForm2}/>:<></>}
             
         </div>
     </div>

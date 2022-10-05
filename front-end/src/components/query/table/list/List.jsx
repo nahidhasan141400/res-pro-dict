@@ -1,15 +1,17 @@
+import moment from "moment";
 import React from 'react';
 import style from "./list.module.scss";
 
-const List = () => {
+
+const List = ({data}) => {
   return (
     <tr className={style.tr}>
-    <td>নাহিদ হ্যাসান </td>
-    <td>০১৭৪১০১৩৩৬৩</td>
-    <td>দেওান ict  </td>
-    <td>চিন্তা করে পরে জানাবেন abar asben</td>
-    <td className={style.c}>না</td>
-    <td>০১-০৮-২০২২</td>
+    <td>{data.name} </td>
+    <td>{data.mobile}</td>
+    <td>{data.company}</td>
+    <td>{data.decision}</td>
+    <td className={style.c}>{data.admited? "হা":'না'}</td>
+    <td>{moment(new Date(data.updatedAt)).format('MMMM d, YYYY')}</td>
     <td> 
         <button>details</button>
     </td>

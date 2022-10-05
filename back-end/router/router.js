@@ -4,6 +4,7 @@ const Auth = require("../controller/AuthChacker.js")
 const Course = require("../controller/courseCon");
 const auth = require('../middleware/auth')
 const entry = require('../controller/entry');
+const Htk = require("../controller/HtkCon");
 function rout(app){
            
             
@@ -25,10 +26,13 @@ function rout(app){
         // get all course
         app.get("/getallcourse",auth,Course().getallcourse)
         app.get("/deletecourse/:id",auth,Course().delete)
+        app.get("/getActiveCourse",auth,Course().getActiveCourse)
         app.post("/cstatus/:id",auth,Course().CStatus)
-
+        // add htk
+        app.post('/addhtk',auth,Htk().addHtk)
         //entry route
-        app.post('addentry',entry().addEntry)
+        app.post('/addentry',auth,entry().addEntry)
+        app.get("/getentrymonth",auth,entry().month)
 
 }
 

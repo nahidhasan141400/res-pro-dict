@@ -21,8 +21,8 @@ const EntrySchema = new mongoose.Schema({
     default:[]
   },
   decision: {
-    type: Array,
-    default:[]
+    type: String,
+    default:""
   },
   CC: {
     type: String,
