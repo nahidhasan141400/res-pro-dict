@@ -11,11 +11,11 @@ const List = ({data,setData}) => {
 
   const dellet = async(id)=>{
     try{
-      const res = await fetch(`/deletecourse/${id}`);
+      const res = await fetch(`/deletehtk/${id}`);
       const resData = await res.json();
       const status = await (await res).status;
       if(status === 200){
-        toast.success("course delete succesfully 👌")
+        toast.success("htk delete succesfully 👌")
         return setData(resData)
       }
     }catch(error){
@@ -33,7 +33,7 @@ const List = ({data,setData}) => {
       },body:JSON.stringify({status:st})
   };
     try {
-       let res = await fetch(`/cstatus/${id}`,settings);
+       let res = await fetch(`/htkstatus/${id}`,settings);
        let resData1 = await res.json();
        let resStatus = await res.status;
        if(resStatus === 200){
