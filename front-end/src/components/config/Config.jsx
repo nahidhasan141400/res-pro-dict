@@ -28,7 +28,18 @@ const Config = () => {
                 return toast.error("some thing wrong in sever 😥")
             }
         }
+        const getData2 = async()=>{
+            try {
+                const res = await fetch("/getallhtk");
+                const allhtkdata = await res.json();
+                return setAllHtk(allhtkdata);
+            } catch (error) {
+                console.log(error)
+                return toast.error("some thing wrong in sever 😥")
+            }
+        }
         getData()
+        getData2()
     },[])
 
     const changePass = async()=>{

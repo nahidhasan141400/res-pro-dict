@@ -3,7 +3,6 @@ import Nav from "../nav/Nav";
 import Sidebar from '../sidebar/Sidebar';
 import style from "./layout.module.scss";
 const Layout = ({El}) => {
-  console.log("k");
   return (
     <>
         <div className={style.main}>

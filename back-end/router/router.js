@@ -30,6 +30,11 @@ function rout(app){
         app.post("/cstatus/:id",auth,Course().CStatus)
         // add htk
         app.post('/addhtk',auth,Htk().addHtk)
+        app.get("/getallhtk",auth,Htk().getallhtk)
+        app.post("/htkstatus/:id",auth,Htk().CStatus)
+        app.get("/getActiveHtk",auth,Htk().getActiveHtk)
+        
+        app.get("/deletehtk/:id",auth,Htk().delete)
         //entry route
         app.post('/addentry',auth,entry().addEntry)
         app.get("/getentrymonth",auth,entry().month)

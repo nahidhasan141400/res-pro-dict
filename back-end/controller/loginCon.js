@@ -5,9 +5,10 @@ const LoginCon = ()=>{
     return {
         login : async(req,res)=>{
             let {username,password} = req.body;
-            // console.log(res)
+            // console.log(password)
             try {
                 const resdb = await Admin.findOne({name:"Dict"});
+                // console.log(resdb);
                 const mainpass = ncrip.dnc(resdb.password,process.env.KEY);
                 // console.log({
                 //     username,password,mainpass,resdb
@@ -25,7 +26,8 @@ const LoginCon = ()=>{
                    return  res.status(401).send("unauthorized")
                 }
             } catch (error) {
-                
+                console.log(error)
+                res.status(500).send({error})
             }
             
             res.status(500)
@@ -46,7 +48,7 @@ const LoginCon = ()=>{
                    return  res.status(401).send("unauthorized")
                 }
             } catch (error) {
-                console.log(error)
+                // console.log(error)
               return res.status(500).send(error) 
             }
         }
