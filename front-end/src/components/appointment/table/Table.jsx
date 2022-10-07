@@ -14,6 +14,7 @@ const Table = ({data}) => {
                     <th>কি সিধান্ত নিয়েছিলেন </th>
                     <th>তারিখ</th>
                     <th>details</th>
+                    <th>action</th>
                     
                 </tr>
             </thead>

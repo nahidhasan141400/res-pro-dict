@@ -1,5 +1,6 @@
 import Appointment from "../components/appointment/Appointment";
 import Config from "../components/config/Config";
+import Details from "../components/details/Details";
 import Entry from "../components/entry/Entry";
 import Layout from "../components/layout/Layout";
 import Login from "../components/login/login";
@@ -34,6 +35,10 @@ import {
     {
         path: "/appointment",
         element: <SecretRoute Element ={Layout} Ch={Appointment}/>,
+    },
+    {
+        path: "/entrydetailse/:id",
+        element: <SecretRoute Element ={Layout} Ch={Details}/>,
     }
   ]);
 
