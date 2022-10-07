@@ -1,3 +1,4 @@
+import Appointment from "../components/appointment/Appointment";
 import Config from "../components/config/Config";
 import Entry from "../components/entry/Entry";
 import Layout from "../components/layout/Layout";
@@ -29,6 +30,10 @@ import {
     {
         path: "/entry",
         element: <SecretRoute Element ={Layout} Ch={Entry}/>,
+    },
+    {
+        path: "/appointment",
+        element: <SecretRoute Element ={Layout} Ch={Appointment}/>,
     }
   ]);
 

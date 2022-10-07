@@ -38,6 +38,7 @@ function rout(app){
         //entry route
         app.post('/addentry',auth,entry().addEntry)
         app.get("/getentrymonth",auth,entry().month)
+        app.get("/getappointment",auth,entry().getAppointment)
 
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaUsers } from "react-icons/fa";
 import { GiArchiveResearch } from "react-icons/gi";
 import { IoMdAnalytics, IoMdCreate } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
@@ -33,6 +34,11 @@ const Sidebar = () => {
                         <li>
                             <Link className={style.link} to="/config">
                                 <span><span className={style.icon}><VscSettings/></span> <p>config</p></span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className={style.link} to="/appointment">
+                                <span><span className={style.icon}><FaUsers/></span> <p>appointment</p></span>
                             </Link>
                         </li>
                     </ol>

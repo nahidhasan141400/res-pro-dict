@@ -69,6 +69,30 @@ const entry = () => {
                 console.log(error)
                 res.status(500).send(error)
             }
+        },
+        getAppointment:async (req,res)=>{
+            
+            try {
+               const t = new Date();
+               let month , date ;
+               if(t.getDate() < 10){
+                date = `0${t.getDate()}`
+               }else{
+                date = t.getDate()
+               }
+               if((t.getMonth()+1) < 10){
+                month = `0${t.getMonth()+1}`
+               }else{
+                month = t.getMonth()+1
+               }
+                const datetoday = `${t.getFullYear()}-${month}-${date}`;
+                const resdb = await Entry.find({nextCD:datetoday});
+                console.log(resdb)
+                res.status(200).send(resdb);
+            } catch (error) {
+                console.log(error)
+                res.status(500).send(error)
+            }
         }
     }
 }

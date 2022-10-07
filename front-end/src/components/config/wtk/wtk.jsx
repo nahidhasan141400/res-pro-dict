@@ -9,10 +9,10 @@ const WTK = ({setForm,data,setData}) => {
         <div className={style.con}>
             <div className={style.head}>
                 <div className={style.text}>
-                    <h1><span>#</span> How to know about us (WTK)</h1>
+                    <h1><span>#</span> How to know about us (HTK)</h1>
                 </div>
                 <div className={style.addbutton}>
-                    <button onClick={()=>{setForm(true)}}><span><IoMdAddCircleOutline/></span> add WTK</button>
+                    <button onClick={()=>{setForm(true)}}><span><IoMdAddCircleOutline/></span> add HTK</button>
                 </div>
             </div>
             <div className={style.table}>
