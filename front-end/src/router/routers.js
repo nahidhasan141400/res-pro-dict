@@ -1,3 +1,4 @@
+import Analisys from "../components/analisys/Analisys";
 import Appointment from "../components/appointment/Appointment";
 import Config from "../components/config/Config";
 import Details from "../components/details/Details";
@@ -14,7 +15,7 @@ import {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <SecretRoute Element ={Layout} Ch={Config}/> ,
+      element: <SecretRoute Element ={Layout} Ch={Analisys}/> ,
     },
     {
         path: "/login",

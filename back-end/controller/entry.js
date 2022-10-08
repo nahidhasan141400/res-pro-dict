@@ -92,6 +92,52 @@ const entry = () => {
                 console.log(error)
                 res.status(500).send(error)
             }
+        },
+        getByID: async (req,res) => {
+                try {
+                    const _id = req.params.id;
+                    const datadb =await  Entry.findOne({_id})
+                    res.status(200).json(datadb)
+                } catch (error) {
+                    console.log(error)
+                    res.status(500).send(error)
+                }
+        },
+        changeStatus : async (req,res)=>{
+            try {
+                const _id = req.params.id;
+                const {status} = req.body;
+                const resdb = await Entry.findByIdAndUpdate(_id,{admited:!status})
+                const datats = await Entry.findOne({_id})
+                res.status(200).json(datats)
+            } catch (error) {
+                console.log(error);
+                res.status(500).send(error)
+            }
+        },
+        changeNextCD: async (req,res)=>{
+            try {
+                const {_id,date} = req.body;
+                const resdb = await Entry.findByIdAndUpdate(_id,{nextCD:date});
+                const t = new Date();
+                let month , date2 ;
+                if(t.getDate() < 10){
+                 date2 = `0${t.getDate()}`
+                }else{
+                 date2 = t.getDate()
+                }
+                if((t.getMonth()+1) < 10){
+                 month = `0${t.getMonth()+1}`
+                }else{
+                 month = t.getMonth()+1
+                }
+                 const datetoday = `${t.getFullYear()}-${month}-${date2}`;
+                 const ds = await Entry.find({nextCD:datetoday});
+                 res.status(200).send(ds);
+            } catch (error) {
+                console.log(error);
+                res.status(500).send(error)
+            }
         }
     }
 }

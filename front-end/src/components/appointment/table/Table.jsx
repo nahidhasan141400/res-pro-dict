@@ -3,7 +3,7 @@ import List from './list/List';
 import style from "./table.module.scss";
 
 
-const Table = ({data}) => {
+const Table = ({data,setform,setids}) => {
   return (
     <div className={style.main}>
         <table>
@@ -21,7 +21,7 @@ const Table = ({data}) => {
             <tbody>
            { data.map((n)=>{
          return (
-           <List key={n._id} data={n}/>
+           <List key={n._id} setids={setids} setform={setform} data={n}/>
          )
 
         })}

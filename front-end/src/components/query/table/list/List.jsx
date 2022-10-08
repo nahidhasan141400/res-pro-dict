@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import style from "./list.module.scss";
 
 
@@ -13,7 +14,7 @@ const List = ({data}) => {
     <td className={style.c}>{data.admited? "হা":'না'}</td>
     <td>{`${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`}</td>
     <td> 
-        <button>details</button>
+    <Link to={`/entrydetailse/${data._id}`}> <button>details</button> </Link>
     </td>
     
 </tr>
