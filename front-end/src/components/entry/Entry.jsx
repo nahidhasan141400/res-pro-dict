@@ -15,6 +15,7 @@ const Entry = () => {
     const [htk,sethtk] = useState("");
     const [decision,setdecision] = useState("");
     const [cc,setcc] = useState("");
+    const [coment,setcoment] = useState("");
     const [course1,setcourse1] = useState("");
     const [course2,setcourse2] = useState("");
     const [course3,setcourse3] = useState("");
@@ -33,6 +34,7 @@ const Entry = () => {
             HTK:htk,
             decision,
             cc,
+            coment,
             nextd,
             course1,
             course2,
@@ -77,7 +79,10 @@ const Entry = () => {
                 </div>
                 <div className={style.inpg1}>
                     <Opt2 v={nextd} set={setnextd}/> 
-                    <div className={style.gap}></div>
+                    <div className={style.gap}>
+                    <label>আতিরিক্ত মতামত:</label><br></br>
+                        <input value={coment} onChange={(e)=>{setcoment(e.target.value)}}  type="text" />
+                    </div>
                     <div className={style.gap}></div>
                 </div>
                 <div className={style.sub}>

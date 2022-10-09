@@ -6,7 +6,6 @@ import Chart from "react-apexcharts";
 
 const Month = ({data}) => {
   const [sedata,setsedata] = useState([])
-  const [cadata,setcadata] = useState([])
 
   useEffect(()=>{
     const al = [0,0,0,0,0,0,0,0,0,0,0]
@@ -40,7 +39,7 @@ const Month = ({data}) => {
     },
     xaxis: {
       type: 'category',
-      categories:[1,2,3,4,5,6,7,8,9,10,12],
+      categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       axisBorder:{
         offsetX:0
       }

@@ -11,6 +11,7 @@ const entry = () => {
                 decision,
                 cc,
                 nextd,
+                coment,
                 course1,
                 course2,
                 course3 } = req.body;
@@ -45,6 +46,7 @@ const entry = () => {
                     mobile,
                     company,
                     HTK,
+                    comment:coment,
                     courses,
                     decision,
                     CC,
@@ -117,8 +119,8 @@ const entry = () => {
         },
         changeNextCD: async (req,res)=>{
             try {
-                const {_id,date} = req.body;
-                const resdb = await Entry.findByIdAndUpdate(_id,{nextCD:date});
+                const {_id,date,coment} = req.body;
+                const resdb = await Entry.findByIdAndUpdate(_id,{nextCD:date,comment:coment});
                 const t = new Date();
                 let month , date2 ;
                 if(t.getDate() < 10){
@@ -139,18 +141,56 @@ const entry = () => {
                 res.status(500).send(error)
             }
         },
-        getmonthdataan: async (req,res)=>{
+        getyeardataan: async (req,res)=>{
+            let d = new Date()
                 try {
-                    const {date} = req.body;
-                    let d = new Date(date);
-                    const year = d.getFullYear();
-                    const month = d.getMonth();
-                    const resdb = await Entry.find({year})
+                    const {year} = req.body;
+                    const numbe = +year
+                    if(typeof(numbe) === "string"){
+                        numbe = d.getFullYear()
+                    }
+                    const resdb = await Entry.find({year:numbe})
                     res.status(200).json(resdb)
                 } catch (error) {
                     console.log(error)
                     res.status(500).send(error)
                 }
+        },
+        query: async (req,res)=>{
+                try {
+                   const {value} = req.body;
+                    const number = parseFloat(value);
+
+                    if(!number){
+                        const regX = new RegExp(value,"i")
+                        const dbdata = await Entry.find({name:regX})
+                        res.status(200).json(dbdata);
+
+                    }else{
+                        const regX = new RegExp(number,"i")
+                        const dbdata = await Entry.find({mobile:regX})
+                        res.status(200).json(dbdata);
+                    }
+                    
+                } catch (error) {
+                    console.log(error)
+                    res.status(500).send(error)
+                }
+        },
+        getadmitedcount: async (req,res)=>{
+            try {
+                const total = await Entry.find().countDocuments()
+                const add = await Entry.find({admited:true}).countDocuments()
+                const noadd = await Entry.find({admited:false}).countDocuments()
+                res.status(200).json({
+                    total,
+                    add,
+                    noadd
+                })
+            } catch (error) {
+                console.log(error)
+                res.status(500).send(error);
+            }
         }
     }
 }

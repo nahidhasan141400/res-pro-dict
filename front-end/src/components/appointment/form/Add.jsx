@@ -5,13 +5,14 @@ import { toast } from "react-toastify";
 import style from './add.module.scss';
 const AddHtk = ({setform,id,setData,settdata}) => {
     const [value,setValue] = useState('0000-0-0');
+    const [coment,setcoment] = useState('');
     
     const submit = (e)=>{
         e.preventDefault()
         
         let send = async ()=>{
             try {
-               const ress = await axios.post('/changenextdate',{_id:id,date:value});
+               const ress = await axios.post('/changenextdate',{_id:id,date:value,coment});
                if(ress.status === 200){
                 toast.success("date change")
                 setform(false)
@@ -38,6 +39,10 @@ const AddHtk = ({setform,id,setData,settdata}) => {
                     <div className={style.inputs}>
                         <span>next date</span>
                         <input type="date" value={value} onChange={(e)=>{setValue(e.target.value)}} />
+                    </div>
+                    <div className={style.inputs}>
+                        <span>comments</span>
+                        <input type="text" value={coment} onChange={(e)=>{setcoment(e.target.value)}} />
                     </div>
                     <div className={style.btn}>
                         <button type='submit'>change</button>

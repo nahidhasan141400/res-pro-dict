@@ -154,6 +154,14 @@ const Details = () => {
                     </div>
                 </div>
             </div>
+            <div className={style.comment2}>
+                <div className={style.h}>
+                    <span><FaRegComment/> additional comments</span>
+                </div>
+                <div className={style.text}>
+                    <p>{data.comment}</p>
+                </div>
+            </div>
         </div>
     </div>
   )

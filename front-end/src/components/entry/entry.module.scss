@@ -42,7 +42,24 @@
         flex-wrap: wrap;
         .gap {
           flex: 1;
-          width: 100%;
+          position: relative;
+          min-width: 300px;
+          padding: 5px 10px;
+          label {
+            font-size: 13px;
+            padding-bottom: 3px;
+          }
+          input {
+            padding: 5px;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+            border: none;
+            background: rgba(255, 255, 255, 0.704);
+            &:focus {
+              background-color: #fff;
+            }
+          }
         }
       }
       .sub {

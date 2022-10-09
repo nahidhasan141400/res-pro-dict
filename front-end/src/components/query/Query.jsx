@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from 'react';
 import { AiOutlineFileAdd } from "react-icons/ai";
 import { ImSearch } from "react-icons/im";
@@ -8,7 +9,8 @@ import style from "./query.module.scss";
 import Table from './table/Table';
 
 const Query = () => {
-    const [tdata,settdata] = React.useState([])
+    const [tdata,settdata] = React.useState([]);
+    const [value,setValue] = React.useState('');
     const navigat = useNavigate()
     React.useEffect(()=>{
         const getMonth = async ()=>{
@@ -25,6 +27,15 @@ const Query = () => {
         }
         getMonth()
     },[])
+
+    const sendquery =async ()=>{
+        try {
+            const resdb = await axios.post('/queryentrydata',{value})
+            settdata(resdb.data)
+        } catch (error) {
+            toast.error("some thing is wrong!!")
+        }
+    }
   return (
     <div className={style.main}>
         <div className={style.con}>
@@ -34,8 +45,8 @@ const Query = () => {
                 </div>
                 <div className={style.search}>
                     <div className={style.inpg}>
-                        <input type="text" placeholder='search name' />
-                        <button><span><ImSearch/></span></button>
+                        <input value={value} onChange={(e)=>{setValue(e.target.value)}} type="text" placeholder='search' />
+                        <button onClick={sendquery}><span><ImSearch/></span></button>
                     </div>
                 </div>
                 <div className={style.act}>

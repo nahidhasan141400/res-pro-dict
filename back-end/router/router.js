@@ -42,7 +42,10 @@ function rout(app){
         app.get("/getentryby/:id",auth,entry().getByID)
         app.post("/changestatusentry/:id",auth,entry().changeStatus)
         app.post("/changenextdate",auth,entry().changeNextCD)
-        app.post("/getmonthdataan",auth,entry().getmonthdataan)
+        app.post("/getyeardataan",auth,entry().getyeardataan)
+        //query data
+        app.post("/queryentrydata",auth,entry().query)
+        app.get("/getadmitedcount",auth,entry().getadmitedcount)
 
 }
 

@@ -32,6 +32,10 @@ const EntrySchema = new mongoose.Schema({
     type: String,
     default:""
   },
+  comment: {
+    type: String,
+    default:""
+  },
   admited: {
     type: Boolean,
     default:false

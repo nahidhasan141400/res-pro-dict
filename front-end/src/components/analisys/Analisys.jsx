@@ -1,21 +1,24 @@
 import axios from "axios";
 import React from "react";
 import { AiOutlinePieChart } from "react-icons/ai";
+import { BiDoughnutChart } from "react-icons/bi";
 import { toast } from "react-toastify";
 import style from "./analisys.module.scss";
 import Month from "./chart/Month";
+import Pic from "./chart/Pic";
+const d = new Date()
 
 const Analisys = () => {
-  const [date,setDate] = React.useState(new Date())
+  const [year,setYear] = React.useState(d.getFullYear())
   const [load,setLoad] = React.useState(false)
   const [data,setData] = React.useState([])
-console.log(data)
 
 
   React.useEffect(()=>{
     const getda = async ()=>{
       try {
-        let resdb = await axios.post("/getmonthdataan",{date:new Date()});
+        
+        let resdb = await axios.post("/getyeardataan",{year:d.getFullYear()});
         if(resdb.status === 200){
           setData(resdb.data)
           setLoad(false)
@@ -27,16 +30,16 @@ console.log(data)
     }
     getda()
   },[])
-
-  const getData = async (v)=>{
+  React.useEffect(()=>{
+      
+  const getData = async ()=>{
     if(load){
       return
     }
 
-    setDate(v);
     setLoad(true)
     try {
-      let resdb = await axios.post("/getmonthdataan",{date});
+      let resdb = await axios.post("/getyeardataan",{year});
       if(resdb.status === 200){
         setData(resdb.data)
         setLoad(false)
@@ -46,30 +49,48 @@ console.log(data)
       setLoad(false);
     }
   }
+  getData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[year])
+
 
   return (
     <div className={style.main}>
         <div className={style.con}>
+          <div className={style.row3}>
+              <div className={style.con}>
+                <div className={style.box}>
+                  <div className={style.h}>
+                    <h1><span><BiDoughnutChart/></span> admition rate</h1>
+                  </div>
+                  <div className={style.ch}>
+                    <Pic/>
+                  </div>
+                </div>
+                <div className={style.box}></div>
+                <div className={style.box}></div>
+              </div>
+          </div>
+
           <div className={style.selectm}>
-            <input value={date} type="date" onChange={(e)=>{getData(e.target.value) }}/>
+            {/* <input value={date} type="date" onChange={(e)=>{getData(e.target.value) }}/> */}
+            <select value= {year}  onChange={(e)=>{  setYear(e.target.value); }}>
+              {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((e,i)=>{
+                return (<option key={i} value={d.getFullYear()-i}>{d.getFullYear()-i}</option>)
+              })}
+              
+            </select>
             <span>chouse date to show data</span>
           </div>
           <div className={style.totalm}>
             <div className={style.h}>
-              <h1><span><AiOutlinePieChart/></span>Total year visitor</h1>
+              <h1><span><AiOutlinePieChart/></span>Total visitor year {year}</h1>
             </div>
             <div className={style.chart}>
               <Month data={data}/>
             </div>
           </div>
-          <div className={style.totalm}>
-            <div className={style.h}>
-              <h1><span><AiOutlinePieChart/></span>Total visitor coparison</h1>
-            </div>
-            <div className={style.chart}>
-              <Month data={data}/>
-            </div>
-          </div>
+          
         </div>
     </div>
   )
