@@ -28,7 +28,7 @@ const Month = () => {
 
     var options = {
         labels: ["admited","none Admited"],
-        colors:['#1Eff63', '#E91E63'],
+        colors:['#000000', '#FF0000'],
         chart: {
           type: 'donut',
         },

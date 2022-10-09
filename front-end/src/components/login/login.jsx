@@ -4,7 +4,6 @@ import { IoMdLogIn } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from '../../assets/img/Logo png.png';
-import deskimg from "../../assets/img/redesk.jpg";
 import style from "./login.module.scss";
 // get cookies lib 
 
@@ -69,9 +68,7 @@ const Login = () => {
                 </form>
             </div>
         </div>
-        <div className={style.img}>
-            <img src={deskimg} alt="" />
-        </div>
+        
     </div>
   )
 }

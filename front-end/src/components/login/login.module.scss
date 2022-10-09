@@ -7,8 +7,8 @@
   align-items: center;
   background: linear-gradient(
     173.2deg,
-    rgb(228, 93, 233) 10.8%,
-    rgba(99, 88, 238, 1) 94.3%
+    rgb(252, 0, 0) 10.8%,
+    rgb(0, 0, 0) 94.3%
   );
   .img {
     width: 50%;
@@ -27,8 +27,8 @@
   .con {
     width: 500px;
     height: 500px;
-    border: 1px solid rgba(255, 255, 255, 0.575);
-    background-color: rgba(136, 136, 136, 0.253);
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
     z-index: 2;
     border-radius: 20px;
@@ -71,9 +71,9 @@
           font-size: 20px;
           background: transparent;
           border: none;
-          border-bottom: 3px solid white;
+          border-bottom: 3px solid rgb(255, 0, 0);
           margin: 10px 0;
-          color: white;
+          color: rgb(0, 0, 0);
           padding: 0 5px;
           transition: all 0.3s;
           &::placeholder {
@@ -91,8 +91,8 @@
           color: white;
           background: linear-gradient(
             223.2deg,
-            rgb(228, 93, 233) 10.8%,
-            rgba(99, 88, 238, 1) 94.3%
+            rgb(255, 0, 0) 10.8%,
+            rgb(0, 0, 0) 94.3%
           );
           outline: none;
           border: none;

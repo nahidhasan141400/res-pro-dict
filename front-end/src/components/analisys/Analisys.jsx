@@ -105,19 +105,20 @@ const Analisys = () => {
               </div>
           </div>
 
-          <div className={style.selectm}>
-            {/* <input value={date} type="date" onChange={(e)=>{getData(e.target.value) }}/> */}
+          
+          <div className={style.totalm}>
+            <div className={style.h}>
+              <h1><span><AiOutlinePieChart/></span>Total visitor year {year}</h1>
+              <div className={style.selectm}>
+            <span>chouse date to show data</span>
             <select value= {year}  onChange={(e)=>{  setYear(e.target.value); }}>
               {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((e,i)=>{
                 return (<option key={i} value={d.getFullYear()-i}>{d.getFullYear()-i}</option>)
               })}
               
             </select>
-            <span>chouse date to show data</span>
+            
           </div>
-          <div className={style.totalm}>
-            <div className={style.h}>
-              <h1><span><AiOutlinePieChart/></span>Total visitor year {year}</h1>
             </div>
             <div className={style.chart}>
               <Month data2={data}/>

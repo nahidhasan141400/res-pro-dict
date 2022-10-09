@@ -1,10 +1,10 @@
 .tr {
   &:nth-of-type(odd) {
-    background: rgba(125, 212, 255, 0.27);
+    background: rgba(255, 0, 0, 0.27);
   }
   transition: all 0.3s;
   &:hover {
-    background: rgb(180, 245, 255);
+    background: rgba(0, 0, 0, 0.156);
   }
   td {
     text-align: left;

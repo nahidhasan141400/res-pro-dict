@@ -35,7 +35,7 @@
             font-size: 12px;
             h1 {
               padding-bottom: 5px;
-              border-bottom: 1px solid rgb(181, 64, 211);
+              border-bottom: 1px solid rgb(255, 0, 0);
               font-weight: 500;
               text-transform: capitalize;
               padding-left: 10px;
@@ -44,7 +44,7 @@
                 position: relative;
                 top: 5px;
                 padding-right: 5px;
-                color: rgb(180, 4, 196);
+                color: rgb(255, 0, 0);
               }
             }
           }
@@ -62,7 +62,7 @@
               align-items: center;
               .ico {
                 font-size: 100px;
-                color: purple;
+                color: rgb(255, 0, 0);
                 position: relative;
                 top: 5px;
               }
@@ -75,36 +75,24 @@
         }
       }
     }
-    .selectm {
-      width: 100%;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      select {
-        padding: 5px 10px;
-        border: 1px solid rgb(181, 64, 211);
 
-        font-weight: 700;
-      }
-      span {
-        padding-bottom: 5px;
-        font-weight: 500;
-        text-transform: capitalize;
-        padding-left: 30px;
-      }
-    }
     .totalm {
       width: 100%;
+      position: relative;
       background: white;
       padding: 20px;
       margin-top: 20px;
       border-radius: 20px;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.263);
       .h {
+        width: 100%;
         font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgb(236, 0, 0);
+        padding: 10px 5px;
         h1 {
-          padding-bottom: 5px;
-          border-bottom: 1px solid rgb(181, 64, 211);
           font-weight: 500;
           text-transform: capitalize;
           span {
@@ -112,13 +100,30 @@
             position: relative;
             top: 5px;
             padding-right: 5px;
-            color: rgb(180, 4, 196);
+            color: rgb(230, 0, 0);
+          }
+        }
+        .selectm {
+          background: white;
+          border-radius: 10px;
+          select {
+            padding: 5px 10px;
+            border: 1px solid rgb(227, 0, 0);
+
+            font-weight: 700;
+          }
+          span {
+            padding-bottom: 5px;
+            font-weight: 500;
+            text-transform: capitalize;
+            padding-right: 30px;
           }
         }
       }
       .chart {
         width: 100%;
         position: relative;
+        margin-bottom: 60px;
       }
     }
   }

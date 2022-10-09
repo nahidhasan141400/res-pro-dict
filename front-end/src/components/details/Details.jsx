@@ -4,6 +4,7 @@ import axios from "axios";
 import Moment from 'react-moment';
 
 import React from 'react';
+import { AiOutlineReload } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
 import { BsBuilding, BsCalendar2Date } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
@@ -137,7 +138,7 @@ const Details = () => {
                 </div>
                 <div className={style.di}>
                     <div className={style.h}>
-                        <span><GrUpdate/> next appointment</span>
+                        <span><AiOutlineReload/> next appointment</span>
                     </div>
                     <div className={style.b}>
                         <p>{data.nextCD}</p>

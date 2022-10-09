@@ -52,6 +52,10 @@ const EntrySchema = new mongoose.Schema({
     type: Number,
     default: new Date().getDay(),
   },
+  date : {
+    type: Number,
+    default: new Date().getDate(),
+  },
 },{ timestamps: true })
 
 module.exports = mongoose.models.Entry || mongoose.model('Entry', EntrySchema);
