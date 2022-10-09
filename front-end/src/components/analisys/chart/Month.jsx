@@ -4,16 +4,16 @@ import Chart from "react-apexcharts";
 
  
 
-const Month = ({data}) => {
+const Month = ({data2}) => {
   const [sedata,setsedata] = useState([])
 
   useEffect(()=>{
-    const al = [0,0,0,0,0,0,0,0,0,0,0]
-    data.forEach(element => {
+    const al = [0,0,0,0,0,0,0,0,0,0,0,0]
+    data2.forEach(element => {
       al[element.month] += 1;
     });
     setsedata(al)
-  },[data])
+  },[data2])
  
 
   let series =[{

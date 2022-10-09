@@ -143,14 +143,18 @@ const entry = () => {
         },
         getyeardataan: async (req,res)=>{
             let d = new Date()
+            let d2 = new Date(`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`)
                 try {
                     const {year} = req.body;
                     const numbe = +year
                     if(typeof(numbe) === "string"){
                         numbe = d.getFullYear()
                     }
+                    const total = await Entry.find().countDocuments()
+                    const totaltoday = await Entry.find({createdAt:d2.toISOString()}).countDocuments()
                     const resdb = await Entry.find({year:numbe})
-                    res.status(200).json(resdb)
+                    console.log(totaltoday)
+                    res.status(200).json({data:resdb,c:{total,totaltoday}})
                 } catch (error) {
                     console.log(error)
                     res.status(500).send(error)
@@ -179,11 +183,10 @@ const entry = () => {
         },
         getadmitedcount: async (req,res)=>{
             try {
-                const total = await Entry.find().countDocuments()
+               
                 const add = await Entry.find({admited:true}).countDocuments()
                 const noadd = await Entry.find({admited:false}).countDocuments()
                 res.status(200).json({
-                    total,
                     add,
                     noadd
                 })
