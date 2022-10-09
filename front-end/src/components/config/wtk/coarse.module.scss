@@ -10,7 +10,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid rgb(181, 64, 211);
+      border-bottom: 1px solid rgb(255, 0, 0);
       .text {
         font-size: 12px;
         h1 {
@@ -22,7 +22,7 @@
             position: relative;
             top: 5px;
             padding-right: 5px;
-            color: rgb(180, 4, 196);
+            color: rgb(255, 0, 0);
           }
         }
       }
@@ -35,18 +35,19 @@
           outline: none;
           border: none;
           font-weight: 700;
+          color: #fff;
           cursor: pointer;
           background: linear-gradient(
             83.2deg,
-            rgb(143, 69, 255) 10.8%,
-            rgb(239, 63, 255) 94.3%
+            rgb(0, 0, 0) 10.8%,
+            rgb(255, 0, 0) 94.3%
           );
           transition: all 0.3s;
           &:hover {
             background: linear-gradient(
               183.2deg,
-              rgb(143, 69, 255) 10.8%,
-              rgb(239, 63, 255) 94.3%
+              rgb(0, 0, 0) 10.8%,
+              rgb(255, 0, 0) 94.3%
             );
           }
           span {

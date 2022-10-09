@@ -20,7 +20,7 @@
       font-size: 12px;
       h1 {
         padding-bottom: 5px;
-        border-bottom: 1px solid rgb(181, 64, 211);
+        border-bottom: 1px solid rgb(255, 0, 0);
         font-weight: 500;
         text-transform: capitalize;
         span {
@@ -28,7 +28,7 @@
           position: relative;
           top: 5px;
           padding-right: 5px;
-          color: rgb(180, 4, 196);
+          color: rgb(255, 0, 0);
         }
       }
     }
@@ -59,6 +59,7 @@
           svg {
             position: relative;
             top: 3px;
+            color: red;
           }
         }
       }
@@ -84,6 +85,7 @@
             svg {
               position: relative;
               top: 3px;
+              color: red;
             }
           }
         }
@@ -92,7 +94,7 @@
           p {
             margin-left: 5px;
             padding-left: 5px;
-            border-left: 1px dashed rgba(0, 0, 0, 0.398);
+            border-left: 1px dashed rgb(255, 0, 0);
           }
         }
       }
@@ -105,12 +107,13 @@
         font-size: 15px;
         font-weight: 700;
         padding: 5px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.372);
+        border-bottom: 1px solid rgb(255, 0, 0);
         span {
           text-transform: capitalize;
           svg {
             position: relative;
             top: 2px;
+            color: red;
           }
         }
       }
@@ -126,6 +129,7 @@
           width: 100%;
           text-align: left;
           padding: 5px;
+          color: rgb(0, 0, 0);
         }
       }
     }
@@ -149,6 +153,7 @@
             svg {
               position: relative;
               top: 2px;
+              color: red;
             }
           }
         }
@@ -157,7 +162,7 @@
           p {
             margin-left: 5px;
             padding-left: 5px;
-            border-left: 1px dashed rgba(0, 0, 0, 0.398);
+            border-left: 1px dashed rgb(255, 0, 0);
           }
         }
       }
@@ -174,6 +179,7 @@
           svg {
             position: relative;
             top: 2px;
+            color: red;
           }
         }
       }
@@ -182,7 +188,7 @@
         span {
           margin-left: 5px;
           padding-left: 5px;
-          border-left: 1px dashed rgba(0, 0, 0, 0.398);
+          border-left: 1px dashed rgb(255, 0, 0);
           margin-right: 10px;
         }
         button {
@@ -200,6 +206,7 @@
           svg {
             position: relative;
             top: 2px;
+            color: red;
           }
         }
       }
@@ -216,6 +223,7 @@
           svg {
             position: relative;
             top: 2px;
+            color: red;
           }
         }
       }
@@ -224,7 +232,7 @@
         p {
           margin-left: 5px;
           padding-left: 5px;
-          border-left: 1px dashed rgba(0, 0, 0, 0.398);
+          border-left: 1px dashed rgb(255, 0, 0);
         }
       }
     }

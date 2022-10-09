@@ -24,6 +24,8 @@ const Month = ({data2}) => {
   
   
   let options = {
+    
+    colors:['#FF0000'],
     chart: {
       height: 350,
       type: 'area',
