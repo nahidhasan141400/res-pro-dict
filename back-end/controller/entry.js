@@ -145,7 +145,7 @@ const entry = () => {
                     let d = new Date(date);
                     const year = d.getFullYear();
                     const month = d.getMonth();
-                    const resdb = await Entry.find({year,month})
+                    const resdb = await Entry.find({year})
                     res.status(200).json(resdb)
                 } catch (error) {
                     console.log(error)
