@@ -1,5 +1,5 @@
 
-const Entry = require("../models/entry");
+const Entry = require("../models/entry"); 
 
 const entry = () => {
     return {
@@ -138,6 +138,19 @@ const entry = () => {
                 console.log(error);
                 res.status(500).send(error)
             }
+        },
+        getmonthdataan: async (req,res)=>{
+                try {
+                    const {date} = req.body;
+                    let d = new Date(date);
+                    const year = d.getFullYear();
+                    const month = d.getMonth();
+                    const resdb = await Entry.find({year,month})
+                    res.status(200).json(resdb)
+                } catch (error) {
+                    console.log(error)
+                    res.status(500).send(error)
+                }
         }
     }
 }
