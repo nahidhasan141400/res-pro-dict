@@ -1,0 +1,25 @@
+.main {
+  width: 100%;
+  position: relative;
+  .con {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    .lode {
+      width: 15px;
+      height: 15px;
+      animation: s 2s infinite linear;
+    }
+  }
+}
+
+@keyframes s {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../loading/Loading";
 import style from "./entry.module.scss";
 import Inp from './inputs/Inp';
 import Opt, { Opt2, Opt3 } from './inputs/Opt';
@@ -20,12 +21,16 @@ const Entry = () => {
     const [course2,setcourse2] = useState("");
     const [course3,setcourse3] = useState("");
     const [nextd,setnextd] = useState("");
+    const [load,setload] = useState("");
+
     // state int end
 
     const sendData = (e)=>{
+        setload(true)
         e.preventDefault();
         if(name === "" || cc === "" || htk === ""){
             return toast.error("please fill the form")
+            setload(false)
         }
         const data = {
             name:name,
@@ -45,10 +50,12 @@ const Entry = () => {
                 const res = await axios.post('/addentry',data);
                 if(res.status === 200){
                     toast.success("add succesfuly")
+                    setload(false)
                     return n('/query')
                 }
             } catch (error) {
                 console.log(error);
+                setload(false)
                 toast('error')
             }
         }
@@ -86,8 +93,8 @@ const Entry = () => {
                     <div className={style.gap}></div>
                 </div>
                 <div className={style.sub}>
-                    
-                <input type="submit" value="submit" />
+                  {load?<div className={style.inpbtn}> <Loading color={"#ff0000"}/></div>:<input type="submit" value="submit" />}  
+                
                 </div>
                 </form>
             </div>

@@ -4,6 +4,7 @@ import { AiOutlinePieChart } from "react-icons/ai";
 import { BiBarChartAlt, BiDoughnutChart, BiLineChart } from "react-icons/bi";
 import { FaUserClock, FaUserFriends } from "react-icons/fa";
 import { toast } from "react-toastify";
+import Loading from "../loading/Loading";
 import style from "./analisys.module.scss";
 import Month from "./chart/Month";
 import Pic from "./chart/Pic";
@@ -19,6 +20,7 @@ const Analisys = () => {
 
   React.useEffect(()=>{
     const getda = async ()=>{
+      setLoad(true)
       try {
         
         let resdb = await axios.post("/getyeardataan",{year:d.getFullYear()});
@@ -66,7 +68,7 @@ const Analisys = () => {
               <div className={style.con}>
                 <div className={style.box}>
                   <div className={style.h}>
-                    <h1><span><BiDoughnutChart/></span> admition rate</h1>
+                    <h1><span> {load?<Loading color={"#ff0000"}/>:<BiDoughnutChart/>}</span> admition rate</h1>
                   </div>
                   <div className={style.ch}>
                     <Pic/>
@@ -74,7 +76,7 @@ const Analisys = () => {
                 </div>
                 <div className={style.box}>
                 <div className={style.h}>
-                    <h1><span><BiLineChart/></span> total Visitor</h1>
+                    <h1><span>{load?<Loading color={"#ff0000"}/>:<BiLineChart/>}</span> total Visitor</h1>
                   </div>
                   <div className={style.ch}>
                     <div className={style.cpi}>
@@ -89,7 +91,7 @@ const Analisys = () => {
                 </div>
                 <div className={style.box}>
                 <div className={style.h}>
-                    <h1><span><BiBarChartAlt/></span> total Visitor today</h1>
+                    <h1><span>{load?<Loading color={"#ff0000"}/>:<BiBarChartAlt/>}</span> total Visitor today</h1>
                   </div>
                   <div className={style.ch}>
                     <div className={style.cpi}>
@@ -108,7 +110,7 @@ const Analisys = () => {
           
           <div className={style.totalm}>
             <div className={style.h}>
-              <h1><span><AiOutlinePieChart/></span>Total visitor year {year}</h1>
+              <h1><span>{load?<Loading color={"#ff0000"}/>:<AiOutlinePieChart/>}</span>Total visitor year {year}</h1>
               <div className={style.selectm}>
             <span>chouse date to show data</span>
             <select value= {year}  onChange={(e)=>{  setYear(e.target.value); }}>
