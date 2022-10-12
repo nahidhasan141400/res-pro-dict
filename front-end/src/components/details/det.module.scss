@@ -18,9 +18,12 @@
     white-space: nowrap;
     .head {
       font-size: 12px;
+      border-bottom: 1px solid rgb(255, 4, 4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       h1 {
         padding-bottom: 5px;
-        border-bottom: 1px solid rgb(255, 0, 0);
         font-weight: 500;
         text-transform: capitalize;
         span {
@@ -29,6 +32,29 @@
           top: 5px;
           padding-right: 5px;
           color: rgb(255, 0, 0);
+        }
+      }
+      .btnmsg {
+        position: relative;
+        button {
+          font-size: 15px;
+          font-weight: 600;
+          text-transform: capitalize;
+          padding: 5px;
+          margin: 5px;
+          cursor: pointer;
+          border: 1px solid red;
+          transition: all 0.3s;
+          &:hover {
+            background-color: rgb(255, 245, 245);
+          }
+          span {
+            position: relative;
+            top: 3px;
+            font-size: 18px;
+            color: red;
+            padding-right: 5px;
+          }
         }
       }
     }

@@ -1,4 +1,4 @@
-
+const ExcelJS  =  require('exceljs');
 const Entry = require("../models/entry"); 
 
 const entry = () => {
@@ -191,6 +191,50 @@ const entry = () => {
             } catch (error) {
                 console.log(error)
                 res.status(500).send(error);
+            }
+        },
+        getcsv:async (req,res)=>{
+            try {
+                const workbook = new ExcelJS.Workbook();
+                const worksheet = workbook.addWorksheet("entrys");
+                worksheet.columns = [
+                    {header:"_id",key:"_id"},
+                    {header:"name",key:"name"},
+                    {header:"mobile",key:"mobile"},
+                    {header:"company",key:"company"},
+                    {header:"HTK",key:"HTK"},
+                    {header:"courses",key:"courses"},
+                    {header:"CC",key:"CC"},
+                    {header:"nextCD",key:"nextCD"},
+                    {header:"comment",key:"comment"},
+                    {header:"admited",key:"admited"},
+                    {header:"year",key:"year"},
+                    {header:"month",key:"month"},
+                    {header:"day",key:"day"},
+                    {header:"date",key:"date"},
+                    {header:"createdAt",key:"createdAt"},
+                    {header:"updateAt",key:"updateAt"}
+                ];
+
+                const Edata = await Entry.find();
+
+                Edata.forEach((e)=>{
+                    worksheet.addRow(e)
+                });
+                res.setHeader(
+                    "Content-Type",
+                    "application/vnd.openxmlformats-officedocument.spreadsheatml.sheet"
+                )
+                res.setHeader(
+                    "Content-Disposition",`attachment: filename=entry.xlsx`
+                )
+                return workbook.xlsx.write(res).then(()=>{
+                    res.status(200);
+                })
+
+            } catch (error) {
+                console.log(error)
+                res.send(error)
             }
         }
     }

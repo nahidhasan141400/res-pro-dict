@@ -46,6 +46,8 @@ function rout(app){
         //query data
         app.post("/queryentrydata",auth,entry().query)
         app.get("/getadmitedcount",auth,entry().getadmitedcount)
+        // get csv 
+        app.get("/getcsv",auth,entry().getcsv)
 
 }
 

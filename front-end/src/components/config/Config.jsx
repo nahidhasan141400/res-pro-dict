@@ -1,12 +1,15 @@
+import axios from "axios";
+import FileDownload from 'js-file-download';
 import React, { useEffect, useState } from 'react';
 import { CgPassword } from "react-icons/cg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Coarse from "./coarse/Coarse.jsx";
 import AddCor from './coarse/form/AddCor.jsx';
 import style from './config.module.scss';
 import AddHtk from './wtk/form/AddHtk.jsx';
 import Wtk from "./wtk/wtk.jsx";
+
 
 const Config = () => {
     const Navigate = useNavigate();
@@ -70,9 +73,32 @@ const Config = () => {
             
         }
     }
+const getcsv = async ()=>{
+    try {
+        axios({
+            url: '/getcsv',
+            method: 'GET',
+            responseType: 'blob', // Important
+          }).then((response) => {
+              FileDownload(response.data, 'entry.csv');
+          });
+    } catch (error) {
+        console.log(error);
+        toast.error("some thing is wrong!")
+    }
+}
+
   return (
     <div className={style.main}>
         <div className={style.con}>
+            <div className={style.export}> 
+                <div className={style.h}>
+                    <div className={style.btns}>
+                        <Link to={"/getcsv"}>download</Link>
+                        <button onClick={getcsv}>export data</button>
+                    </div>
+                </div>
+            </div>
             <div className={style.cpsection}>
                 <div className={style.cpcom}>
                     <div className={style.head}>

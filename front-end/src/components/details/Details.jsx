@@ -12,9 +12,11 @@ import { FaRegComment, FaRegListAlt, FaUserGraduate } from "react-icons/fa";
 import { FiPhoneCall, FiUser } from "react-icons/fi";
 import { GrUpdate } from "react-icons/gr";
 import { ImBullhorn } from "react-icons/im";
+import { IoIosChatboxes } from "react-icons/io";
 import { MdOutlineUpdate } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Add from "./form/Add";
 
 import { useParams } from "react-router-dom";
 import style from "./det.module.scss";
@@ -23,6 +25,8 @@ const Details = () => {
     const n = useNavigate()
     let {id} = useParams();
     const [data,setData] = React.useState({courses:[]})
+    const [msgform,setmsgform] = React.useState(false);
+    const[msgn,setmsgn] = React.useState(['',''])
     React.useEffect(()=>{
         const getdata = async ()=>{
             try {
@@ -55,11 +59,27 @@ const Details = () => {
                     toast.error("some thing is wrong!!")
         }
     }
+
+    const sendmsg = async (number,name)=>{
+                if(!number ){
+                    return toast.error("no mobile number !")
+                }
+                if(number[0] === "0" && number[1] === "1"){
+                    number = `88${number}`
+                }
+                setmsgn([number,name]);
+                setmsgform(true)
+    }
+
+
   return (
     <div className={style.main}>
         <div className={style.con}>
             <div className={style.head}>
                 <h1><span><CgUserList/></span>details</h1>
+                <div className={style.btnmsg}>
+                    <button onClick={()=>{sendmsg(data.mobile,data.name)}}><span><IoIosChatboxes/></span>send massage</button>
+                </div>
             </div>
             <div className={style.info}>
                 <div className={style.infoi}>
@@ -163,9 +183,11 @@ const Details = () => {
                     <p>{data.comment}</p>
                 </div>
             </div>
+            
+        {msgform?<Add setmsgform={setmsgform} data={msgn}/>:""}
         </div>
     </div>
   )
 }
-
+ 
 export default Details
