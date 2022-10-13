@@ -2,7 +2,7 @@ import axios from "axios";
 import FileDownload from 'js-file-download';
 import React, { useEffect, useState } from 'react';
 import { CgPassword } from "react-icons/cg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Coarse from "./coarse/Coarse.jsx";
 import AddCor from './coarse/form/AddCor.jsx';
@@ -80,7 +80,7 @@ const getcsv = async ()=>{
             method: 'GET',
             responseType: 'blob', // Important
           }).then((response) => {
-              FileDownload(response.data, 'entry.csv');
+              FileDownload(response.data, 'entry.xlsx');
           });
     } catch (error) {
         console.log(error);
@@ -94,9 +94,23 @@ const getcsv = async ()=>{
             <div className={style.export}> 
                 <div className={style.h}>
                     <div className={style.btns}>
-                        <Link to={"/getcsv"}>download</Link>
-                        <button onClick={getcsv}>export data</button>
+                       
                     </div>
+                </div>
+            </div>
+            <div style={{paddingBottom:"10px",marginBottom:"20px"}} className={style.cpsection}>
+                <div className={style.cpcom}>
+                    <div className={style.head}>
+                        <h1><span><CgPassword/></span> Backup data</h1>
+                    </div>
+                    
+                        <div className={style.inputs}>
+                            
+                            <input type="file" name="cnew" accept=".xlsx" />
+                            
+                            <button style={{background:"rgb(255, 54, 54)",cursor:"pointer"}} onClick={getcsv}>import data</button>
+                            <button style={{background:"rgb(90, 255, 101)",cursor:"pointer"}} onClick={getcsv}>export data</button>
+                        </div>
                 </div>
             </div>
             <div className={style.cpsection}>
