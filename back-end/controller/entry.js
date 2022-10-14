@@ -150,7 +150,7 @@ const entry = () => {
                         numbe = d.getFullYear()
                     }
                     const total = await Entry.find().countDocuments()
-                    const totaltoday = await Entry.find({date:d.getDate()}).countDocuments()
+                    const totaltoday = await Entry.find({date:d.getDate(),year:numbe,month:d.getMonth()}).countDocuments()
                     const resdb = await Entry.find({year:numbe})
                     res.status(200).json({data:resdb,c:{total,totaltoday}})
                 } catch (error) {
@@ -207,13 +207,14 @@ const entry = () => {
                     {header:"CC",key:"CC"},
                     {header:"nextCD",key:"nextCD"},
                     {header:"comment",key:"comment"},
+                    {header:"decision",key:"decision"},
                     {header:"admited",key:"admited"},
                     {header:"year",key:"year"},
                     {header:"month",key:"month"},
                     {header:"day",key:"day"},
                     {header:"date",key:"date"},
                     {header:"createdAt",key:"createdAt"},
-                    {header:"updateAt",key:"updateAt"}
+                    {header:"updatedAt",key:"updatedAt"}
                 ];
 
                 const Edata = await Entry.find();

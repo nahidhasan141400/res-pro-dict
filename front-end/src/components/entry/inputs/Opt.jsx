@@ -28,7 +28,7 @@ const Opt = ({v,set}) => {
     <div className={style.main}>
         <label> কি course সম্পর্কে জানতে চান ?</label><br />
         <select value={v} onChange={(e)=>{set(e.target.value)}}>
-            <option value="">choase a course</option>
+            <option value="">choose a course</option>
             {courses.map((e)=>{
               return (<option value={e.name}>{e.name}</option>)
             })}
@@ -71,7 +71,7 @@ export const Opt3 = ({v,set}) => {
     <div className={style.main}>
         <label>আমাদের সম্পর্কে কি ভাবে জানলেন ? </label><br />
         <select value={v} onChange={(e)=>{set(e.target.value)}}>
-            <option value="">chouse</option>
+            <option value="">choose</option>
             { Htk.map((e)=>{
               return (<option value={e.name}>{e.name}</option>)
             })}

@@ -1,0 +1,641 @@
+[
+  {
+    "_id": {
+      "$oid": "633d659fc382f228c8dff0eb"
+    },
+    "name": "নাহিদ হাসান ",
+    "mobile": "01741013363",
+    "company": "NH soft",
+    "HTK": "1",
+    "courses": ["webdev", "", ""],
+    "decision": "চিন্তা করে জানাবো ",
+    "CC": "15k for webdev",
+    "nextCD": "2022-10-07",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 3,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664968095567"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665465364194"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "633d690f7be50371c207a6b6"
+    },
+    "name": "nahid hasan",
+    "mobile": "12344677",
+    "company": "nh",
+    "HTK": "social media",
+    "courses": ["Ethical Hacking", "", ""],
+    "decision": "janabo",
+    "CC": "22k",
+    "nextCD": "",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 3,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664968976330"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665225356971"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "633d7438033ff8abee323a2c"
+    },
+    "name": "nahid hasan",
+    "mobile": "12345678",
+    "company": "",
+    "HTK": "social media",
+    "courses": ["Ethical Hacking", "", ""],
+    "decision": "ok",
+    "CC": "10k",
+    "nextCD": "2022-10-07",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 3,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664971832403"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665315460431"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "633d74a9033ff8abee323a41"
+    },
+    "name": "nurnabi",
+    "mobile": "1212123434",
+    "company": "dict",
+    "HTK": "1",
+    "courses": ["graphic design  ", "", ""],
+    "decision": "bolbona ",
+    "CC": "100k",
+    "nextCD": "2022-10-28",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 3,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664971945827"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665315468009"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "633fb056ca8b6307f0cb726f"
+    },
+    "name": "jahid hasan",
+    "mobile": "7678682",
+    "company": "nh",
+    "HTK": "friends",
+    "courses": [
+      "web development",
+      "graphic design",
+      "certificate in Application & internet Technology (CAIT)"
+    ],
+    "decision": "later",
+    "CC": "10k",
+    "nextCD": "2022-10-07",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 5,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665118294139"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665462560897"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "633fc02eb6af6bb38cd47084"
+    },
+    "name": "সাইদ হাসান ",
+    "mobile": "01741013363",
+    "company": "nh",
+    "HTK": "social media",
+    "courses": ["web development", "", ""],
+    "decision": "pore janabo",
+    "CC": "10k",
+    "nextCD": "2022-10-07",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 5,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665122351068"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665122351068"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6340f965230b024f13d7dd45"
+    },
+    "name": "nahid",
+    "mobile": "2345",
+    "company": "nh",
+    "HTK": "friends",
+    "courses": [
+      "certificate in Application & internet Technology (CAIT)",
+      "web development",
+      "Diploma In Computer Hardware And Networking (DCHN)"
+    ],
+    "decision": "hhhh",
+    "CC": "hhhh",
+    "nextCD": "0000-0-0",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 6,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665202534009"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665228133852"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63411bc53e525a6741872a3b"
+    },
+    "name": "নাহিদ হাসান ",
+    "mobile": "০১৭২১০১২২৩২ ",
+    "company": "nh softower",
+    "HTK": "facebook post",
+    "courses": ["web development", "", ""],
+    "decision": "পরে জানাবো ",
+    "CC": "10k",
+    "nextCD": "2022-10-09",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 6,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665211333647"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665298872688"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63413dc950feac8d853e0b9e"
+    },
+    "name": "test 2",
+    "mobile": "test 2",
+    "company": "test2",
+    "HTK": "friends",
+    "courses": [
+      "certificate in Application & internet Technology (CAIT)",
+      "Diploma In Computer Hardware And Networking (DCHN)",
+      "ISP Setup and Administration Using MicroTic"
+    ],
+    "decision": "test 2",
+    "CC": "test2",
+    "nextCD": "2022-10-09",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 6,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665220041123"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665309251458"
+      }
+    },
+    "__v": 0,
+    "comment": "pore janabo"
+  },
+  {
+    "_id": {
+      "$oid": "63415ddfaf1f898e702e47ad"
+    },
+    "name": "nurnabi",
+    "mobile": "01213433432",
+    "company": "dewan ict",
+    "HTK": "friends",
+    "courses": [
+      "graphic design",
+      "web development",
+      "Advanced Office Management (Aom)"
+    ],
+    "decision": "pore janabo",
+    "CC": "20k",
+    "nextCD": "2022-10-08",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 6,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665228256146"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665391697261"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "634271575ec4ef4543f5d65e"
+    },
+    "name": "Md Zulhash ",
+    "mobile": "01913870792",
+    "company": "Dewan ICT Institute",
+    "HTK": "social media",
+    "courses": [
+      "certificate in Application & internet Technology (CAIT)",
+      "graphic design",
+      "C,C++ pograming"
+    ],
+    "decision": "Admission nibo",
+    "CC": "Admission nibe",
+    "nextCD": "2022-10-14",
+    "admited": true,
+    "year": 2022,
+    "month": 9,
+    "day": 0,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665298775699"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665298816810"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6342a123823c787076f04a88"
+    },
+    "name": "sakib islam",
+    "mobile": "0172313387",
+    "company": "sakib gr",
+    "HTK": "social media",
+    "courses": ["graphic design", "", ""],
+    "decision": "bhebe janabo",
+    "CC": "10k",
+    "nextCD": "2022-10-09",
+    "comment": "ask for a some discount ",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 0,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665311011489"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665311011489"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6342bd349e1fbcc9f19ccd85"
+    },
+    "name": "rohan",
+    "mobile": "018128823652",
+    "company": "",
+    "HTK": "friends",
+    "courses": [
+      "ISP Setup and Administration Using MicroTic",
+      "Advanced Office Management (Aom)",
+      ""
+    ],
+    "decision": "janaben",
+    "CC": "10k",
+    "nextCD": "2022-10-10",
+    "comment": "uni kichuta char can",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 0,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665318196356"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665318196356"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6343da7c2ece745e4ee175a4"
+    },
+    "name": "jahid khan",
+    "mobile": "0123456789",
+    "company": "",
+    "HTK": "social media",
+    "courses": ["web development", "", ""],
+    "decision": "bhebe dekhi",
+    "CC": "onake 10% offer kora hoise",
+    "nextCD": "2022-10-10",
+    "comment": "",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 1,
+    "date": 10,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665391228892"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665391228892"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6343db3f2ece745e4ee17624"
+    },
+    "name": "robin",
+    "mobile": "01723234454",
+    "company": "dewan ict",
+    "HTK": "friends",
+    "courses": [
+      "Advanced Office Management (Aom)",
+      "Information and Communication (ICT)",
+      ""
+    ],
+    "decision": "admition nibe",
+    "CC": "oni admition nibe",
+    "nextCD": "2022-10-10",
+    "comment": "ajke borti hobe bikale",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 1,
+    "date": 10,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665391423244"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665391423244"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6343dbd72ece745e4ee1765e"
+    },
+    "name": "sagor islam ",
+    "mobile": "01855163456",
+    "company": "hello school",
+    "HTK": "friends",
+    "courses": ["graphic design", "web development", ""],
+    "decision": "pore janabe",
+    "CC": "10 %",
+    "nextCD": "2022-10-10",
+    "comment": "",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 1,
+    "date": 10,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665391575110"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665391575110"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6343dcd12ece745e4ee176c4"
+    },
+    "name": "kawser islam ",
+    "mobile": "0169322345",
+    "company": "tom and jerry",
+    "HTK": "facebook post",
+    "courses": [
+      "Information and Communication (ICT)",
+      "Microsoft Office Specialist (MOS)",
+      ""
+    ],
+    "decision": "cinta kore janabo",
+    "CC": "12k",
+    "nextCD": "2022-10-10",
+    "comment": "",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 1,
+    "date": 10,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665391825510"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665391825510"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63440dcd6ad47603ced32594"
+    },
+    "name": "test",
+    "mobile": "1234",
+    "company": "d",
+    "HTK": "friends",
+    "courses": ["graphic design", "web development", "graphic design"],
+    "decision": "s",
+    "CC": "s",
+    "nextCD": "2022-10-10",
+    "comment": "ss",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 1,
+    "date": 10,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665404365653"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665404365653"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6345009b9ab87448c830e779"
+    },
+    "name": "nahid no n",
+    "mobile": "",
+    "company": "fdsf",
+    "HTK": "friends",
+    "courses": ["web development", "", ""],
+    "decision": "fdsa",
+    "CC": "fdsf",
+    "nextCD": "2022-10-11",
+    "comment": "",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 2,
+    "date": 11,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665466524142"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665466524142"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "634501dc9ab87448c830e7b9"
+    },
+    "name": "nahid",
+    "mobile": "8801728255163",
+    "company": "nh",
+    "HTK": "social media",
+    "courses": ["web development", "", ""],
+    "decision": "ok",
+    "CC": "ok",
+    "nextCD": "2022-10-11",
+    "comment": "ok",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 2,
+    "date": 11,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665466844766"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665466844766"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63456ced582e5bcd23685168"
+    },
+    "name": "md robin",
+    "mobile": "0123456789",
+    "company": "dewan ict",
+    "HTK": "social media",
+    "courses": ["CCNA", "", ""],
+    "decision": "ok",
+    "CC": "10k",
+    "nextCD": "2022-10-12",
+    "comment": "",
+    "admited": false,
+    "year": 2022,
+    "month": 9,
+    "day": 2,
+    "date": 11,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1665494253435"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1665494253435"
+      }
+    },
+    "__v": 0
+  }
+]
