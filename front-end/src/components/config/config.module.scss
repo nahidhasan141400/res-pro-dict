@@ -45,12 +45,13 @@
           display: flex;
           margin-top: 10px;
           flex-wrap: wrap;
-          input {
+          input,
+          button {
             flex: 1;
             margin: 10px 10px;
             outline: none;
             background-color: rgb(255, 255, 255);
-            border: 1px solid red;
+            border: 1px solid rgb(255, 0, 0);
             padding: 5px;
             border-radius: 5px;
           }
