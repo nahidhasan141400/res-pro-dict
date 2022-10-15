@@ -36,6 +36,10 @@
         flex: 3;
         position: relative;
         min-width: 200px;
+        h1 {
+          font-size: 14px;
+          font-weight: 500;
+        }
         .inpg {
           width: 100%;
           display: flex;

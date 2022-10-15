@@ -5,6 +5,7 @@ const Course = require("../controller/courseCon");
 const auth = require('../middleware/auth')
 const entry = require('../controller/entry');
 const Htk = require("../controller/HtkCon");
+const msg = require("../controller/msg")
 function rout(app){
            
             
@@ -48,7 +49,10 @@ function rout(app){
         app.get("/getadmitedcount",auth,entry().getadmitedcount)
         // get csv 
         app.get("/getcsv",auth,entry().getcsv)
-
+        // getdataforsms
+        app.post("/getdataforsms",auth,msg().getdata)
+        app.get("/getsmsbalance",auth,msg().getbalenced);
+        app.post("/sendsmstoall",auth,msg().sendmsgall);
 }
 
 module.exports = rout;
