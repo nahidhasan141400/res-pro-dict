@@ -5,6 +5,7 @@ import Details from "../components/details/Details";
 import Entry from "../components/entry/Entry";
 import Layout from "../components/layout/Layout";
 import Login from "../components/login/login";
+import Msg from '../components/msg/Msg';
 import Query from "../components/query/Query";
 import SecretRoute from "./SecretRoute";
 
@@ -40,6 +41,10 @@ import {
     {
         path: "/entrydetailse/:id",
         element: <SecretRoute Element ={Layout} Ch={Details}/>,
+    },
+    {
+        path: "/sendmassage",
+        element: <SecretRoute Element ={Layout} Ch={Msg}/>,
     }
   ]);
 

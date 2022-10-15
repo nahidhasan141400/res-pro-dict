@@ -29,8 +29,9 @@ const Entry = () => {
         setload(true)
         e.preventDefault();
         if(name === "" || cc === "" || htk === ""){
-            return toast.error("please fill the form")
             setload(false)
+            return toast.error("please fill the form")
+            
         }
         const data = {
             name:name,

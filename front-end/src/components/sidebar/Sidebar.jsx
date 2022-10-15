@@ -1,10 +1,12 @@
 import React from 'react';
+import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { GiArchiveResearch } from "react-icons/gi";
 import { IoMdAnalytics, IoMdCreate } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import style from "./sidebar.module.scss";
+
 
 const Sidebar = () => {
   return (
@@ -31,14 +33,20 @@ const Sidebar = () => {
                                 <span><span className={style.icon}><GiArchiveResearch/></span> <p>query</p></span>
                             </Link>
                         </li>
-                        <li>
-                            <Link className={style.link} to="/config">
-                                <span><span className={style.icon}><VscSettings/></span> <p>config</p></span>
-                            </Link>
-                        </li>
+                       
                         <li>
                             <Link className={style.link} to="/appointment">
                                 <span><span className={style.icon}><FaUsers/></span> <p>appointment</p></span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className={style.link} to="/sendmassage">
+                                <span><span className={style.icon}><BsFillChatDotsFill/></span> <p>send massage</p></span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className={style.link} to="/config">
+                                <span><span className={style.icon}><VscSettings/></span> <p>config</p></span>
                             </Link>
                         </li>
                     </ol>
