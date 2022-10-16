@@ -15,7 +15,7 @@ const List = ({data,setform,setids}) => {
     <td>{data.name} </td>
     <td>{data.mobile}</td>
     <td>{data.decision}</td>
-    <td>{`${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`}</td>
+    <td>{`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`}</td>
     <td> 
         <Link to={`/entrydetailse/${data._id}`}> <button>details</button> </Link>
     </td>

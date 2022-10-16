@@ -68,7 +68,7 @@ const Analisys = () => {
               <div className={style.con}>
                 <div className={style.box}>
                   <div className={style.h}>
-                    <h1><span> {load?<Loading color={"#ff0000"}/>:<BiDoughnutChart/>}</span> admition rate</h1>
+                    <h1><span> {load?<Loading color={"#ff0000"}/>:<BiDoughnutChart/>}</span> admission rate</h1>
                   </div>
                   <div className={style.ch}>
                     <Pic/>

@@ -4,7 +4,6 @@ import { AiOutlineFileSearch } from "react-icons/ai";
 import { HiChatAlt2 } from "react-icons/hi";
 import { RiUserSearchFill } from "react-icons/ri";
 import { TbReportSearch } from "react-icons/tb";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Add from "./form/Add";
 import style from "./query.module.scss";
@@ -30,7 +29,6 @@ const Msg = () => {
 
 
 
-    const navigat = useNavigate()
     React.useEffect(()=>{
         const getMonth = async ()=>{
             try {
@@ -115,9 +113,10 @@ const Msg = () => {
             const resaxios = await axios.post('/sendsmstoall',{data:tdata,msg:msgp});
             console.log(resaxios)
             setPromt(false)
+            toast.success("send massege to all")
         } catch (error) {
             console.log(error)
-            alert('er')
+            toast.error("some thing is wrong with this!")
         }
     }
   return (

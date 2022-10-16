@@ -53,6 +53,7 @@ function rout(app){
         app.post("/getdataforsms",auth,msg().getdata)
         app.get("/getsmsbalance",auth,msg().getbalenced);
         app.post("/sendsmstoall",auth,msg().sendmsgall);
+        app.post("/sendsmssingal",auth,msg().sendsmssingal);
 }
 
 module.exports = rout;

@@ -1,22 +1,32 @@
+import axios from "axios";
 import React, { useState } from 'react';
 import { FaPowerOff } from "react-icons/fa";
 import { toast } from "react-toastify";
+import Loading from "../../loading/Loading";
 import style from './add.module.scss';
+
 const AddHtk = ({setmsgform,data}) => {
     const [value,setValue] = useState();
     const [load,setload] = useState(false);
     
     const submit = (e)=>{
         e.preventDefault()
+        if(load){
+            return 
+        }
         setload(true)
         let send = async ()=>{
             try {
-              const res = await fetch(`/dewan/smsapi?api_key=(APIKEY)&type=text&contacts=${data[0]}&senderid=(Approved Sender ID)&msg=${value}​`);
-              console.log(res)
-              setload(false)
+              const res = await axios.post(`/sendsmssingal`,{number:data[0],msg:value});
+                if(res.status === 200){
+                    setload(false)
+                    toast.success("massage send to "+data[1]);
+                    setmsgform(false)
+                }
             } catch (error) {
                 toast.error("something is wrong 😥")
                 console.log(error);
+                setload(false)
             }
         }
         send()
@@ -36,7 +46,7 @@ const AddHtk = ({setmsgform,data}) => {
                     </div>
                     
                     <div className={style.btn}>
-                        <button type='submit'>send</button>
+                        <button type='submit'>{load?<Loading color={"#ffF"}/>:"send"}</button>
                     </div>
                 </form>
             </div>

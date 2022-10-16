@@ -19,7 +19,7 @@ const AddHtk = ({set,d,send}) => {
                 <form onSubmit={submit}  method="post">
                     <div className={style.inputs}>
                         <span>massager</span>
-                        <textarea onChange={(e)=>{d[1](e.target.value)}}>{d[0]}</textarea>
+                        <textarea defaultValue={d[0]} onChange={(e)=>{d[1](e.target.value)}}></textarea>
                     </div>
                     
                     <div className={style.btn}>
