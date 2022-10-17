@@ -9,6 +9,8 @@ const AddHtk = ({setmsgform,data}) => {
     const [value,setValue] = useState();
     const [load,setload] = useState(false);
     
+    const [smsid,setsmsid] = React.useState(false)
+    
     const submit = (e)=>{
         e.preventDefault()
         if(load){
@@ -17,7 +19,7 @@ const AddHtk = ({setmsgform,data}) => {
         setload(true)
         let send = async ()=>{
             try {
-              const res = await axios.post(`/sendsmssingal`,{number:data[0],msg:value});
+              const res = await axios.post(`/sendsmssingal`,{number:data[0],msg:value,id:smsid});
                 if(res.status === 200){
                     setload(false)
                     toast.success("massage send to "+data[1]);
@@ -36,12 +38,15 @@ const AddHtk = ({setmsgform,data}) => {
         <div className={style.border}>
         <div className={style.con}>
             <div className={style.head}>
-                <h1>send massager to {data[1]}</h1>
+                <h1>send messages to {data[1]}</h1>
             </div>
             <div className={style.form}>
                 <form onSubmit={submit}  method="post">
+                <h4>Sender Id:</h4>
+                    <input type="checkbox" checked={smsid}  onChange={(e)=>{setsmsid(e.target.checked)}} /> <span>use masking Dewan ict</span><br />
+                    <input type="checkbox" checked={!smsid}  onChange={(e)=>{setsmsid(!e.target.checked)}} /> <span>use 8804445629106</span>
                     <div className={style.inputs}>
-                        <span>massager</span>
+                        <span><h4>messages</h4></span>
                         <textarea onChange={(e)=>{setValue(e.target.value)}}>{value}</textarea>
                     </div>
                     

@@ -26,6 +26,7 @@ const Msg = () => {
     // send msg state
 
     const [msgp,setmsgp] = React.useState("")
+    const [smsid,setsmsid] = React.useState(false)
 
 
 
@@ -110,7 +111,7 @@ const Msg = () => {
 
     const sendall = async ()=>{
         try {
-            const resaxios = await axios.post('/sendsmstoall',{data:tdata,msg:msgp});
+            const resaxios = await axios.post('/sendsmstoall',{data:tdata,msg:msgp,id:smsid});
             console.log(resaxios)
             setPromt(false)
             toast.success("send massege to all")
@@ -209,7 +210,7 @@ const Msg = () => {
                 <Table data={tdata}/>
             </div>
             <div className={style.promt}>
-                {promt?<Add set={setPromt} d={[msgp,setmsgp]} send={sendall}/>:""}
+                {promt?<Add set={setPromt} d={[msgp,setmsgp]} send={sendall}  ch={[smsid,setsmsid]}/>:""}
             </div>
         </div>
     </div>

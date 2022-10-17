@@ -26,9 +26,17 @@ const msg = () => {
             }
         },
         sendmsgall: (req,res)=>{
-                const {data,msg} = req.body;
+                const {data,msg,id} = req.body;
                 var s = [];
                 var f = [];
+                var s_id = "";
+
+                if(id){
+                    s_id = "Dewan ICT";
+                }else{
+                    s_id = "8804445629106";
+                }
+
 
                 data.forEach((e,i) => {
                     let t_n = e.mobile;
@@ -36,8 +44,8 @@ const msg = () => {
                     if(t_n[0] === "0"){
                         t_n = `88${t_n}`
                     }
-
-                     axios(`http://sms.dewanict.com/smsapi?api_key=${process.env.SMS_KEY}&type=text&contacts=${t_n}&senderid=Dewan%20ICT&msg=${msg}`).then(function (response) {
+                    console.log(s_id)
+                     axios(`http://sms.dewanict.com/smsapi?api_key=${process.env.SMS_KEY}&type=text&contacts=${t_n}&senderid=${s_id}&msg=${msg}`).then(function (response) {
                         // handle success
                         
                         if(response.data.indexOf("SMS SUBMITTED: ID") !== -1){
@@ -67,8 +75,14 @@ const msg = () => {
         },
         sendsmssingal: async (req,res)=>{
             try {
-                    const {number,msg} = req.body;
-                    let resax =await axios(`http://sms.dewanict.com/smsapi?api_key=${process.env.SMS_KEY}&type=text&contacts=${number}&senderid=Dewan%20ICT&msg=${msg}`);
+                let s_id = "";
+                    const {number,msg,id} = req.body;
+                    if(id){
+                        s_id = "Dewan ICT";
+                    }else{
+                        s_id = "8804445629106";
+                    }
+                    let resax =await axios(`http://sms.dewanict.com/smsapi?api_key=${process.env.SMS_KEY}&type=text&contacts=${number}&senderid=${s_id}&msg=${msg}`);
 
                     if(resax.data.indexOf("SMS SUBMITTED: ID") !== -1){
                         return res.status(200).send(resax.data);
