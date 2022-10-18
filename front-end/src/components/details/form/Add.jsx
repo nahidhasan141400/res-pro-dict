@@ -43,8 +43,8 @@ const AddHtk = ({setmsgform,data}) => {
             <div className={style.form}>
                 <form onSubmit={submit}  method="post">
                 <h4>Sender Id:</h4>
-                    <input type="checkbox" checked={smsid}  onChange={(e)=>{setsmsid(e.target.checked)}} /> <span>use masking Dewan ict</span><br />
-                    <input type="checkbox" checked={!smsid}  onChange={(e)=>{setsmsid(!e.target.checked)}} /> <span>use 8804445629106</span>
+                    <input type="radio" checked={smsid}  onChange={(e)=>{setsmsid(e.target.checked)}} /> <span>use masking Dewan ict</span><br />
+                    <input type="radio" checked={!smsid}  onChange={(e)=>{setsmsid(!e.target.checked)}} /> <span>use 8804445629106</span>
                     <div className={style.inputs}>
                         <span><h4>messages</h4></span>
                         <textarea onChange={(e)=>{setValue(e.target.value)}}>{value}</textarea>

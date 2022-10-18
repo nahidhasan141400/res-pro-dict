@@ -1,14 +1,18 @@
 import React from 'react';
 import { BsFillChatDotsFill } from "react-icons/bs";
-import { FaUsers } from "react-icons/fa";
-import { GiArchiveResearch } from "react-icons/gi";
-import { IoMdAnalytics, IoMdCreate } from "react-icons/io";
+import { FaRegListAlt, FaUsers } from "react-icons/fa";
+import { GiArchiveResearch, GiDesk } from "react-icons/gi";
+import { IoIosArrowDown, IoIosArrowUp, IoMdAnalytics, IoMdCreate } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./sidebar.module.scss";
 
 
+
+
 const Sidebar = () => {
+    const [frontdes,setfrontdes] = React.useState(false)
+    const [courseinfo,setcourseinfo] = React.useState(false)
   return (
     <>
         <div className={style.main}>
@@ -19,36 +23,65 @@ const Sidebar = () => {
                 <div className={style.list}>
                     <ol>
                         <li>
-                            <Link className={style.link} to="/">
-                                <span><span className={style.icon}><IoMdAnalytics/></span> <p>analisys</p></span>
-                            </Link>
+                            <div onClick={()=>setcourseinfo(!courseinfo)} className={style.link}>
+                                <span><span className={style.icon}><FaRegListAlt/></span> <p>Course Info <span>{courseinfo?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={courseinfo?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/courseentry">
+                                            <span><span className={style.iconc}><IoMdAnalytics/></span> <p>course entry</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/courselist">
+                                            <span><span className={style.iconc}><IoMdCreate/></span> <p>course list</p></span>
+                                        </NavLink>
+                                    </li>
+                                    
+                                </ol>
+                            </div>
                         </li>
                         <li>
-                            <Link className={style.link} to="/entry">
-                                <span><span className={style.icon}><IoMdCreate/></span> <p>entry</p></span>
-                            </Link>
+                            <div onClick={()=>setfrontdes(!frontdes)} className={style.link}>
+                                <span><span className={style.icon}><GiDesk/></span> <p>front-desk <span>{frontdes?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={frontdes?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/">
+                                            <span><span className={style.iconc}><IoMdAnalytics/></span> <p>Analytics</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/entry">
+                                            <span><span className={style.iconc}><IoMdCreate/></span> <p>entry</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/query">
+                                            <span><span className={style.iconc}><GiArchiveResearch/></span> <p>query</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/appointment">
+                                            <span><span className={style.iconc}><FaUsers/></span> <p>appointment</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/sendmassage">
+                                            <span><span className={style.iconc}><BsFillChatDotsFill/></span> <p>send SMS</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/config">
+                                            <span><span className={style.iconc}><VscSettings/></span> <p>config</p></span>
+                                        </NavLink>
+                                    </li>
+                                </ol>
+                            </div>
                         </li>
-                        <li>
-                            <Link className={style.link} to="/query">
-                                <span><span className={style.icon}><GiArchiveResearch/></span> <p>query</p></span>
-                            </Link>
-                        </li>
-                       
-                        <li>
-                            <Link className={style.link} to="/appointment">
-                                <span><span className={style.icon}><FaUsers/></span> <p>appointment</p></span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={style.link} to="/sendmassage">
-                                <span><span className={style.icon}><BsFillChatDotsFill/></span> <p>send massage</p></span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={style.link} to="/config">
-                                <span><span className={style.icon}><VscSettings/></span> <p>config</p></span>
-                            </Link>
-                        </li>
+                        
                     </ol>
                 </div>
             </div>

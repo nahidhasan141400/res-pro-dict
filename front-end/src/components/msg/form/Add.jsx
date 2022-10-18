@@ -18,8 +18,8 @@ const AddHtk = ({set,d,send,ch}) => {
             <div className={style.form}>
                 <form onSubmit={submit}  method="post">
                     <h4>Sender Id:</h4>
-                    <input type="checkbox" checked={ch[0]}  onChange={(e)=>{ch[1](e.target.checked)}}/> <span>use masking Dewan ict</span><br />
-                    <input type="checkbox" checked={!ch[0]} onChange={(e)=>{ch[1](!e.target.checked)}}/> <span>use 8804445629106</span>
+                    <input type="radio" checked={ch[0]}  onChange={(e)=>{ch[1](e.target.checked)}}/> <span>use masking Dewan ict</span><br />
+                    <input type="radio" checked={!ch[0]} onChange={(e)=>{ch[1](!e.target.checked)}}/> <span>use 8804445629106</span>
                     <div className={style.inputs}>
                         <span><h4>messages</h4></span>
                         <textarea defaultValue={d[0]} onChange={(e)=>{d[1](e.target.value)}}></textarea>

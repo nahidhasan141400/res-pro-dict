@@ -1,5 +1,4 @@
 import React from 'react';
-import { FcBusinessman } from "react-icons/fc";
 import { MdOutlineLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/img/Logo png.png";
@@ -19,7 +18,7 @@ const Nav = () => {
                     <img src={logo} alt="logo" />
                 </div>
                 <div className={style.text}>
-                    <h1><span><FcBusinessman/></span> reception desk</h1>
+                    {/* <h1><span><FcBusinessman/></span> reception desk</h1> */}
                 </div>
                 <div className={style.log}>
                     <button onClick={logout}><span><MdOutlineLogout/></span> logout</button>
