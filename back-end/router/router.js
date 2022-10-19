@@ -41,9 +41,11 @@ function rout(app){
         app.get("/getentrymonth",auth,entry().month)
         app.get("/getappointment",auth,entry().getAppointment)
         app.get("/getentryby/:id",auth,entry().getByID)
+        app.post("/updateVisitorEntry",auth,entry().updateByID)
         app.post("/changestatusentry/:id",auth,entry().changeStatus)
         app.post("/changenextdate",auth,entry().changeNextCD)
         app.post("/getyeardataan",auth,entry().getyeardataan)
+        app.post("/delete-visitor",auth,entry().deletebyid);
         //query data
         app.post("/queryentrydata",auth,entry().query)
         app.get("/getadmitedcount",auth,entry().getadmitedcount)

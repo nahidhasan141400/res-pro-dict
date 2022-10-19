@@ -4,12 +4,12 @@ import axios from "axios";
 import Moment from 'react-moment';
 
 import React from 'react';
-import { AiOutlineReload } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineReload } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
 import { BsBuilding, BsCalendar2Date } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
 import { FaRegComment, FaRegListAlt, FaUserGraduate } from "react-icons/fa";
-import { FiPhoneCall, FiUser } from "react-icons/fi";
+import { FiEdit3, FiPhoneCall, FiUser } from "react-icons/fi";
 import { GrUpdate } from "react-icons/gr";
 import { ImBullhorn } from "react-icons/im";
 import { IoIosChatboxes } from "react-icons/io";
@@ -71,7 +71,23 @@ const Details = () => {
                 setmsgform(true)
     }
 
-
+        const visDel = async (id)=>{
+            // eslint-disable-next-line no-restricted-globals
+            let con = confirm("delete this entry!");
+            if(!con){
+                return
+            }
+            try {
+                const respo = await axios.post(`/delete-visitor`,{id});
+                if(respo.status === 200){
+                    toast.success('entry deleted!')
+                    return n('/query');
+                }
+            } catch (error) {
+                console.log(error);
+                return toast.error('something is wrong !');
+            }
+        }
   return (
     <div className={style.main}>
         <div className={style.con}>
@@ -79,6 +95,8 @@ const Details = () => {
                 <h1><span><CgUserList/></span>details</h1>
                 <div className={style.btnmsg}>
                     <button onClick={()=>{sendmsg(data.mobile,data.name)}}><span><IoIosChatboxes/></span>send massage</button>
+                    <button onClick={()=>{n(`/updatevisitorentry/${data._id}`)}}><span><FiEdit3/></span>edit</button>
+                    <button onClick={()=>{visDel(data._id)}} id={style.delbtn}><span><AiOutlineDelete/></span>delete</button>
                 </div>
             </div>
             <div className={style.info}>
@@ -103,7 +121,7 @@ const Details = () => {
                 </div>
                 <div className={style.comentitem}>
                     <div className={style.h}>
-                        <span><FaRegComment/> desition</span>                       
+                        <span><FaRegComment/> Decision</span>                       
                     </div>
                     <div className={style.t}>
                         <p>{data.decision} </p>
@@ -132,7 +150,7 @@ const Details = () => {
             <div className={style.date}>
                 <div className={style.di}>
                     <div className={style.h}>
-                        <span><BsCalendar2Date/> frist date</span>
+                        <span><BsCalendar2Date/> first date</span>
                     </div>
                     <div className={style.b}>
                         <p>

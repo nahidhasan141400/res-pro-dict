@@ -105,6 +105,61 @@ const entry = () => {
                     res.status(500).send(error)
                 }
         },
+        updateByID: async (req,res) => {
+            const { name,
+                mobile,
+                company,
+                HTK,
+                decision,
+                cc,
+                nextd,
+                coment,
+                course1,
+                course2,
+                course3 } = req.body.data;
+                let course = []
+                if (name === "" || !name) {
+                    return res.status(400).json({ msg: "input name!" })
+                }
+                if (HTK === "" || !HTK) {
+                    return res.status(400).json({ msg: "HTK name!" })
+                }
+                if ((course1 === "" || !course1) && (course2 === "" || !course2) && (course3 === "" || !course3)) {
+                    return res.status(400).json({ msg: "input a course!" })
+                }
+    
+                if (course1 !== "" || !course1) {
+                    course.push(course1);
+                }
+                if (course2 !== "" || !course2) {
+                    course.push(course2);
+                }
+                if (course3 !== "" || !course3) {
+                    course.push(course3);
+                }
+
+                try {
+                    const CC = cc;
+                const nextCD = nextd;
+                const courses = course;
+                    const _id = req.body.id;
+                    const datadb =await  Entry.findByIdAndUpdate(_id,{
+                        name,
+                        mobile,
+                        company,
+                        HTK,
+                        comment:coment,
+                        courses,
+                        decision,
+                        CC,
+                        nextCD,
+                    })
+                    res.status(200).json(datadb)
+                } catch (error) {
+                    console.log(error)
+                    res.status(500).send(error)
+                }
+        },
         changeStatus : async (req,res)=>{
             try {
                 const _id = req.params.id;
@@ -236,6 +291,20 @@ const entry = () => {
             } catch (error) {
                 console.log(error)
                 res.send(error)
+            }
+        },
+        deletebyid:async (req,res)=>{
+            try {
+                const _id = req.body.id;
+                const response =await Entry.findByIdAndDelete(_id);
+                if(response){
+                    res.status(200).send("deleted the data")
+                }else{
+                    res.status(500).send("bad req");
+                }
+            } catch (error) {
+                console.log(error);
+                res.status(500).send("something wrong in server")
             }
         }
     }

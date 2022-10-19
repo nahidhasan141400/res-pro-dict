@@ -9,12 +9,12 @@ const Table = ({data}) => {
         <table>
             <thead>
                 <tr>
-                    <th>নাম</th>
-                    <th>মোবাইল</th>
-                    <th>প্রতিষ্ঠানের নাম </th>
-                    <th>কি সিধান্ত নিলেন</th>
-                    <th style={{textAlign:'center'}}>ভর্তি হয়েছেন</th>
-                    <th>তারিখ</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Company</th>
+                    <th>Decision</th>
+                    <th style={{textAlign:'center'}}>Admitted</th>
+                    <th>Date</th>
                     <th></th>
                     
                 </tr>

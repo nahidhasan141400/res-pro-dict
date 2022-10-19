@@ -20,11 +20,11 @@ const List = ({data,setform,setids}) => {
         <Link to={`/entrydetailse/${data._id}`}> <button>details</button> </Link>
     </td>
     <td> 
-        <button onClick={()=>{onclicknext(data._id)}}>next</button>
+        <button onClick={()=>{onclicknext(data._id)}}>next Appointment</button>
     </td>
     
 </tr>
   )
 }
 
-export default List
+export default List;

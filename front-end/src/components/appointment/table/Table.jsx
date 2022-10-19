@@ -9,12 +9,12 @@ const Table = ({data,setform,setids}) => {
         <table>
             <thead>
                 <tr>
-                    <th>নাম</th>
-                    <th>মোবাইল</th>
-                    <th>কি সিধান্ত নিয়েছিলেন </th>
-                    <th>তারিখ</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Decision </th>
+                    <th>Date</th>
                     <th>details</th>
-                    <th>action</th>
+                    <th></th>
                     
                 </tr>
             </thead>

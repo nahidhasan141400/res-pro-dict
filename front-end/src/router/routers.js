@@ -2,6 +2,7 @@ import Analisys from "../components/analisys/Analisys";
 import Appointment from "../components/appointment/Appointment";
 import Config from "../components/config/Config";
 import Details from "../components/details/Details";
+import Detailsup from "../components/details/entry/Entry";
 import Entry from "../components/entry/Entry";
 import Layout from "../components/layout/Layout";
 import Login from "../components/login/login";
@@ -41,6 +42,10 @@ import {
     {
         path: "/entrydetailse/:id",
         element: <SecretRoute Element ={Layout} Ch={Details}/>,
+    },
+    {
+        path: "/updatevisitorentry/:id",
+        element: <SecretRoute Element ={Layout} Ch={Detailsup}/>,
     },
     {
         path: "/sendmassage",

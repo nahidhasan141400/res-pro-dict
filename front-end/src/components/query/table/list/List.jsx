@@ -11,7 +11,7 @@ const List = ({data}) => {
     <td>{data.mobile}</td>
     <td>{data.company}</td>
     <td>{data.decision}</td>
-    <td className={style.c}>{data.admited? "হা":'না'}</td>
+    <td className={style.c}>{data.admited? "YES":'NO'}</td>
     <td>{`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`}</td>
     <td> 
     <Link to={`/entrydetailse/${data._id}`}> <button>details</button> </Link>

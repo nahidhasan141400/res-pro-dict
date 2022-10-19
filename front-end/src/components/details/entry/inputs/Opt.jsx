@@ -26,7 +26,7 @@ const Opt = ({v,set}) => {
   },[])
   return (
     <div className={style.main}>
-        <label>Courses :</label><br />
+        <label>Courses ?</label><br />
         <select value={v} onChange={(e)=>{set(e.target.value)}}>
             <option value="">choose a course</option>
             {courses.map((e)=>{
@@ -40,15 +40,16 @@ const Opt = ({v,set}) => {
  export const Opt2 = ({v,set}) => {
   return (
     <div className={style.main}>
-        <label>Next Appointment Date ? </label><br />
+        <label>Appointment ? </label><br />
         <input value={v} onChange={(e)=>{set(e.target.value)}} type="date"  />
     </div>
   )
 }
 
 export const Opt3 = ({v,set}) => {
-  
   const [ Htk , sethtk ] = React.useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [ vi , setvi ] = React.useState(v);
   React.useEffect(()=>{
     const getcourse2 = async ()=>{
       try {
@@ -69,8 +70,9 @@ export const Opt3 = ({v,set}) => {
   },[])
   return (
     <div className={style.main}>
-        <label>How to know about us (HTK) ? </label><br />
-        <select value={v} onChange={(e)=>{set(e.target.value)}}>
+        <label>How To Know About us(HTK) ? </label><br />
+        <select value={v} onChange={(e)=>{set(e.target.value);}}>
+            {/* <option value={vi}>{vi}</option> */}
             <option value="">choose</option>
             { Htk.map((e)=>{
               return (<option value={e.name}>{e.name}</option>)
