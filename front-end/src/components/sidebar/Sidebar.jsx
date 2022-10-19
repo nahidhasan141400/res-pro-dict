@@ -22,26 +22,7 @@ const Sidebar = () => {
                 </div> */}
                 <div className={style.list}>
                     <ol>
-                        <li>
-                            <div onClick={()=>setcourseinfo(!courseinfo)} className={style.link}>
-                                <span><span className={style.icon}><FaRegListAlt/></span> <p>Course Info <span>{courseinfo?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
-                            </div>
-                            <div style={courseinfo?{height:"auto"}:{}} className={style.listof}>
-                                <ol className={style.childlist}>
-                                    <li>
-                                        <NavLink className={style.linkc} to="/courseentry">
-                                            <span><span className={style.iconc}><IoMdAnalytics/></span> <p>course entry</p></span>
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className={style.linkc} to="/courselist">
-                                            <span><span className={style.iconc}><IoMdCreate/></span> <p>course list</p></span>
-                                        </NavLink>
-                                    </li>
-                                    
-                                </ol>
-                            </div>
-                        </li>
+                        
                         <li>
                             <div onClick={()=>setfrontdes(!frontdes)} className={style.link}>
                                 <span><span className={style.icon}><GiDesk/></span> <p>front-desk <span>{frontdes?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
@@ -78,6 +59,26 @@ const Sidebar = () => {
                                             <span><span className={style.iconc}><VscSettings/></span> <p>config</p></span>
                                         </NavLink>
                                     </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={()=>setcourseinfo(!courseinfo)} className={style.link}>
+                                <span><span className={style.icon}><FaRegListAlt/></span> <p>Course Info <span>{courseinfo?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={courseinfo?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/courseentry">
+                                            <span><span className={style.iconc}><IoMdAnalytics/></span> <p>course entry</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/courselist">
+                                            <span><span className={style.iconc}><IoMdCreate/></span> <p>course list</p></span>
+                                        </NavLink>
+                                    </li>
+                                    
                                 </ol>
                             </div>
                         </li>

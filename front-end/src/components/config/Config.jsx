@@ -8,6 +8,8 @@ import Load from "../loading/Loading";
 import Coarse from "./coarse/Coarse.jsx";
 import AddCor from "./coarse/form/AddCor.jsx";
 import style from "./config.module.scss";
+import Form3a from "./sms_temp/form/AddHtk";
+import Sms from "./sms_temp/Sms";
 import AddHtk from "./wtk/form/AddHtk.jsx";
 import Wtk from "./wtk/wtk.jsx";
 
@@ -15,8 +17,10 @@ const Config = () => {
   const Navigate = useNavigate();
   const [form, setForm] = useState(false);
   const [form2, setForm2] = useState(false);
+  const [form3, setForm3] = useState(false);
   const [allCourse, setAllCourse] = useState([]);
   const [allHtk, setAllHtk] = useState([]);
+  const [allsms, setAllsms] = useState([]);
   const [oldPass, setOldPass] = useState("");
   const [Pass, setPass] = useState("");
   const [cPass, setcPass] = useState("");
@@ -41,8 +45,19 @@ const Config = () => {
         return toast.error("some thing wrong in sever 😥");
       }
     };
+    const getData3 = async () => {
+      try {
+        const res = await fetch("/getallsmst");
+        const allhtkdata = await res.json();
+        return setAllsms(allhtkdata);
+      } catch (error) {
+        console.log(error);
+        return toast.error("some thing wrong in sever 😥");
+      }
+    };
     getData();
     getData2();
+    getData3();
   }, []);
 
   const changePass = async () => {
@@ -218,6 +233,9 @@ const Config = () => {
         <div className={style.coarseSection}>
           <Wtk setForm={setForm2} data={allHtk} setData={setAllHtk} />
         </div>
+        <div className={style.coarseSection}>
+          <Sms setForm={setForm3} data={allsms} setData={setAllsms} />
+        </div>
       </div>
       <div className={style.over}>
         {form ? (
@@ -229,6 +247,13 @@ const Config = () => {
       <div className={style.over}>
         {form2 ? (
           <AddHtk data={allHtk} setData={setAllHtk} setForm={setForm2} />
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className={style.over}>
+        {form3 ? (
+          <Form3a data={allsms} setData={setAllsms} setForm={setForm3} />
         ) : (
           <></>
         )}

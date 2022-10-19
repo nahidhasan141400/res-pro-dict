@@ -6,6 +6,7 @@ const auth = require('../middleware/auth')
 const entry = require('../controller/entry');
 const Htk = require("../controller/HtkCon");
 const msg = require("../controller/msg")
+const sms_temp = require("../controller/smsCon");
 function rout(app){
            
             
@@ -29,13 +30,19 @@ function rout(app){
         app.get("/deletecourse/:id",auth,Course().delete)
         app.get("/getActiveCourse",auth,Course().getActiveCourse)
         app.post("/cstatus/:id",auth,Course().CStatus)
-        // add htk
+        // add htk 
         app.post('/addhtk',auth,Htk().addHtk)
         app.get("/getallhtk",auth,Htk().getallhtk)
         app.post("/htkstatus/:id",auth,Htk().CStatus)
         app.get("/getActiveHtk",auth,Htk().getActiveHtk)
-        
         app.get("/deletehtk/:id",auth,Htk().delete)
+        // add sms temp
+        app.post('/addsmstemp',auth,sms_temp().addSMSt) 
+        app.get("/getallsmst",auth,sms_temp().getallsms)
+        app.post("/smstchangestatus/:id",auth,sms_temp().CStatus)
+        app.get("/getActivesms",auth,sms_temp().getActiveSMS)
+        app.get("/deletesmstemplate/:id",auth,sms_temp().delete)
+        
         //entry route
         app.post('/addentry',auth,entry().addEntry)
         app.get("/getentrymonth",auth,entry().month)
