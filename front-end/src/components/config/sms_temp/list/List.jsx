@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import style from './list.module.scss';
 
 
-const List = ({data,setData}) => {
+const List = ({edit,data,setData}) => {
   // eslint-disable-next-line no-unused-vars
 
   const dellet = async(id)=>{
@@ -56,7 +56,7 @@ const List = ({data,setData}) => {
             <div className={style.action}>
                     <div onClick={()=>{}} className={style.info}><VscWholeWord/>:{data.text.length}<FcSms/>:{parseInt((data.text.length / 70)+1)}</div>
                 {data.status? <button onClick={()=>{cStatus(data._id,data.status)}} className={style.active}><BsCheckCircle/></button>:<button onClick={()=>{cStatus(data._id,data.status)}} className={style.deactive}><TiDeleteOutline/></button>}
-                    <button onClick={()=>{dellet(data._id)}} className={style.dell}><FiEdit/> </button>
+                    <button onClick={()=>{edit(data._id,data.name,data.text)}} className={style.dell}><FiEdit/> </button>
                     <button onClick={()=>{dellet(data._id)}} className={style.dell}><RiDeleteBinLine/></button>
             </div>  
         </div>

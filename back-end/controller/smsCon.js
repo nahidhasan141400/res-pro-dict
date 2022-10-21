@@ -18,6 +18,22 @@ const sms_temp = ()=>{
                 return   res.status(500).send(error)
             }
         },
+        updateSMSt: async (req,res)=>{
+            const {_id,name,text} = req.body;
+            try {
+                // const data = new SMS({
+                //     name:sms,
+                //     text,
+                //     status:true
+                // }) 
+                const resdata = await SMS.findByIdAndUpdate(_id,{name,text})
+                const dbsendd = await SMS.find();
+              return  res.status(200).json(dbsendd);
+            } catch (error) {
+                console.log(error)
+                return   res.status(500).send(error)
+            }
+        },
         getallsms : async (req,res)=>{
             try {
                 const allcourse = await SMS.find({});

@@ -128,6 +128,19 @@ const Config = () => {
     }
   }
 
+
+  // \\ edit the sms template \\ //
+
+  const [sms_t_id,set_sms_t_id] = React.useState({}) 
+  const [editf,seteditf] = React.useState(false) 
+  const edit = (id,name,text)=>{
+    set_sms_t_id({
+      id,name,text
+    });
+    seteditf(true)
+    setForm3(true);
+  }
+
   return (
     <div className={style.main}>
       <div className={style.con}>
@@ -234,8 +247,9 @@ const Config = () => {
           <Wtk setForm={setForm2} data={allHtk} setData={setAllHtk} />
         </div>
         <div className={style.coarseSection}>
-          <Sms setForm={setForm3} data={allsms} setData={setAllsms} />
+          <Sms setu={seteditf} edit={edit} setForm={setForm3} data={allsms} setData={setAllsms} />
         </div>
+        <div className={style.gap}></div>
       </div>
       <div className={style.over}>
         {form ? (
@@ -253,7 +267,7 @@ const Config = () => {
       </div>
       <div className={style.over}>
         {form3 ? (
-          <Form3a data={allsms} setData={setAllsms} setForm={setForm3} />
+          <Form3a id={sms_t_id} ei={editf} data={allsms} setData={setAllsms} setForm={setForm3} />
         ) : (
           <></>
         )}

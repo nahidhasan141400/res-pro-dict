@@ -38,6 +38,7 @@ function rout(app){
         app.get("/deletehtk/:id",auth,Htk().delete)
         // add sms temp
         app.post('/addsmstemp',auth,sms_temp().addSMSt) 
+        app.post('/updatesmstemp',auth,sms_temp().updateSMSt) 
         app.get("/getallsmst",auth,sms_temp().getallsms)
         app.post("/smstchangestatus/:id",auth,sms_temp().CStatus)
         app.get("/getActivesms",auth,sms_temp().getActiveSMS)

@@ -33,22 +33,20 @@
           padding: 5px 10px;
           border-radius: 10px;
           outline: none;
-          border: none;
+          border: 1px solid red;
           font-weight: 700;
-          color: #fff;
           cursor: pointer;
-          background: linear-gradient(
-            83.2deg,
-            rgb(0, 0, 0) 10.8%,
-            rgb(255, 0, 0) 94.3%
-          );
+          color: black;
+          background: #fff;
           transition: all 0.3s;
+          margin: 0 5px;
+          svg {
+            color: red;
+            position: relative;
+            top: 1px;
+          }
           &:hover {
-            background: linear-gradient(
-              183.2deg,
-              rgb(0, 0, 0) 10.8%,
-              rgb(255, 0, 0) 94.3%
-            );
+            background: rgb(255, 198, 233);
           }
           span {
             position: relative;
@@ -60,6 +58,8 @@
     .table {
       width: 100%;
       position: relative;
+      overflow: hidden;
+      transition: all 1s linear;
     }
   }
 }
