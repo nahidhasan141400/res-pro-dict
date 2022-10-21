@@ -46,7 +46,7 @@ function rout(app){
         //entry route
         app.post('/addentry',auth,entry().addEntry)
         app.get("/getentrymonth",auth,entry().month)
-        app.get("/getappointment",auth,entry().getAppointment)
+        app.post("/getappointment",auth,entry().getAppointment)
         app.get("/getentryby/:id",auth,entry().getByID)
         app.post("/updateVisitorEntry",auth,entry().updateByID)
         app.post("/changestatusentry/:id",auth,entry().changeStatus)

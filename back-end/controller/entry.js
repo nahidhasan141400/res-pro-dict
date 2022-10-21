@@ -73,6 +73,16 @@ const entry = () => {
             }
         },
         getAppointment:async (req,res)=>{
+            const{date} = req.body;
+            if(date){
+                try {
+                    const resdb = await Entry.find({nextCD:date});
+                    return res.status(200).send(resdb);
+                } catch (error) {
+                    console.log(error)
+                   return res.status(500).send(error)  
+                }
+            }
             
             try {
                const t = new Date();

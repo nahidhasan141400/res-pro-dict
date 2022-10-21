@@ -1,14 +1,12 @@
 import React from 'react';
-import { FaPowerOff } from "react-icons/fa";
-
-import { FaSms } from "react-icons/fa";
+import { FaPowerOff, FaSms } from "react-icons/fa";
 import { VscWholeWord } from "react-icons/vsc";
 // import { toast } from "react-toastify";
 import axios from "axios";
 import { toast } from "react-toastify";
 import style from './add.module.scss';
 const AddHtk = ({set,d,send,ch}) => {
-
+    const [texta,setTexta] = React.useState(d[0]);
     const [sms,setSms] = React.useState([])
     React.useEffect(()=>{
         const getdata = async ()=>{
@@ -30,6 +28,12 @@ const AddHtk = ({set,d,send,ch}) => {
         e.preventDefault()
         send()
     }
+
+    const change = (e)=>{
+        setTexta(e.target.value);
+        d[1](e.target.value);
+        // textr.current.value(texta)
+    }
   return (
     <div className={style.main}>
         <div className={style.border}>
@@ -44,7 +48,7 @@ const AddHtk = ({set,d,send,ch}) => {
                     <input type="radio" checked={!ch[0]} onChange={(e)=>{ch[1](!e.target.checked)}}/> <span>use 8804445629106</span>
 
                     <div className={style.temp}>
-                        <select onChange={(e)=>{d[1](e.target.value)}}>
+                        <select onChange={(e)=>{change(e)}}>
                             <option value="">choose a template</option>
                             {sms.map((e,i)=>(<option key={i} value={e.text}>{e.name}</option>))}
                             
@@ -52,7 +56,7 @@ const AddHtk = ({set,d,send,ch}) => {
                     </div>
                     <div className={style.inputs}>
                         <span><h4>messages</h4></span>
-                        <textarea defaultValue={d[0]} onChange={(e)=>{d[1](e.target.value)}}></textarea>
+                        <textarea defaultValue={texta} onChange={(e)=>{change(e)}}></textarea>
                         <div className={style.ifo}>
                             <span><VscWholeWord/>{d[0].length}</span>
                             <span><FaSms/>{parseInt((d[0].length / 70)+1)}</span>

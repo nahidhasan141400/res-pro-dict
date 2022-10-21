@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   .border {
-    width: 400px;
+    width: 500px;
     // height: 400px;
     position: relative;
     background: linear-gradient(
@@ -39,6 +39,18 @@
         width: 100%;
         position: relative;
         padding: 20px;
+        .temp {
+          width: 100%;
+          position: relative;
+          padding: 10px 0;
+          select {
+            width: 80%;
+            padding: 5px;
+            background-color: #fff;
+            border: 1px solid red;
+            outline: none;
+          }
+        }
         .inputs {
           width: 100%;
           position: relative;
@@ -53,6 +65,31 @@
             padding: 5px 2px;
             outline: none;
             height: 100px;
+          }
+          .ifo {
+            width: 100%;
+            text-align: right;
+            margin-top: 5px;
+            font-size: 15px;
+            span {
+              margin: 0 5px;
+              svg {
+                position: relative;
+                top: 2px;
+                margin: 0 3px;
+                color: red;
+              }
+            }
+          }
+          .note {
+            font-size: 13px;
+            font-style: italic;
+            color: rgb(0, 80, 133);
+            span {
+              font-size: 15px;
+              font-weight: 700;
+              font-style: normal;
+            }
           }
         }
         .btn {

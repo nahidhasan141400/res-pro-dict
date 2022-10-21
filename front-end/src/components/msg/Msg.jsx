@@ -28,6 +28,8 @@ const Msg = () => {
     const [msgp,setmsgp] = React.useState("")
     const [smsid,setsmsid] = React.useState(false)
 
+    // appointment date fetch state
+    const [appoDate,setappoDate] = React.useState()
 
 
     React.useEffect(()=>{
@@ -98,8 +100,8 @@ const Msg = () => {
 
     const appointment = async ()=>{
         try {
-            let res =await fetch("/getappointment");
-            let data = await res.json()
+            let res =await axios.post("/getappointment",{date:appoDate});
+            let data =  res.data;
             let status = res.status;
             if(status === 200){
                 settdata(data)
@@ -197,12 +199,16 @@ const Msg = () => {
                                 <option value="0">No</option>
                             </select>
                         </div>
+                        <div className={style.inp}>
+                            <span>Appointment date:</span>
+                            <input type="date" value={appoDate} onChange={(e)=>setappoDate(e.target.value)}/>
+                        </div>
                         
 
                     </div>
                     <div className={style.r2}>
-                    <button onClick={appointment}> <span><TbReportSearch/></span> Today appointment</button>
                     <button onClick={sendquery}>  <span><AiOutlineFileSearch/></span> search query</button>
+                    <button onClick={appointment}> <span><TbReportSearch/></span> {appoDate? "Search": "Today" } appointment</button>
                     </div>
                 </div>
             </div>

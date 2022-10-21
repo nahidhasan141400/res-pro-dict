@@ -9,6 +9,10 @@ const AddHtk = ({setForm,data,setData}) => {
     const [text,setText] = useState('');
     const submit = (e)=>{
         e.preventDefault()
+
+        if(value === "" || text === ""){
+            return toast.warn("fill the form !")
+        }
         const settings = {
             method: 'POST',
             headers: {
