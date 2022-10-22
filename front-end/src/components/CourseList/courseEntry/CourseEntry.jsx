@@ -1,15 +1,38 @@
+import axios from "axios";
 import JoditEditor from "jodit-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 import style from "./entry.module.scss";
 const placeholder = "type here";
+
+
+
 const CourseEntry = () => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
+  // getallinstructor
+  const [inst,setInst] = useState([])
 
   const config = {
     readonly: false, // all options from https://xdsoft.net/jodit/doc/,
     placeholder: placeholder || "Start typings...",
   };
+  const getInstroctor = async ()=>{
+    try {
+      let resdb = await axios('/getallinstructor');
+      if(resdb.status === 200){
+        setInst(resdb.data)
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("some thing is wrong in server!")
+    }
+  }
+
+  useEffect(()=>{
+    getInstroctor()
+  },[])
+
 
   return (
     <div className={style.main}>
@@ -46,7 +69,9 @@ const CourseEntry = () => {
             <span>Course Instractor: </span>
             <select>
               <option value="">Choose Instractor</option>
-              <option value="nahid">Nahid Hasan</option>
+              {inst.map((e,i)=>{
+                (<option value={e._id}>{e.name}</option>)
+              })}
             </select>
           </div>
 

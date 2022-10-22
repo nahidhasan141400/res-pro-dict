@@ -9,7 +9,8 @@ const msg = require("../controller/msg")
 const sms_temp = require("../controller/smsCon");
 
 // instructor 
-const InstructorCon = require("../controller/instructor/instructor.js")
+const InstructorCon = require("../controller/instructor/instructor.js");
+const instructorCon = require("../controller/instructor/instructor.js");
 function rout(app){
            
             
@@ -67,8 +68,10 @@ function rout(app){
         app.get("/getsmsbalance",auth,msg().getbalenced);
         app.post("/sendsmstoall",auth,msg().sendmsgall);
         app.post("/sendsmssingal",auth,msg().sendsmssingal);
+// instructor 
+        app.post("/addinstructoraccount",auth,InstructorCon().upload.single('photo'),InstructorCon().addEnstructor);
 
-        app.post("/addinstructoraccount",auth,InstructorCon().upload.single('photo'),InstructorCon().addEnstructor)
+        app.get('/getallinstructor',auth,instructorCon().getAll);
 }
 
 module.exports = rout;
