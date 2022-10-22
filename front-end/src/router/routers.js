@@ -9,9 +9,15 @@ import Login from "../components/login/login";
 import Msg from '../components/msg/Msg';
 import Query from "../components/query/Query";
 import SecretRoute from "./SecretRoute";
+// courese info 
+import CourseEntry from "../components/CourseList/courseEntry/CourseEntry";
+
+// instructor
+import AddInstructor from "../components/instructorInfo/Addinstructor/AddInstructor";
+
 
 import {
-  createBrowserRouter
+    createBrowserRouter
 } from "react-router-dom";
 
   const router = createBrowserRouter([
@@ -50,6 +56,16 @@ import {
     {
         path: "/sendmassage",
         element: <SecretRoute Element ={Layout} Ch={Msg}/>,
+    },
+    // course info 
+    {
+        path: "/courseentry",
+        element: <SecretRoute Element ={Layout} Ch={CourseEntry}/>,
+    },
+    // instructor 
+    {
+        path: "/addinstructor",
+        element: <SecretRoute Element ={Layout} Ch={AddInstructor}/>,
     }
   ]);
 
