@@ -7,6 +7,9 @@ const entry = require('../controller/entry');
 const Htk = require("../controller/HtkCon");
 const msg = require("../controller/msg")
 const sms_temp = require("../controller/smsCon");
+
+// instructor 
+const InstructorCon = require("../controller/instructor/instructor.js")
 function rout(app){
            
             
@@ -64,6 +67,8 @@ function rout(app){
         app.get("/getsmsbalance",auth,msg().getbalenced);
         app.post("/sendsmstoall",auth,msg().sendmsgall);
         app.post("/sendsmssingal",auth,msg().sendsmssingal);
+
+        app.post("/addinstructoraccount",auth,InstructorCon().upload.single('photo'),InstructorCon().addEnstructor)
 }
 
 module.exports = rout;

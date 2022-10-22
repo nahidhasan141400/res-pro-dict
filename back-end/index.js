@@ -45,6 +45,8 @@ var storage = multer.diskStorage({
   
   var upload = multer({ storage: storage });
 
+  app.use(express.static('./public'))
+
 
 // uuid
 // uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
@@ -118,6 +120,7 @@ app.post('/importxlsx',upload.single('file'), async (req,res)=>{
 
 app.use((err,req,res,next)=>{
     if(err){
+        console.log(err)
         res.status(500).send(err.message);
     }else{
         res.send("sucsses")
