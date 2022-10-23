@@ -13,6 +13,14 @@ const CourseEntry = () => {
   // getallinstructor
   const [inst,setInst] = useState([])
 
+  // data state manage mant
+  // name,duration,Fee,Instructor,Details
+  const [name,setname] = useState("");
+  const [duration,setduration] = useState("");
+  const [Fee,setFee] = useState("");
+  const [Instructor,setInstructor] = useState("");
+  const [Photo,setPhoto] = useState("");
+
   const config = {
     readonly: false, // all options from https://xdsoft.net/jodit/doc/,
     placeholder: placeholder || "Start typings...",
@@ -48,36 +56,37 @@ const CourseEntry = () => {
 
           <div className={style.inpg}>
             <span>Course Name: </span>
-            <input type="text" />
+            <input type="text" value={name} onChange={(e)=>{setname(e.target.value)}}/>
           </div>
 
           <div className={style.inpg}>
             <span>Course Duration (month): </span>
-            <input type="text" />
+            <input type="text" value={duration} onChange={(e)=>{setduration(e.target.value)}}/>
           </div>
 
           <div className={style.inpg}>
             <span>Course Fee: </span>
-            <input type="text" />
+            <input type="text" value={Fee} onChange={(e)=>{setFee(e.target.value)}}/>
           </div>
 
-        </div>
+        </div> 
     {/* input row  */}
         <div className={style.inputR}>
 
           <div className={style.inpg}>
             <span>Course Instractor: </span>
-            <select>
+            <select value={Instructor} onChange={(e)=>{setInstructor(e.target.value)}}>
               <option value="">Choose Instractor</option>
               {inst.map((e,i)=>{
-                (<option value={e._id}>{e.name}</option>)
+
+                return (<option value={e._id}>{e.name}</option>)
               })}
             </select>
           </div>
 
           <div className={style.inpg}>
             <span>Course Image: </span>
-            <input type="file" src="" alt="" />
+            <input type="file" src="" alt="" value={Photo} onChange={(e)=>{setPhoto(e.target.files[0])}}/>
           </div>
 
           <div className={style.inpg}>

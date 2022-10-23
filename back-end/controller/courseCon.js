@@ -1,14 +1,26 @@
+const multer = require("multer");
+const path = require("path")
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null,"./public/photoC/Course")
+    },
+    filename: function (req, file, cb) {
+        let d = new Date()
+      cb(null, `${d.getTime()}-${file.originalname}`)
+    }
+  });
+
+
 
 const Course = require("../models/course");
 
 const coures = ()=>{
     return {
         addCourse: async (req,res)=>{
-            const {course} = req.body;
+            const {name,duration,Fee,Instructor,Details} = req.body;
             try {
                 const data = new Course({
-                    name:course,
-                    status:true
+                    name,duration,Fee,Instructor,Details,Photo:req.file.filename
                 })
                 const resdata = await data.save()
               return  res.status(200).json(resdata);
@@ -17,6 +29,12 @@ const coures = ()=>{
                 return   res.status(500).send(error)
             }
         },
+        upload: multer({  
+            storage: storage,
+            limits:{
+             fileSize: 3000000 // 3mb
+            }
+        }),
         getallcourse : async (req,res)=>{
             try {
                 const allcourse = await Course.find({});
