@@ -28,7 +28,7 @@ function rout(app){
         app.get('/chackAuth',Auth().chackBycookie);
 
         // add course
-        app.post('/addcourse',auth,Course().addCourse)
+        app.post('/addcourse',auth,Course().upload.single('ph'),Course().addCourse)
         // get all course
         app.get("/getallcourse",auth,Course().getallcourse)
         app.get("/deletecourse/:id",auth,Course().delete)
@@ -74,4 +74,4 @@ function rout(app){
         app.get('/getallinstructor',auth,instructorCon().getAll);
 }
 
-module.exports = rout;
+module.exports = rout; 

@@ -1,13 +1,17 @@
 import axios from "axios";
 import JoditEditor from "jodit-react";
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../../loading/Loading";
 import style from "./entry.module.scss";
 const placeholder = "type here";
 
 
 
 const CourseEntry = () => {
+  const nav = useNavigate()
+  const [load,setLoad] = useState(false);
   const editor = useRef(null);
   const [content, setContent] = useState("");
   // getallinstructor
@@ -40,6 +44,35 @@ const CourseEntry = () => {
   useEffect(()=>{
     getInstroctor()
   },[])
+  const saveData = async ()=>{
+    if(load){
+      return
+    }
+    setLoad(true)
+    const formData = new FormData();
+    formData.append("ph", Photo);
+    formData.append("name", name);
+    formData.append("duration", duration);
+    formData.append("Fee", Fee);
+    formData.append("Instructor", Instructor);
+    formData.append("Details", content);
+    try {
+      const respodb = await axios.post('/addcourse',formData)
+      if(respodb.status === 200){
+          toast.success("Courses added ")
+          nav('/courselist')
+          setLoad(false)
+      }else{
+          toast.error("some thing is wrong !");
+          return setLoad(false)
+      }
+
+    } catch (error) {
+      console.log(error);
+      setLoad(false)
+      toast.error("some thing is wrong !")
+    }
+  }
 
 
   return (
@@ -86,7 +119,7 @@ const CourseEntry = () => {
 
           <div className={style.inpg}>
             <span>Course Image: </span>
-            <input type="file" src="" alt="" value={Photo} onChange={(e)=>{setPhoto(e.target.files[0])}}/>
+            <input type="file" src="" alt="" onChange={(e)=>{setPhoto(e.target.files[0])}}/>
           </div>
 
           <div className={style.inpg}>
@@ -111,7 +144,7 @@ const CourseEntry = () => {
               </div>
         </div>
         <div className={style.btnc}>
-          <button> Add Course</button>
+          <button onClick={saveData} >{load?<Loading color={"red"}/>:"Add Course"} </button>
         </div>
         
         </div>

@@ -11,6 +11,7 @@ import Query from "../components/query/Query";
 import SecretRoute from "./SecretRoute";
 // courese info 
 import CourseEntry from "../components/CourseList/courseEntry/CourseEntry";
+import CourseList from "../components/CourseList/courseList/CourseList";
 
 // instructor
 import AddInstructor from "../components/instructorInfo/Addinstructor/AddInstructor";
@@ -61,6 +62,10 @@ import {
     {
         path: "/courseentry",
         element: <SecretRoute Element ={Layout} Ch={CourseEntry}/>,
+    },
+    {
+        path: "/courselist",
+        element: <SecretRoute Element ={Layout} Ch={CourseList}/>,
     },
     // instructor 
     {

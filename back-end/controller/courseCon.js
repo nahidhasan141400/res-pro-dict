@@ -1,5 +1,6 @@
 const multer = require("multer");
 const path = require("path")
+const fs = require('fs');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null,"./public/photoC/Course")
@@ -45,8 +46,12 @@ const coures = ()=>{
         },
         delete: async(req,res)=>{
             try {
+
+
                 const _id = req.params.id;
-                const ac = await Course.deleteOne({_id})
+                const datadel = await Course.findOne({_id});
+                fs.unlinkSync(path.resolve( __dirname+"/../public/photoC/Course/"+datadel.Photo));
+                const ac = await Course.deleteOne({_id});
                 const aData = await Course.find({})
                 res.status(200).json(aData)
             } catch (error) {
