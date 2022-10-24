@@ -94,7 +94,7 @@ const Sidebar = () => {
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink className={style.linkc} to="/courselist">
+                                        <NavLink className={style.linkc} to="/instructorlist">
                                             <span><span className={style.iconc}><CgUserList/></span> <p>Instructor list</p></span>
                                         </NavLink>
                                     </li>

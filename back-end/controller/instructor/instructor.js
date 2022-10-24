@@ -1,5 +1,6 @@
 const multer = require("multer");
-const path = require("path")
+const path = require("path");
+const fs = require("fs")
 const Instructor = require("../../models/instructor")
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -19,12 +20,12 @@ const instructorCon = ()=>{
             console.log(req.body.name);
             console.log(req.file.filename);
             const {
-                name,NID,Speciality,Father,Mother,Mobile,Email,Jdate,Address,Salary
+                name,NID,Specialty,Father,Mother,Mobile,Email,Jdate,Address,Salary
             } = req.body;
 
             try {
               const dataLoad = new Instructor({
-                name,NID,Speciality,Father,Mother,Mobile,Email,Jdate,Address,Salary,
+                name,NID,Specialty,Father,Mother,Mobile,Email,Jdate,Address,Salary,
                 Photo:req.file.filename
 
               })
@@ -50,6 +51,41 @@ const instructorCon = ()=>{
             console.log(error);
             res.status(500).send(error);
           }
+        },
+        delete : async (req,res)=>{
+           try {
+            const _id = req.params.id;
+            const datadel = await Instructor.findOne({_id});            
+            fs.unlinkSync(path.resolve( __dirname+"/../../public/photoC/instructor/"+datadel.Photo));
+
+            const ac = await Instructor.deleteOne({_id});
+                const aData = await Instructor.find({})
+                res.status(200).json(aData)
+           } catch (error) {
+            console.log(error)
+            res.status(500).send(error)
+           }
+        },
+        getbyid : async (req,res)=>{
+           try {
+            const _id = req.params.id;
+                const aData = await Instructor.findOne({_id})
+                res.status(200).json(aData)
+           } catch (error) {
+            console.log(error)
+            res.status(500).send(error)
+           }
+        },
+        upbyid : async (req,res)=>{
+           try {
+              const _id = req.body.id;
+              const data = req.body.data;
+                const aData = await Instructor.findByIdAndUpdate(_id,data)
+                res.status(200).json(aData)
+           } catch (error) {
+            console.log(error)
+            res.status(500).send(error)
+           }
         }
 
     }

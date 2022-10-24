@@ -32,8 +32,10 @@ function rout(app){
         // get all course
         app.get("/getallcourse",auth,Course().getallcourse)
         app.get("/deletecourse/:id",auth,Course().delete)
+        app.get("/getcoursebyid/:id",auth,Course().getbyid)
         app.get("/getActiveCourse",auth,Course().getActiveCourse)
         app.post("/cstatus/:id",auth,Course().CStatus)
+        app.post("/updatecourse",auth,Course().updateC)
         // add htk 
         app.post('/addhtk',auth,Htk().addHtk)
         app.get("/getallhtk",auth,Htk().getallhtk)
@@ -70,8 +72,11 @@ function rout(app){
         app.post("/sendsmssingal",auth,msg().sendsmssingal);
 // instructor 
         app.post("/addinstructoraccount",auth,InstructorCon().upload.single('photo'),InstructorCon().addEnstructor);
-
+        // deletInstructor
         app.get('/getallinstructor',auth,instructorCon().getAll);
+        app.get("/deletInstructor/:id",auth,instructorCon().delete)
+        app.get("/getinstructor/:id",auth,instructorCon().getbyid)
+        app.post("/updateinstructor",auth,instructorCon().upbyid)
 }
 
 module.exports = rout; 

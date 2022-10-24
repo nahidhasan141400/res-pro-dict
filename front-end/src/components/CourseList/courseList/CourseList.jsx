@@ -2,9 +2,13 @@ import React from 'react';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { BsClipboardData } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 import style from "./list.module.scss";
+
 const CourseList = () => {
+  const navigat = useNavigate();
     const [data,setData] = React.useState([])
 
     const getData = async ()=>{
@@ -85,7 +89,7 @@ const CourseList = () => {
                                 <button  onClick={()=>{cStatus(e._id,e.status)}}>
                                     {e.status?<span style={{color:"#007a25"}}><AiFillEye/></span>:<span style={{color:"#ff0000"}}><AiFillEyeInvisible/></span>}
                                 </button>
-                                <button><span style={{color: "#007aff"}}><BiEdit/></span></button>
+                                <button onClick={()=>{navigat(`/updatecourse/${e._id}`)}}><span style={{color: "#007aff"}}><BiEdit/></span></button>
                                 <button style={{color:"#ff0000"}} onClick={()=>{dellet(e._id)}}><BiTrash/></button>
                                 <button><BsClipboardData/> Details</button>
                             </td>

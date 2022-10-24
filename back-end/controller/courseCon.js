@@ -79,7 +79,28 @@ const coures = ()=>{
                 console.log(error);
                 res.status(500).send({msg:error})
             }
-        }
+        },
+        getbyid:async (req,res)=>{
+            try {
+                const _id = req.params.id;
+                const resDb = await Course.findOne({_id}).populate("Instructor");
+                res.json(resDb);
+            } catch (error) {
+                console.log(error);
+                res.status(500).send({msg:error})
+            }
+        },
+        updateC:async (req,res)=>{
+            try {
+                const _id = req.body.id;
+                const data = req.body.data;
+                const resDb = await Course.findByIdAndUpdate(_id,data)
+                res.json(resDb);
+            } catch (error) {
+                console.log(error);
+                res.status(500).send({msg:error})
+            }
+        },
     }
 }
 

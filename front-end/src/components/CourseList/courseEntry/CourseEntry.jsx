@@ -1,7 +1,7 @@
 import axios from "axios";
 import JoditEditor from "jodit-react";
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../loading/Loading";
 import style from "./entry.module.scss";
@@ -10,6 +10,7 @@ const placeholder = "type here";
 
 
 const CourseEntry = () => {
+  let { id } = useParams();
   const nav = useNavigate()
   const [load,setLoad] = useState(false);
   const editor = useRef(null);
@@ -34,21 +35,73 @@ const CourseEntry = () => {
       let resdb = await axios('/getallinstructor');
       if(resdb.status === 200){
         setInst(resdb.data)
+        setLoad(false)
       }
     } catch (error) {
       console.log(error)
       toast.error("some thing is wrong in server!")
+      setLoad(false)
+    }
+  }
+  const getdata = async ()=>{
+    try {
+      const resdb = await axios(`/getcoursebyid/${id}`);
+      if(resdb.status === 200){
+        setname(resdb.data.name);
+        setduration(resdb.data.duration);
+        setFee(resdb.data.Fee);
+        setInstructor(resdb.data.Instructor._id);
+        setContent(resdb.data.Details) 
+      }else{
+        console.log(resdb);
+        toast.error("some thing is wrong")
+        setLoad(false)
+      }
+    } catch (error) {
+      console.log(error);
+        toast.error("some thing is wrong")
+        setLoad(false)
     }
   }
 
+  // update function start
+  const Update = async ()=>{
+    try {
+      const res = await axios.post("/updatecourse",{id,data:{
+        name,duration,Fee,Instructor,Details:content
+      }})
+      if(res.status === 200){
+        setLoad(false)
+        nav("/courselist");
+        toast.success("data updated");
+      }else{
+        console.log(res);
+        setLoad(false);
+        toast.error("some thing is wrong!")
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("some thing is wrong")
+      setLoad(false)
+    }
+  };
+  // update function end
+ 
   useEffect(()=>{
     getInstroctor()
-  },[])
+    if(id){
+         getdata();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[id])
   const saveData = async ()=>{
     if(load){
       return
     }
     setLoad(true)
+    if(id){
+      return Update();
+    }
     const formData = new FormData();
     formData.append("ph", Photo);
     formData.append("name", name);
@@ -79,7 +132,7 @@ const CourseEntry = () => {
     <div className={style.main}>
       <div className={style.con}>
         <div className={style.head}>
-          <h1><span>#</span>Entry Course</h1>
+          <h1><span>#</span>{id?"Update":"Entry"} Course</h1>
         </div>
         <div className={style.form}>
 
@@ -116,11 +169,13 @@ const CourseEntry = () => {
               })}
             </select>
           </div>
-
-          <div className={style.inpg}>
-            <span>Course Image: </span>
-            <input type="file" src="" alt="" onChange={(e)=>{setPhoto(e.target.files[0])}}/>
-          </div>
+                {id?"":(
+                    <div className={style.inpg}>
+                    <span>Course Image: </span>
+                    <input type="file" src="" alt="" onChange={(e)=>{setPhoto(e.target.files[0])}}/>
+                  </div>
+                )}
+          
 
           <div className={style.inpg}>
            
@@ -144,7 +199,7 @@ const CourseEntry = () => {
               </div>
         </div>
         <div className={style.btnc}>
-          <button onClick={saveData} >{load?<Loading color={"red"}/>:"Add Course"} </button>
+          <button onClick={saveData} >{load?<Loading color={"red"}/>:(id?"Update":"Add")+" Course"} </button>
         </div>
         
         </div>
