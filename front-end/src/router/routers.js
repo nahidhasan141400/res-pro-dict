@@ -15,6 +15,7 @@ import CourseList from "../components/CourseList/courseList/CourseList";
 
 // instructor
 import AddInstructor from "../components/instructorInfo/Addinstructor/AddInstructor";
+import InstructorDe from "../components/instructorInfo/instructordetails/InstructorDe";
 import InstructorList from "../components/instructorInfo/List/InstructorList";
 
 
@@ -84,6 +85,10 @@ import {
     {
         path: "/updateinstructor/:id",
         element: <SecretRoute Element ={Layout} Ch={AddInstructor}/>,
+    },
+    {
+        path: "/instructordetails/:id",
+        element: <SecretRoute Element ={Layout} Ch={InstructorDe}/>,
     }
   ]);
 

@@ -79,7 +79,7 @@ const InstructorList = () => {
                                 </button> */}
                                 <button onClick={()=>{navigat(`/updateinstructor/${e._id}`)}}><span style={{color: "#007aff"}}><BiEdit/></span></button>
                                 <button style={{color:"#ff0000"}} onClick={()=>{deleteIn(e._id)}}><BiTrash/></button>
-                                <button><BsClipboardData/> Details</button>
+                                <button onClick={()=>navigat(`/instructordetails/${e._id}`)}><BsClipboardData/> Details</button>
                             </td>
                         </tr>
                                 )

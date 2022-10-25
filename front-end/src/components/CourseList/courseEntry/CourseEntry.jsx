@@ -30,6 +30,7 @@ const CourseEntry = () => {
     readonly: false, // all options from https://xdsoft.net/jodit/doc/,
     placeholder: placeholder || "Start typings...",
   };
+  // get data 
   const getInstroctor = async ()=>{
     try {
       let resdb = await axios('/getallinstructor');
@@ -43,6 +44,16 @@ const CourseEntry = () => {
       setLoad(false)
     }
   }
+  // reset function
+  const reset = ()=>{
+    setname("");
+        setduration("");
+        setFee("");
+        setInstructor("");
+        setContent("")
+  }
+
+  // get data by id function
   const getdata = async ()=>{
     try {
       const resdb = await axios(`/getcoursebyid/${id}`);
@@ -88,6 +99,7 @@ const CourseEntry = () => {
   // update function end
  
   useEffect(()=>{
+    reset()
     getInstroctor()
     if(id){
          getdata();
