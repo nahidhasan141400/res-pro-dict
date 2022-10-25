@@ -12,12 +12,13 @@ import SecretRoute from "./SecretRoute";
 // courese info 
 import CourseEntry from "../components/CourseList/courseEntry/CourseEntry";
 import CourseList from "../components/CourseList/courseList/CourseList";
-
+import CourseDe from "../components/CourseList/Details/CourseDe";
 // instructor
 import AddInstructor from "../components/instructorInfo/Addinstructor/AddInstructor";
 import InstructorDe from "../components/instructorInfo/instructordetails/InstructorDe";
 import InstructorList from "../components/instructorInfo/List/InstructorList";
-
+// bacth
+import addBacth from "../components/Bacth/addBach/addBacth";
 
 import {
     createBrowserRouter
@@ -73,6 +74,10 @@ import {
         path: "/updatecourse/:id",
         element: <SecretRoute Element ={Layout} Ch={CourseEntry}/>,
     },
+    {
+        path: "/coursedetails/:id",
+        element: <SecretRoute Element ={Layout} Ch={CourseDe}/>,
+    },
     // instructor 
     {
         path: "/addinstructor",
@@ -89,7 +94,12 @@ import {
     {
         path: "/instructordetails/:id",
         element: <SecretRoute Element ={Layout} Ch={InstructorDe}/>,
-    }
+    },
+    // bacth
+    {
+        path: "/addBacth",
+        element: <SecretRoute Element ={Layout} Ch={addBacth}/>,
+    },
   ]);
 
   export default router;

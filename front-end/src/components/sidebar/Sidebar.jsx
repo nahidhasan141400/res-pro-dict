@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineFieldTime } from "react-icons/ai";
 import { BiListPlus, BiListUl } from "react-icons/bi";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
@@ -13,6 +14,7 @@ const Sidebar = () => {
     const [frontdes,setfrontdes] = React.useState(false)
     const [courseinfo,setcourseinfo] = React.useState(false)
     const [Instructor,setInstructor] = React.useState(false)
+    const [Bacth,setBacth] = React.useState(false)
   return (
     <>
         <div className={style.main}>
@@ -76,6 +78,26 @@ const Sidebar = () => {
                                     <li>
                                         <NavLink className={style.linkc} to="/courselist">
                                             <span><span className={style.iconc}><BiListUl/></span> <p>course list</p></span>
+                                        </NavLink>
+                                    </li>
+                                    
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={()=>setBacth(!Bacth)} className={style.link}>
+                                <span><span className={style.icon}><AiOutlineFieldTime/></span> <p>Bacth info <span>{Bacth?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={Bacth?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/addBacth">
+                                            <span><span className={style.iconc}><FaUserPlus/></span> <p>Add Bacth</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/Batchlist">
+                                            <span><span className={style.iconc}><CgUserList/></span> <p>Bacth list</p></span>
                                         </NavLink>
                                     </li>
                                     

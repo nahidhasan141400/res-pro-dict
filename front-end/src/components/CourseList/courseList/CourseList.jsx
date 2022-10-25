@@ -91,7 +91,7 @@ const CourseList = () => {
                                 </button>
                                 <button onClick={()=>{navigat(`/updatecourse/${e._id}`)}}><span style={{color: "#007aff"}}><BiEdit/></span></button>
                                 <button style={{color:"#ff0000"}} onClick={()=>{dellet(e._id)}}><BiTrash/></button>
-                                <button><BsClipboardData/> Details</button>
+                                <button onClick={()=>navigat(`/coursedetails/${e._id}`)}><BsClipboardData/> Details</button>
                             </td>
                         </tr>
                                 )

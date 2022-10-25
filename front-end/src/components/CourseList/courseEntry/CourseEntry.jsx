@@ -61,7 +61,7 @@ const CourseEntry = () => {
         setname(resdb.data.name);
         setduration(resdb.data.duration);
         setFee(resdb.data.Fee);
-        setInstructor(resdb.data.Instructor._id);
+        setInstructor(resdb.data.Instructor?resdb.data.Instructor._id:"");
         setContent(resdb.data.Details) 
       }else{
         console.log(resdb);

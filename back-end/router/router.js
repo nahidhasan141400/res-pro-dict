@@ -11,6 +11,8 @@ const sms_temp = require("../controller/smsCon");
 // instructor 
 const InstructorCon = require("../controller/instructor/instructor.js");
 const instructorCon = require("../controller/instructor/instructor.js");
+//batch
+const BatchCon = require("../controller/batchCon")
 function rout(app){
            
             
@@ -77,6 +79,8 @@ function rout(app){
         app.get("/deletInstructor/:id",auth,instructorCon().delete)
         app.get("/getinstructor/:id",auth,instructorCon().getbyid)
         app.post("/updateinstructor",auth,instructorCon().upbyid)
+        //batch
+        app.post("/addbatch",auth,BatchCon().add)
 }
 
 module.exports = rout; 
