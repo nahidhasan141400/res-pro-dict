@@ -19,6 +19,7 @@ import InstructorDe from "../components/instructorInfo/instructordetails/Instruc
 import InstructorList from "../components/instructorInfo/List/InstructorList";
 // bacth
 import addBacth from "../components/Bacth/addBach/addBacth";
+import Batchdetails from "../components/Bacth/detailse/Batchdetails";
 import BatchList from "../components/Bacth/list/BatchList";
 
 import {
@@ -108,6 +109,10 @@ import {
     {
         path: "/batchupdate/:id",
         element: <SecretRoute Element ={Layout} Ch={addBacth}/>,
+    }, 
+    {
+        path: "/batchdetails/:id",
+        element: <SecretRoute Element ={Layout} Ch={Batchdetails}/>,
     }, 
   ]);
 
