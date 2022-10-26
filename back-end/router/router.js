@@ -72,7 +72,7 @@ function rout(app){
         app.get("/getsmsbalance",auth,msg().getbalenced);
         app.post("/sendsmstoall",auth,msg().sendmsgall);
         app.post("/sendsmssingal",auth,msg().sendsmssingal);
-// instructor 
+        // instructor 
         app.post("/addinstructoraccount",auth,InstructorCon().upload.single('photo'),InstructorCon().addEnstructor);
         // deletInstructor
         app.get('/getallinstructor',auth,instructorCon().getAll);
@@ -81,6 +81,11 @@ function rout(app){
         app.post("/updateinstructor",auth,instructorCon().upbyid)
         //batch
         app.post("/addbatch",auth,BatchCon().add)
+        app.get("/getallbatch",auth,BatchCon().all)
+        app.post("/changebatch/:id",auth,BatchCon().CStatus)
+        app.get("/deletebatch/:id",auth,BatchCon().delete)
+        app.get("/getbatchby/:id",auth,BatchCon().getbyid)
+        app.post("/updatebatch",auth,BatchCon().update)
 }
 
 module.exports = rout; 

@@ -19,6 +19,7 @@ import InstructorDe from "../components/instructorInfo/instructordetails/Instruc
 import InstructorList from "../components/instructorInfo/List/InstructorList";
 // bacth
 import addBacth from "../components/Bacth/addBach/addBacth";
+import BatchList from "../components/Bacth/list/BatchList";
 
 import {
     createBrowserRouter
@@ -100,6 +101,14 @@ import {
         path: "/addBacth",
         element: <SecretRoute Element ={Layout} Ch={addBacth}/>,
     },
+    {
+        path: "/batchlist",
+        element: <SecretRoute Element ={Layout} Ch={BatchList}/>,
+    }, 
+    {
+        path: "/batchupdate/:id",
+        element: <SecretRoute Element ={Layout} Ch={addBacth}/>,
+    }, 
   ]);
 
   export default router;

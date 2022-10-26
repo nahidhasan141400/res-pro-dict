@@ -17,8 +17,9 @@ var storage = multer.diskStorage({
 const instructorCon = ()=>{
     return {
         addEnstructor : async (req,res)=>{
-            console.log(req.body.name);
-            console.log(req.file.filename);
+            if(!req.file){
+              return res.status(500).send("no photo found")
+            }
             const {
                 name,NID,Specialty,Father,Mother,Mobile,Email,Jdate,Address,Salary
             } = req.body;
@@ -40,7 +41,7 @@ const instructorCon = ()=>{
         upload: multer({  
                      storage: storage,
                      limits:{
-                      fileSize: 300000 // 300kb 
+                      fileSize: 320000 // 300kb 
                      }
                  }),
         getAll: async (req,res)=>{
