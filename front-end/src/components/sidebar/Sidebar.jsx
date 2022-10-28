@@ -3,7 +3,7 @@ import { AiOutlineFieldTime } from "react-icons/ai";
 import { BiListPlus, BiListUl } from "react-icons/bi";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
-import { FaRegListAlt, FaUserPlus, FaUsers, FaUserTie } from "react-icons/fa";
+import { FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserTie } from "react-icons/fa";
 import { GiArchiveResearch, GiDesk } from "react-icons/gi";
 import { IoIosArrowDown, IoIosArrowUp, IoMdAnalytics, IoMdCreate } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
@@ -14,6 +14,7 @@ const Sidebar = () => {
     const [frontdes,setfrontdes] = React.useState(false)
     const [courseinfo,setcourseinfo] = React.useState(false)
     const [Instructor,setInstructor] = React.useState(false)
+    const [Admitio,setAdmitio] = React.useState(false)
     const [Bacth,setBacth] = React.useState(false)
   return (
     <>
@@ -113,6 +114,26 @@ const Sidebar = () => {
                                     <li>
                                         <NavLink className={style.linkc} to="/addinstructor">
                                             <span><span className={style.iconc}><FaUserPlus/></span> <p>Add Instuctor</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/instructorlist">
+                                            <span><span className={style.iconc}><CgUserList/></span> <p>Instructor list</p></span>
+                                        </NavLink>
+                                    </li>
+                                    
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={()=>setAdmitio(!Admitio)} className={style.link}>
+                                <span><span className={style.icon}><FaUserGraduate/></span> <p>Student <span>{Admitio?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={Admitio?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/studentadmition">
+                                            <span><span className={style.iconc}><FaUserPlus/></span> <p>Admition Form</p></span>
                                         </NavLink>
                                     </li>
                                     <li>

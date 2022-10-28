@@ -60,8 +60,6 @@ function BatchCon(){
         update:async (req,res)=>{
             try {
                 const _id = req.body.id;
-                console.log(_id)
-                console.log("id")
                 const data = req.body.data;
                 const resDb = await Batch.findByIdAndUpdate(_id,data)
                 res.json(resDb);

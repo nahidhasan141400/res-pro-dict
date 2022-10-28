@@ -21,6 +21,8 @@ import InstructorList from "../components/instructorInfo/List/InstructorList";
 import addBacth from "../components/Bacth/addBach/addBacth";
 import Batchdetails from "../components/Bacth/detailse/Batchdetails";
 import BatchList from "../components/Bacth/list/BatchList";
+// Student Admition 
+import StudentAdmition from "../components/Student/Admition/StudentAdmition";
 
 import {
     createBrowserRouter
@@ -113,6 +115,11 @@ import {
     {
         path: "/batchdetails/:id",
         element: <SecretRoute Element ={Layout} Ch={Batchdetails}/>,
+    }, 
+    // student admition
+    {
+        path: "/studentadmition",
+        element: <SecretRoute Element ={Layout} Ch={StudentAdmition}/>,
     }, 
   ]);
 
