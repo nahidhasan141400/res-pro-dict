@@ -93,7 +93,7 @@ const dellet = async(id)=>{
     <div className={style.main}>
         <div className={style.con}>
           <div className={style.head}>
-                <h1><span>#</span>Courses List</h1>
+                <h1><span>#</span>Batch List</h1>
             </div>
             <div className={style.table}>
                 <table>

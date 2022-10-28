@@ -51,6 +51,7 @@ const AddBacth = () => {
 
     React.useEffect(()=>{
         if(id){
+            
             getByid()
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,7 +80,7 @@ const AddBacth = () => {
     const sendData = async ()=>{
         
         try {
-            const resdb = await axios.post("/updatebatch",{name,sat,sun,mon,tue,wed,thu,fri});
+            const resdb = await axios.post("/addbatch",{name,sat,sun,mon,tue,wed,thu,fri});
             if(resdb.status === 200){
                 toast("Batch added ")
                 nav("/batchlist")
@@ -93,6 +94,7 @@ const AddBacth = () => {
     const submit = (e)=>{
         e.preventDefault()
         setload(true)
+        console.log(id)
         if(id){
             return Updatedt();
         }

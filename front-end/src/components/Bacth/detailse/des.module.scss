@@ -39,7 +39,16 @@
           width: 100%;
           padding: 10px;
           text-align: center;
-          border-bottom: 1px solid black;
+          border-bottom: 1px solid rgb(250, 0, 0);
+          h1 {
+            span {
+              color: red;
+              position: relative;
+              top: 5px;
+              font-size: 30px;
+              padding-right: 5px;
+            }
+          }
         }
         .cardG {
           width: 100%;
@@ -47,12 +56,38 @@
           align-items: center;
           justify-content: center;
           position: relative;
+          flex-wrap: wrap;
           .card {
             padding: 10px;
-            background: #cdcdcd;
+            background: #ffe0e0;
             margin: 10px;
             border-radius: 10px;
             text-align: center;
+            border: 1px solid #bfebff;
+            &:nth-of-type(odd) {
+              border: 1px solid #ffc9c9;
+              background: #d3f1ff;
+            }
+            .day {
+              width: 100%;
+              padding: 5px;
+              font-size: 15px;
+              font-weight: 700;
+              padding-top: 0;
+              border-bottom: 1px solid red;
+            }
+            .t {
+              font-size: 16px;
+              font-weight: 600;
+              letter-spacing: 1px;
+              span {
+                font-size: 20px;
+                color: red;
+                position: relative;
+                top: 4px;
+                padding-right: 5px;
+              }
+            }
           }
         }
       }
