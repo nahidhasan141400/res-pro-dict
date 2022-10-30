@@ -8,6 +8,7 @@ const Htk = require("../controller/HtkCon");
 const msg = require("../controller/msg")
 const sms_temp = require("../controller/smsCon");
 
+
 // instructor 
 const InstructorCon = require("../controller/instructor/instructor.js");
 const instructorCon = require("../controller/instructor/instructor.js");
@@ -76,16 +77,17 @@ function rout(app){
         app.post("/addinstructoraccount",auth,InstructorCon().upload.single('photo'),InstructorCon().addEnstructor);
         // deletInstructor
         app.get('/getallinstructor',auth,instructorCon().getAll);
-        app.get("/deletInstructor/:id",auth,instructorCon().delete)
-        app.get("/getinstructor/:id",auth,instructorCon().getbyid)
-        app.post("/updateinstructor",auth,instructorCon().upbyid)
+        app.get("/deletInstructor/:id",auth,instructorCon().delete);
+        app.get("/getinstructor/:id",auth,instructorCon().getbyid);
+        app.post("/updateinstructor",auth,instructorCon().upbyid);
         //batch
-        app.post("/addbatch",auth,BatchCon().add)
-        app.get("/getallbatch",auth,BatchCon().all)
-        app.post("/changebatch/:id",auth,BatchCon().CStatus)
-        app.get("/deletebatch/:id",auth,BatchCon().delete)
-        app.get("/getbatchby/:id",auth,BatchCon().getbyid)
-        app.post("/updatebatch",auth,BatchCon().update)
-}
+        app.post("/addbatch",auth,BatchCon().add);
+        app.get("/getallbatch",auth,BatchCon().all);
+        app.post("/changebatch/:id",auth,BatchCon().CStatus);
+        app.get("/deletebatch/:id",auth,BatchCon().delete);
+        app.get("/getbatchby/:id",auth,BatchCon().getbyid);
+        app.post("/updatebatch",auth,BatchCon().update);
+        app.get("/getActiveBatch",auth,BatchCon().getActiveCourse);
+    }
 
-module.exports = rout; 
+    module.exports = rout; 

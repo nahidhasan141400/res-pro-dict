@@ -68,6 +68,15 @@ function BatchCon(){
                 res.status(500).send({msg:error})
             }
         },
+        getActiveCourse:async (req,res)=>{
+            try {
+                const resDb = await Batch.find({status:true}).sort({ name: 1} );
+                res.json(resDb);
+            } catch (error) {
+                console.log(error);
+                res.status(500).send({msg:error})
+            }
+        },
     }
 }
 

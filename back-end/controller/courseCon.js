@@ -73,7 +73,7 @@ const coures = ()=>{
         },
         getActiveCourse:async (req,res)=>{
             try {
-                const resDb = await Course.find({status:true}).sort({ name: 1} );
+                const resDb = await Course.find({status:true}).populate("Instructor").sort({ name: 1} );
                 res.json(resDb);
             } catch (error) {
                 console.log(error);
