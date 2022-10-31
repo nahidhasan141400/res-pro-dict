@@ -2,30 +2,38 @@ import axios from 'axios';
 import React from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useLoad } from "../../../context/LodingAuth";
 import style from './de.module.scss';
 
 const InstructorDe = () => {
+    const {setLoading} = useLoad()
+    
     let { id } = useParams();
     let jao = useNavigate();
 
     const [data,setData] = React.useState({})
     // get Data function
     const getDataByID = async () => {
+        setLoading(true)
         try {
           const redb = await axios(`/getinstructor/${id}`);
           if (redb.status === 200) {
             setData(redb.data)
+            setLoading(false)
           } else {
             toast.error("some Thing wrong");
+            setLoading(false)
             jao("/instructorlist");
           }
         } catch (error) {
           console.log(error);
           toast.error("some Thing wrong");
+          setLoading(false)
           jao("/instructorlist");
         }
       };
       React.useEffect(()=>{
+        
         getDataByID();
       // eslint-disable-next-line react-hooks/exhaustive-deps
       },[id])

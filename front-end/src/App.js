@@ -1,6 +1,8 @@
 import {
   RouterProvider
 } from "react-router-dom";
+
+import LoadCont from "./context/LodingAuth";
 import router from "./router/routers";
 function App() {
   return (
@@ -8,7 +10,9 @@ function App() {
      <section>
     {/* <Login /> */}
       {/* <Layout/> */}
-      <RouterProvider router={router} />
+      <LoadCont>
+          <RouterProvider router={router} />
+      </LoadCont>
      </section>
     </>
   );

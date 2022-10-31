@@ -5,6 +5,7 @@ import { BsClipboardData } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import style from './list.module.scss';
+
 const InstructorList = () => {
     const navigat = useNavigate()
     const [data ,SetData] = React.useState([]);
