@@ -5,17 +5,30 @@ import { BsFillChatDotsFill } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
 import { FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserTie } from "react-icons/fa";
 import { GiArchiveResearch, GiDesk } from "react-icons/gi";
-import { IoIosArrowDown, IoIosArrowUp, IoMdAnalytics, IoMdCreate } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp, IoMdAddCircle, IoMdAnalytics, IoMdCreate } from "react-icons/io";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { VscSettings } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 import style from "./sidebar.module.scss";
 
 const Sidebar = () => {
-    const [frontdes,setfrontdes] = React.useState(false)
-    const [courseinfo,setcourseinfo] = React.useState(false)
-    const [Instructor,setInstructor] = React.useState(false)
-    const [Admitio,setAdmitio] = React.useState(false)
-    const [Bacth,setBacth] = React.useState(false)
+    const [frontdes,setfrontdes] = React.useState(false);
+    const [courseinfo,setcourseinfo] = React.useState(false);
+    const [Instructor,setInstructor] = React.useState(false);
+    const [Admitio,setAdmitio] = React.useState(false);
+    const [Bacth,setBacth] = React.useState(false);
+    const [Admin,setAdmin] = React.useState(false);
+
+    //reset btn
+    const reset =(fn,v)=>{
+        setfrontdes(false);
+        setcourseinfo(false);
+        setInstructor(false);
+        setAdmitio(false);
+        setBacth(false);
+        setAdmin(false);
+        fn(v);
+    }
   return (
     <>
         <div className={style.main}>
@@ -27,7 +40,7 @@ const Sidebar = () => {
                     <ol>
                         
                         <li>
-                            <div onClick={()=>setfrontdes(!frontdes)} className={style.link}>
+                            <div onClick={()=>reset(setfrontdes,!frontdes)} className={style.link}>
                                 <span><span className={style.icon}><GiDesk/></span> <p>front-desk <span>{frontdes?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
                             </div>
                             <div style={frontdes?{height:"auto"}:{}} className={style.listof}>
@@ -66,7 +79,7 @@ const Sidebar = () => {
                             </div>
                         </li>
                         <li>
-                            <div onClick={()=>setcourseinfo(!courseinfo)} className={style.link}>
+                            <div onClick={()=>reset(setcourseinfo,!courseinfo)} className={style.link}>
                                 <span><span className={style.icon}><FaRegListAlt/></span> <p>Course Info <span>{courseinfo?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
                             </div>
                             <div style={courseinfo?{height:"auto"}:{}} className={style.listof}>
@@ -86,7 +99,7 @@ const Sidebar = () => {
                             </div>
                         </li>
                         <li>
-                            <div onClick={()=>setBacth(!Bacth)} className={style.link}>
+                            <div onClick={()=>reset(setBacth,!Bacth)} className={style.link}>
                                 <span><span className={style.icon}><AiOutlineFieldTime/></span> <p>Bacth info <span>{Bacth?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
                             </div>
                             <div style={Bacth?{height:"auto"}:{}} className={style.listof}>
@@ -106,7 +119,7 @@ const Sidebar = () => {
                             </div>
                         </li>
                         <li>
-                            <div onClick={()=>setInstructor(!Instructor)} className={style.link}>
+                            <div onClick={()=>reset(setInstructor,!Instructor)} className={style.link}>
                                 <span><span className={style.icon}><FaUserTie/></span> <p>Instructor <span>{Instructor?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
                             </div>
                             <div style={Instructor?{height:"auto"}:{}} className={style.listof}>
@@ -126,7 +139,7 @@ const Sidebar = () => {
                             </div>
                         </li>
                         <li>
-                            <div onClick={()=>setAdmitio(!Admitio)} className={style.link}>
+                            <div onClick={()=>reset(setAdmitio,!Admitio)} className={style.link}>
                                 <span><span className={style.icon}><FaUserGraduate/></span> <p>Student <span>{Admitio?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
                             </div>
                             <div style={Admitio?{height:"auto"}:{}} className={style.listof}>
@@ -136,9 +149,19 @@ const Sidebar = () => {
                                             <span><span className={style.iconc}><FaUserPlus/></span> <p>Admition Form</p></span>
                                         </NavLink>
                                     </li>
+                                    
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={()=>reset(setAdmin,!Admin)} className={style.link}>
+                                <span><span className={style.icon}><MdOutlineAdminPanelSettings/></span> <p>Admin<span>{Admin?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={Admin?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
                                     <li>
-                                        <NavLink className={style.linkc} to="/instructorlist">
-                                            <span><span className={style.iconc}><CgUserList/></span> <p>Instructor list</p></span>
+                                        <NavLink className={style.linkc} to="/addadminuser">
+                                            <span><span className={style.iconc}><IoMdAddCircle/></span> <p>Add New User</p></span>
                                         </NavLink>
                                     </li>
                                     

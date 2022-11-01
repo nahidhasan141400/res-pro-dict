@@ -23,6 +23,8 @@ import Batchdetails from "../components/Bacth/detailse/Batchdetails";
 import BatchList from "../components/Bacth/list/BatchList";
 // Student Admition 
 import StudentAdmition from "../components/Student/Admition/StudentAdmition";
+//add admin user
+import AddUser from "../components/Admin/addUser/AddUser";
 
 import {
     createBrowserRouter
@@ -121,6 +123,11 @@ import {
         path: "/studentadmition",
         element: <SecretRoute Element ={Layout} Ch={StudentAdmition}/>,
     }, 
+    // add user admin
+    {
+        path: "/addadminuser",
+        element: <SecretRoute Element ={Layout} Ch={AddUser}/>,
+    },
   ]);
 
   export default router;
