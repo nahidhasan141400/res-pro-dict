@@ -32,6 +32,7 @@ const AdminSchema = new mongoose.Schema({
     /* The user name of your Admin */
     type: String,
     unique: true,
+    default:"nophoto.png"
   },
   acsses: {
     /* The user name of your Admin */

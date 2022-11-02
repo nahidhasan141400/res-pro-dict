@@ -14,6 +14,8 @@ const InstructorCon = require("../controller/instructor/instructor.js");
 const instructorCon = require("../controller/instructor/instructor.js");
 //batch
 const BatchCon = require("../controller/batchCon")
+// admin
+const AminUserCon = require("../controller/Admin/AdminUserCon")
 function rout(app){
            
             
@@ -88,6 +90,8 @@ function rout(app){
         app.get("/getbatchby/:id",auth,BatchCon().getbyid);
         app.post("/updatebatch",auth,BatchCon().update);
         app.get("/getActiveBatch",auth,BatchCon().getActiveCourse);
+        // admin controler 
+        // app.get("/addadminuser")
     }
 
     module.exports = rout; 
