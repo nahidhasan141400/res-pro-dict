@@ -6,15 +6,17 @@ const LoginCon = ()=>{
         login : async(req,res)=>{
             let {username,password} = req.body;
             // console.log(password)
+            if(!username && !password){
+                return  res.status(401).send("unauthorized")
+            }
             try {
-                const resdb = await Admin.findOne({name:"Dict"});
-                // console.log(resdb);
+                const resdb = await Admin.findOne({username});
+                // console.log({username,password});
                 const mainpass = ncrip.dnc(resdb.password,process.env.KEY);
                 // console.log({
                 //     username,password,mainpass,resdb
                 // })
                 if(username === resdb.username && password  === mainpass){
-        
                     const go = Math.round(Math.random()*1000);
                     const me = ncrip.enc(resdb._id,go);
         

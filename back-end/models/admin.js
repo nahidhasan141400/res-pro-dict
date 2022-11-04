@@ -11,6 +11,7 @@ const AdminSchema = new mongoose.Schema({
 
     type: String,
     required: [true, 'Please specify the username of your admin.'],
+    unique: true,
     maxlength: [40, 'user name cannot be more than 40 characters'],
   },
   phone: {
@@ -31,30 +32,22 @@ const AdminSchema = new mongoose.Schema({
   photo: {
     /* The user name of your Admin */
     type: String,
-    unique: true,
-    default:"nophoto.png"
+    default: "nophoto.png"
   },
   acsses: {
-    /* The user name of your Admin */
     type: Array,
-    unique: true,
+    default: []
   },
-  acsses: {
-    /* The user name of your Admin */
-    type: Array,
-    unique: true,
-  },
-  dict:{
+  dict: {
     type: Boolean,
     default: false
   },
-  password:{
-     /* The password of your Admin */
+  password: {
+    /* The password of your Admin */
 
-     type: String,
-     required: [true, 'Please specify the password of your admin.'],
-     maxlength: [40, 'password cannot be more than 40 characters'],
+    type: String,
+    required: [true, 'Please specify the password of your admin.'],
   }
 })
 
-module.exports = mongoose.models.Admin || mongoose.model('Admin', AdminSchema);
+module.exports = mongoose.models.AdminDICT || mongoose.model('AdminDICT', AdminSchema);

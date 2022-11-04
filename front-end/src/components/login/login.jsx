@@ -25,7 +25,6 @@ const Login = () => {
         try {
             const res = await axios.post('/login',{username,password});
             if(res.status === 200){
-                console.log(res);
                 document.cookie = `me=${res.data.me}`;
                 document.cookie = `go=${res.data.go}`;
                 
@@ -42,7 +41,7 @@ const Login = () => {
                return toast.error("Wrong information!")
             }
             setLoad(false)
-            toast("something is wrong")
+            toast.error("something is wrong")
         }
     }
   return (

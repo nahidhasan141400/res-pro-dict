@@ -91,7 +91,7 @@ function rout(app){
         app.post("/updatebatch",auth,BatchCon().update);
         app.get("/getActiveBatch",auth,BatchCon().getActiveCourse);
         // admin controler 
-        // app.get("/addadminuser")
+        app.post("/addadminuser",auth,AminUserCon().upload.single('photo'),AminUserCon().addEnstructor)
     }
 
     module.exports = rout; 

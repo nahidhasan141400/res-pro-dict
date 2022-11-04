@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React from 'react';
 import { IoMdAddCircle } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Load from "../../loading/Loading";
 import style from './add.module.scss';
 import Inp from './inp/Inp';
 
 const AddUser = () => {
+    const nav = useNavigate()
     // input data controler
     const [name,setname] = React.useState('');
     const [user,setuser] = React.useState('');
@@ -45,15 +47,19 @@ const AddUser = () => {
             let resdb = await axios.post("/addadminuser",formData);
             if(resdb.status === 200){
                 console.log(resdb.data);
-                toast("user added")
+                nav(`/admindata/${resdb.data._id}`)
                 return setload(false)            
             }else{
-                toast.error("some thing is wrong!")
+                toast.error("some thing is wrong !")
                 return setload(false)
             }
         } catch (error) {
             console.log(error)
-                toast.error("some thing is wrong!")
+            if(error.response.data.code === 11000){
+                toast.warn("user already Registerd")
+                return setload(false) 
+            }
+                toast.error("some thing is wrong 2!")
                 return setload(false)
         }
 

@@ -18,8 +18,6 @@ const auth = ()=>{
             } catch (error) {
                 return res.status(500).send({error});
             }
-            
-            res.json({name:"ok"})
         }
     }
 }
