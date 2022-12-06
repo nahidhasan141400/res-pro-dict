@@ -245,7 +245,7 @@ const AddInstructor = () => {
               ""
             ) : (
               <div className={style.inpG}>
-                <span>Photo: (300kb)</span>
+                <span>Photo: (800kb)</span>
                 <input
                   type="file"
                   ref={Photo}

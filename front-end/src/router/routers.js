@@ -25,7 +25,9 @@ import BatchList from "../components/Bacth/list/BatchList";
 import StudentAdmition from "../components/Student/Admition/StudentAdmition";
 //add admin user
 import AddUser from "../components/Admin/addUser/AddUser";
+import AdminList from "../components/Admin/List/AdminList";
 import UserDet from "../components/Admin/userDetails/UserDet";
+import Quick from "../components/Student/quick/Quick";
 
 import {
     createBrowserRouter
@@ -132,6 +134,14 @@ import {
     {
         path: "/admindata/:id",
         element: <SecretRoute Element={Layout} Ch={UserDet}/>,
+    },
+    {
+        path: "/adminlist",
+        element: <SecretRoute Element={Layout} Ch={AdminList}/>,
+    },
+    {
+        path: "/studentadmitionquick",
+        element: <SecretRoute Element={Layout} Ch={Quick}/>,
     },
   ]);
 

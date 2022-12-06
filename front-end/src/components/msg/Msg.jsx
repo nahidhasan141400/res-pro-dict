@@ -67,7 +67,7 @@ const Msg = () => {
               let status =await res.status;
               let data =await res.json()
               if(status === 200){
-                setbl(data);
+                setbl(data.slice(data.indexOf("BDT")+4,-1));
               }else{
                 toast.error("some thing is wrong")
               }
@@ -130,7 +130,7 @@ const Msg = () => {
                     <h1><span><RiUserSearchFill/></span>query</h1>
                 </div>
                <div className={style.search}>
-                <h1>{bl}</h1>
+                <h1> SMS Balance: {bl}</h1>
                </div>
                 <div className={style.act}>
                     <button onClick={()=>setPromt(true)}><span><HiChatAlt2/></span>send all</button>

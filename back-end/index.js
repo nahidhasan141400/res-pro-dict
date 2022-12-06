@@ -14,7 +14,7 @@ var multer     = require('multer');
 
 
 // set port 
-const PORT = process.env.PORT || 3300;
+const PORT = process.env.PORT || 3400;
 
 // config cors 
 const cors = require("cors");
@@ -25,8 +25,9 @@ app.use(cors({
 
 
 
-// database connections 
-mongoose.connect(process.env.MONGO_CONNECTION_URL,{ useUnifiedTopology: true ,useNewUrlParser: true }).then((result) => {
+
+// database connection 
+mongoose.connect("mongodb://127.0.0.1:27017/IMS", { useUnifiedTopology: true, useNewUrlParser: true }).then((result) => {
     console.log('db connected');
 }).catch((err) => {
     console.log(err)

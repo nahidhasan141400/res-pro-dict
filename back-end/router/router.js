@@ -16,6 +16,9 @@ const instructorCon = require("../controller/instructor/instructor.js");
 const BatchCon = require("../controller/batchCon")
 // admin
 const AminUserCon = require("../controller/Admin/AdminUserCon")
+// student admission data
+const StudentAdmissionCon = require("../controller/Student/studentAdmissinon");
+
 function rout(app){
            
             
@@ -91,7 +94,12 @@ function rout(app){
         app.post("/updatebatch",auth,BatchCon().update);
         app.get("/getActiveBatch",auth,BatchCon().getActiveCourse);
         // admin controler 
-        app.post("/addadminuser",auth,AminUserCon().upload.single('photo'),AminUserCon().addEnstructor)
+        app.post("/addadminuser",auth,AminUserCon().upload.single('photo'),AminUserCon().addEnstructor);
+        app.get("/getalladmin",auth,AminUserCon().allAmin);
+
+        //student admission route
+
+        app.post("/quickAdmi",auth,StudentAdmissionCon().Add)
     }
 
     module.exports = rout; 

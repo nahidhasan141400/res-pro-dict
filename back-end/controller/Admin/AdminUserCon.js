@@ -37,11 +37,21 @@ const AminUserCon = ()=>{
         upload: multer({  
                      storage: storage,
                      limits:{
-                      fileSize: 320000 // 300kb 
+                      fileSize: 820000 // 300kb 
                      }
                  }),
+        allAmin: async (req,res)=>{
+              try {
+                const resdb = await Admin.find();
+                res.status(200).send(resdb);
+              } catch (error) {
+                console.log(error);
+                res.status(500).send(error);
+              }
+        }
 
     }
 }
 
 module.exports =  AminUserCon;
+

@@ -3,7 +3,7 @@ import { AiOutlineFieldTime } from "react-icons/ai";
 import { BiListPlus, BiListUl } from "react-icons/bi";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
-import { FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserTie } from "react-icons/fa";
+import { FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserShield, FaUserTie } from "react-icons/fa";
 import { GiArchiveResearch, GiDesk } from "react-icons/gi";
 import { IoIosArrowDown, IoIosArrowUp, IoMdAddCircle, IoMdAnalytics, IoMdCreate } from "react-icons/io";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
@@ -145,8 +145,13 @@ const Sidebar = () => {
                             <div style={Admitio?{height:"auto"}:{}} className={style.listof}>
                                 <ol className={style.childlist}>
                                     <li>
+                                        <NavLink className={style.linkc} to="/studentadmitionquick">
+                                            <span><span className={style.iconc}><FaUserPlus/></span> <p>Quick Admission</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink className={style.linkc} to="/studentadmition">
-                                            <span><span className={style.iconc}><FaUserPlus/></span> <p>Admition Form</p></span>
+                                            <span><span className={style.iconc}><FaUserPlus/></span> <p>Admission Form</p></span>
                                         </NavLink>
                                     </li>
                                     
@@ -161,7 +166,12 @@ const Sidebar = () => {
                                 <ol className={style.childlist}>
                                     <li>
                                         <NavLink className={style.linkc} to="/addadminuser">
-                                            <span><span className={style.iconc}><IoMdAddCircle/></span> <p>Add New User</p></span>
+                                            <span><span className={style.iconc}><IoMdAddCircle/></span> <p>Add New Admin</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/adminlist">
+                                            <span><span className={style.iconc}><FaUserShield/></span> <p>Admin List</p></span>
                                         </NavLink>
                                     </li>
                                     

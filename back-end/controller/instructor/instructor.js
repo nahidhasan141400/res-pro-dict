@@ -41,7 +41,7 @@ const instructorCon = ()=>{
         upload: multer({  
                      storage: storage,
                      limits:{
-                      fileSize: 320000 // 300kb 
+                      fileSize: 920000 // 300kb 
                      }
                  }),
         getAll: async (req,res)=>{
