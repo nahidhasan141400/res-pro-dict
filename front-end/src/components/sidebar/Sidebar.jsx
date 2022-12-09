@@ -1,12 +1,13 @@
 import React from 'react';
 import { AiOutlineFieldTime } from "react-icons/ai";
-import { BiListPlus, BiListUl } from "react-icons/bi";
+import { BiListUl } from "react-icons/bi";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
-import { FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserShield, FaUserTie } from "react-icons/fa";
+import { FaRegCalendarAlt, FaRegCalendarPlus, FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserShield, FaUserTie } from "react-icons/fa";
 import { GiArchiveResearch, GiDesk } from "react-icons/gi";
 import { IoIosArrowDown, IoIosArrowUp, IoMdAddCircle, IoMdAnalytics, IoMdCreate } from "react-icons/io";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { MdMoreTime, MdOutlineAdminPanelSettings } from "react-icons/md";
+import { SiGoogleclassroom } from "react-icons/si";
 import { VscSettings } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 import style from "./sidebar.module.scss";
@@ -86,7 +87,7 @@ const Sidebar = () => {
                                 <ol className={style.childlist}>
                                     <li>
                                         <NavLink className={style.linkc} to="/courseentry">
-                                            <span><span className={style.iconc}><BiListPlus/></span> <p>course entry</p></span>
+                                            <span><span className={style.iconc}><MdMoreTime/></span> <p>course entry</p></span>
                                         </NavLink>
                                     </li>
                                     <li>
@@ -100,21 +101,30 @@ const Sidebar = () => {
                         </li>
                         <li>
                             <div onClick={()=>reset(setBacth,!Bacth)} className={style.link}>
-                                <span><span className={style.icon}><AiOutlineFieldTime/></span> <p>Bacth info <span>{Bacth?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                                <span><span className={style.icon}><SiGoogleclassroom/></span> <p>Class info <span>{Bacth?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
                             </div>
                             <div style={Bacth?{height:"auto"}:{}} className={style.listof}>
                                 <ol className={style.childlist}>
                                     <li>
                                         <NavLink className={style.linkc} to="/addBacth">
-                                            <span><span className={style.iconc}><FaUserPlus/></span> <p>Add Bacth</p></span>
+                                            <span><span className={style.iconc}><MdMoreTime/></span> <p>Add Bacth</p></span>
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink className={style.linkc} to="/Batchlist">
-                                            <span><span className={style.iconc}><CgUserList/></span> <p>Bacth list</p></span>
+                                            <span><span className={style.iconc}><AiOutlineFieldTime/></span> <p>Bacth list</p></span>
                                         </NavLink>
                                     </li>
-                                    
+                                    <li>
+                                        <NavLink className={style.linkc} to="/Addsession">
+                                            <span><span className={style.iconc}><FaRegCalendarPlus/></span> <p>Add Session</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/sessionlist">
+                                            <span><span className={style.iconc}><FaRegCalendarAlt/></span> <p>Session List</p></span>
+                                        </NavLink>
+                                    </li>
                                 </ol>
                             </div>
                         </li>

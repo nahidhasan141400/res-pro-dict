@@ -12,6 +12,8 @@ const StudentSchema = new mongoose.Schema({
   regNo:{
     type:String,
     require:true,
+    
+    unique:true
   },
   barth_date:{
     type: String,
@@ -47,7 +49,8 @@ const StudentSchema = new mongoose.Schema({
     type:String
   },
   roll_no:{
-    type:String
+    type:String,
+    unique:true
   },
   admission_date:{
     type:String
@@ -72,7 +75,13 @@ const StudentSchema = new mongoose.Schema({
     type:String
   },
   batch:{
-    type:String
+    type: Object
+  },
+  due:{
+    type: String,
+  },
+  DueDate:{
+    Type: Date
   }
 
 

@@ -16,12 +16,18 @@ const Analisys = () => {
   const [data,setData] = React.useState([])
   const [total,settotal] = React.useState("0")
   const [totaltoday,settotaltoday] = React.useState("0")
+  const [wather,setwather] = React.useState()
 
 
   React.useEffect(()=>{
     const getda = async ()=>{
       setLoad(true)
       try {
+        let wateherres = await axios("https://fcc-weather-api.glitch.me/api/current?lat=23.8103&lon=90.4125");
+        console.log(wateherres.data)
+        if(wateherres){
+          setwather(wateherres.data)
+        }
         
         let resdb = await axios.post("/getyeardataan",{year:d.getFullYear()});
         if(resdb.status === 200){
@@ -64,6 +70,12 @@ const Analisys = () => {
   return (
     <div className={style.main}>
         <div className={style.con}>
+          <div className={style.ban}>
+              <img src={`https://source.unsplash.com/random/1600x400/?${wather? wather.weather[0].description : "rain"}`} alt="" />
+              <div className={style.name}>
+                    Wellcome
+                </div>
+          </div>
           <div className={style.row3}>
               <div className={style.con}>
                 <div className={style.box}>

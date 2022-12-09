@@ -18,6 +18,8 @@ const BatchCon = require("../controller/batchCon")
 const AminUserCon = require("../controller/Admin/AdminUserCon")
 // student admission data
 const StudentAdmissionCon = require("../controller/Student/studentAdmissinon");
+// session com 
+const Session = require("../controller/ClassControler/SessionControler");
 
 function rout(app){
            
@@ -96,10 +98,18 @@ function rout(app){
         // admin controler 
         app.post("/addadminuser",auth,AminUserCon().upload.single('photo'),AminUserCon().addEnstructor);
         app.get("/getalladmin",auth,AminUserCon().allAmin);
-
+        
         //student admission route
-
+        
         app.post("/quickAdmi",auth,StudentAdmissionCon().Add)
+        
+        // session controler 
+        
+        app.post("/changesession/:id",auth,Session().CStatus);
+        app.post("/addsession",auth,Session().Add);
+        app.get("/getallsession",auth,Session().getAll)
+        app.get("/deletesession/:id",auth,Session().delete);
+        app.get("/getsession/:id",auth,Session().getbyid);
     }
 
     module.exports = rout; 

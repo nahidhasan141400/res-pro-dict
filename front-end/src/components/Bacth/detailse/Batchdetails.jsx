@@ -43,7 +43,7 @@ const Batchdetails = () => {
     <div className={style.main}>
         <div className={style.con}>
             <div className={style.head}>
-                <h1><span>#</span>Batch details</h1>
+                <h1><span>#</span>Batch details</h1> 
             </div>
             <div className={style.info}>
                 <div className={style.name}>

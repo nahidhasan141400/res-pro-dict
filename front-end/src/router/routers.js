@@ -1,3 +1,7 @@
+import {
+    createBrowserRouter
+} from "react-router-dom";
+
 import Analisys from "../components/analisys/Analisys";
 import Appointment from "../components/appointment/Appointment";
 import Config from "../components/config/Config";
@@ -28,10 +32,10 @@ import AddUser from "../components/Admin/addUser/AddUser";
 import AdminList from "../components/Admin/List/AdminList";
 import UserDet from "../components/Admin/userDetails/UserDet";
 import Quick from "../components/Student/quick/Quick";
-
-import {
-    createBrowserRouter
-} from "react-router-dom";
+//session route
+import addsession from "../components/session/addsession/addsession";
+import Detailssession from "../components/session/details/Details";
+import SessionList from "../components/session/list/List";
 
   const router = createBrowserRouter([
     {
@@ -143,6 +147,19 @@ import {
         path: "/studentadmitionquick",
         element: <SecretRoute Element={Layout} Ch={Quick}/>,
     },
+    //session
+    {
+        path: "/Addsession",
+        element: <SecretRoute Element={Layout} Ch={addsession}/>,
+    },
+    {
+        path: "/sessionlist",
+        element: <SecretRoute Element={Layout} Ch={SessionList}/>
+    },
+    {
+        path: "/session/:id",
+        element: <SecretRoute Element={Layout} Ch={Detailssession}/>
+    }
   ]);
 
   export default router;
