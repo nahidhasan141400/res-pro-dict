@@ -42,15 +42,19 @@ const Details = () => {
                 <h1><span> <MdOutlineDateRange/> </span>Session</h1>
             </div>
             <div className={style.ban}>
-                <img src="https://source.unsplash.com/random/1600x400/?clock" alt="" />
+                <img src="https://source.unsplash.com/random/1600x400/?education" alt="" />
                 <div className={style.name}>
                     {data.name}
                 </div>
             </div>
             <div className={style.details}>
-                <div className={style.box}>
+                <div style={{backgroundImage:"url('https://source.unsplash.com/random/400x400/?dark')"}} className={style.box}>
                     <span>#</span> <span>from</span>
                     <div className={style.t}>{data.start}</div>
+                </div>
+                <div style={{backgroundImage:"url('https://source.unsplash.com/random/400x400/?shadow')"}} className={style.box}>
+                    <span>#</span> <span>To</span>
+                    <div className={style.t}>{data.end}</div>
                 </div>
             </div>
         </div>

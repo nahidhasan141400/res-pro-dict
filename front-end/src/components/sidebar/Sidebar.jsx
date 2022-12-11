@@ -1,6 +1,6 @@
 import React from 'react';
-import { AiOutlineFieldTime } from "react-icons/ai";
-import { BiListUl } from "react-icons/bi";
+import { AiFillSetting, AiOutlineFieldTime } from "react-icons/ai";
+import { BiBuildingHouse, BiListUl } from "react-icons/bi";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
 import { FaRegCalendarAlt, FaRegCalendarPlus, FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserShield, FaUserTie } from "react-icons/fa";
@@ -19,6 +19,7 @@ const Sidebar = () => {
     const [Admitio,setAdmitio] = React.useState(false);
     const [Bacth,setBacth] = React.useState(false);
     const [Admin,setAdmin] = React.useState(false);
+    const [Setting,setSetting] = React.useState(false);
 
     //reset btn
     const reset =(fn,v)=>{
@@ -164,6 +165,22 @@ const Sidebar = () => {
                                             <span><span className={style.iconc}><FaUserPlus/></span> <p>Admission Form</p></span>
                                         </NavLink>
                                     </li>
+                                    
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={()=>reset(setSetting,!Setting)} className={style.link}>
+                                <span><span className={style.icon}><AiFillSetting/></span> <p>Settings <span>{Setting?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={Setting?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/studentadmitionquick">
+                                            <span><span className={style.iconc}><BiBuildingHouse/></span> <p>Genarel</p></span>
+                                        </NavLink>
+                                    </li>
+                                    
                                     
                                 </ol>
                             </div>
