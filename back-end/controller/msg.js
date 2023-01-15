@@ -7,6 +7,7 @@ const msg = () => {
     return{
         getdata:async (req,res)=>{
                 try {
+                    console.log(queryParse(req.body))
                     const data = await Entry.find(queryParse(req.body));
                     res.status(200).json(data)
                 } catch (error) {

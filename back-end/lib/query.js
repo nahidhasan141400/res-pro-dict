@@ -4,9 +4,13 @@ function queryParse (obj){
     
     if(admit === "1"){
         admit = true
-    }else{
-        admit = false
-    }
+    }else if(admit === "0"){
+    admit = "false"
+}else{
+    admit = ""
+}
+
+
 
     if(year &&  !month && !date && !course && !admit){
         return {year}

@@ -89,7 +89,7 @@ const Msg = () => {
                 month:monthto,
                 date:dateto,
                 course:courseto,
-                admit:admitedto
+                admit: admitedto,
             })
             settdata(resdb.data)
         } catch (error) {
