@@ -1,7 +1,7 @@
 import React from 'react';
-import { AiFillSetting, AiOutlineFieldTime } from "react-icons/ai";
-import { BiBuildingHouse, BiListUl } from "react-icons/bi";
-import { BsFillChatDotsFill } from "react-icons/bs";
+import { AiFillSetting, AiOutlineFieldTime, AiOutlineSetting } from "react-icons/ai";
+import { BiBookBookmark, BiBuildingHouse, BiListUl } from "react-icons/bi";
+import { BsFillChatDotsFill, BsFillFileEarmarkDiffFill } from "react-icons/bs";
 import { CgUserList } from "react-icons/cg";
 import { FaRegCalendarAlt, FaRegCalendarPlus, FaRegListAlt, FaUserGraduate, FaUserPlus, FaUsers, FaUserShield, FaUserTie } from "react-icons/fa";
 import { GiArchiveResearch, GiDesk } from "react-icons/gi";
@@ -20,6 +20,7 @@ const Sidebar = () => {
     const [Bacth,setBacth] = React.useState(false);
     const [Admin,setAdmin] = React.useState(false);
     const [Setting,setSetting] = React.useState(false);
+    const [Accounts,setAccounts] = React.useState(false);
 
     //reset btn
     const reset =(fn,v)=>{
@@ -29,6 +30,8 @@ const Sidebar = () => {
         setAdmitio(false);
         setBacth(false);
         setAdmin(false);
+        setAccounts(false);
+        setSetting(false);
         fn(v);
     }
   return (
@@ -165,6 +168,33 @@ const Sidebar = () => {
                                             <span><span className={style.iconc}><FaUserPlus/></span> <p>Admission Form</p></span>
                                         </NavLink>
                                     </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/studentlist">
+                                            <span><span className={style.iconc}><CgUserList/></span> <p>Student List</p></span>
+                                        </NavLink>
+                                    </li>
+                                    
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={()=>reset(setAccounts,!Accounts)} className={style.link}>
+                                <span><span className={style.icon}><BsFillFileEarmarkDiffFill/></span> <p>Accounts <span>{Accounts?<IoIosArrowUp/>:<IoIosArrowDown/>}</span></p></span>
+                            </div>
+                            <div style={Accounts?{height:"auto"}:{}} className={style.listof}>
+                                <ol className={style.childlist}>
+                                    
+                                    <li>
+                                        <NavLink className={style.linkc} to="/accounts">
+                                            <span><span className={style.iconc}><BiBookBookmark/></span> <p>Genarel</p></span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={style.linkc} to="/accounts/Setting">
+                                            <span><span className={style.iconc}><AiOutlineSetting/></span> <p>setting</p></span>
+                                        </NavLink>
+                                    </li>
+                                    
                                     
                                 </ol>
                             </div>
@@ -175,6 +205,7 @@ const Sidebar = () => {
                             </div>
                             <div style={Setting?{height:"auto"}:{}} className={style.listof}>
                                 <ol className={style.childlist}>
+                                    
                                     <li>
                                         <NavLink className={style.linkc} to="/studentadmitionquick">
                                             <span><span className={style.iconc}><BiBuildingHouse/></span> <p>Genarel</p></span>

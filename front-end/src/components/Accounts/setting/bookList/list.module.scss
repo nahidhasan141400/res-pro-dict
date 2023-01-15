@@ -1,0 +1,14 @@
+.list {
+  width: 100%;
+  position: relative;
+  table {
+    width: 100%;
+    position: relative;
+    thead {
+      tr {
+        width: 100%;
+        display: flex;
+      }
+    }
+  }
+}

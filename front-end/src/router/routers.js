@@ -27,16 +27,19 @@ import Batchdetails from "../components/Bacth/detailse/Batchdetails";
 import BatchList from "../components/Bacth/list/BatchList";
 // Student Admition 
 import StudentAdmition from "../components/Student/Admition/StudentAdmition";
+import StudentList from "../components/Student/list/List";
+import Quick from "../components/Student/quick/Quick";
 //add admin user
 import AddUser from "../components/Admin/addUser/AddUser";
 import AdminList from "../components/Admin/List/AdminList";
 import UserDet from "../components/Admin/userDetails/UserDet";
-import Quick from "../components/Student/quick/Quick";
 //session route
 import addsession from "../components/session/addsession/addsession";
 import Detailssession from "../components/session/details/Details";
 import SessionList from "../components/session/list/List";
-
+// accounts 
+import GenarelAccounts from "../components/Accounts/genarel/genarel";
+import ACSetting from "../components/Accounts/setting/ACSetting";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -130,6 +133,10 @@ import SessionList from "../components/session/list/List";
         path: "/studentadmition",
         element: <SecretRoute Element ={Layout} Ch={StudentAdmition}/>,
     }, 
+    {
+        path: "/studentlist",
+        element: <SecretRoute Element ={Layout} Ch={StudentList}/>,
+    }, 
     // add user admin
     {
         path: "/addadminuser",
@@ -159,7 +166,16 @@ import SessionList from "../components/session/list/List";
     {
         path: "/session/:id",
         element: <SecretRoute Element={Layout} Ch={Detailssession}/>
-    }
+    },
+    // Accounts section
+    {
+        path: "/accounts",
+        element: <SecretRoute Element={Layout} Ch={GenarelAccounts}/>
+    },
+    {
+        path: "/accounts/Setting",
+        element: <SecretRoute Element={Layout} Ch={ACSetting}/>
+    },
   ]);
 
   export default router;

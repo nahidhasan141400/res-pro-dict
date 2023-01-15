@@ -23,6 +23,22 @@ const Entry = () => {
     const [nextd,setnextd] = useState("");
     const [load,setload] = useState("");
 
+
+    // reset form 
+    let resetForm = ()=>{
+      setname("")
+        setload("")
+        setmobile("")
+        setcompany("")
+        sethtk("")
+        setdecision("")
+        setcc("")
+        setcoment("")
+        setcourse1("")
+        setcourse2("")
+        setcourse3("")
+        setnextd("")
+    }
     // state int end
 
     const sendData = (e)=>{
@@ -50,9 +66,9 @@ const Entry = () => {
             try {
                 const res = await axios.post('/addentry',data);
                 if(res.status === 200){
-                    toast.success("add succesfuly")
-                    setload(false)
-                    return n('/query')
+                    toast.success("add succesfuly");
+                    setload(false);
+                    return resetForm();
                 }
             } catch (error) {
                 console.log(error);

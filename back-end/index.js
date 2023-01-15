@@ -27,7 +27,7 @@ app.use(cors({
 
 
 // database connection 
-mongoose.connect("mongodb://127.0.0.1:27017/IMS", { useUnifiedTopology: true, useNewUrlParser: true }).then((result) => {
+mongoose.connect(process.env.MONGO_CONNECTION_URL, { useUnifiedTopology: true, useNewUrlParser: true }).then((result) => {
     console.log('db connected');
 }).catch((err) => {
     console.log(err)

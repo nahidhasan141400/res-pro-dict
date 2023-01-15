@@ -54,5 +54,25 @@
         }
       }
     }
+    .profile {
+      position: relative;
+      .avatar {
+        position: relative;
+        height: 40px;
+        img {
+          height: 40px;
+          width: 40px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid red;
+          transition: all 0.5s;
+          &:hover {
+            border: 1px solid cyan;
+            transform: translate(25px, 25px) scale(250%);
+            box-shadow: 5px 5px 13px -5px rgba(1, 133, 133, 0.783);
+          }
+        }
+      }
+    }
   }
 }

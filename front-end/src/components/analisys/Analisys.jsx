@@ -4,6 +4,7 @@ import { AiOutlinePieChart } from "react-icons/ai";
 import { BiBarChartAlt, BiDoughnutChart, BiLineChart } from "react-icons/bi";
 import { FaUserClock, FaUserFriends } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { useUser } from "../../router/SecretRoute";
 import Loading from "../loading/Loading";
 import style from "./analisys.module.scss";
 import Month from "./chart/Month";
@@ -17,6 +18,7 @@ const Analisys = () => {
   const [total,settotal] = React.useState("0")
   const [totaltoday,settotaltoday] = React.useState("0")
   const [wather,setwather] = React.useState()
+  const User = useUser()
 
 
   React.useEffect(()=>{
@@ -24,7 +26,6 @@ const Analisys = () => {
       setLoad(true)
       try {
         let wateherres = await axios("https://fcc-weather-api.glitch.me/api/current?lat=23.8103&lon=90.4125");
-        console.log(wateherres.data)
         if(wateherres){
           setwather(wateherres.data)
         }
@@ -73,7 +74,7 @@ const Analisys = () => {
           <div className={style.ban}>
               <img src={`https://source.unsplash.com/random/1600x400/?${wather? wather.weather[0].description : "rain"}`} alt="" />
               <div className={style.name}>
-                    Wellcome
+                    Wellcome {User.name}
                 </div>
           </div>
           <div className={style.row3}>
