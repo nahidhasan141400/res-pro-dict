@@ -1,14 +1,49 @@
 .list {
   width: 100%;
   position: relative;
+
   table {
     width: 100%;
-    position: relative;
+    border-collapse: collapse;
+
     thead {
       tr {
         width: 100%;
-        display: flex;
+        text-align: center;
+        text-transform: capitalize;
+        background-color: white;
+        font-weight: bold;
+        color: gray;
       }
     }
+    tbody {
+      tr {
+        font-size: 20px;
+        text-transform: capitalize;
+
+        &:hover {
+          background: rgb(207, 207, 207);
+          color: rgb(31, 31, 31);
+        }
+        &:nth-child(even) {
+          background-color: #e8e8e8;
+          &:hover {
+            color: rgb(31, 31, 31);
+            background: rgb(207, 207, 207);
+          }
+        }
+      }
+    }
+    tr {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
   }
+}
+
+.active {
+  background: #ff000058;
 }

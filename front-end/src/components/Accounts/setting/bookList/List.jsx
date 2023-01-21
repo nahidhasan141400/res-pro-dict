@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./list.module.scss";
-
+ 
 const List = ({data}) => {
   return (
     <div className={style.list}>
@@ -13,6 +13,28 @@ const List = ({data}) => {
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>dewan ict</td>
+                    <td>60000$</td>
+                </tr>
+                <tr style={{
+                    background:"#ff000058"
+                }}>
+                    <td>dewan ict</td>
+                    <td>60000$</td>
+                </tr>
+                <tr>
+                    <td>dewan ict</td>
+                    <td>60000$</td>
+                </tr>
+                <tr>
+                    <td>dewan ict</td>
+                    <td>60000$</td>
+                </tr>
+                <tr>
+                    <td>dewan ict</td>
+                    <td>60000$</td>
+                </tr>
                 <tr>
                     <td>dewan ict</td>
                     <td>60000$</td>

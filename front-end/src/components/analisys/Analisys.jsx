@@ -74,7 +74,7 @@ const Analisys = () => {
           <div className={style.ban}>
               <img src={`https://source.unsplash.com/random/1600x400/?${wather? wather.weather[0].description : "rain"}`} alt="" />
               <div className={style.name}>
-                    Wellcome {User.name}
+                    Welcome {User.name}
                 </div>
           </div>
           <div className={style.row3}>
