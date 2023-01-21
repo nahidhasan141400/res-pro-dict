@@ -2,6 +2,7 @@ import React from 'react';
 import { BiBookAdd, BiBookAlt } from "react-icons/bi";
 import List from './bookList/List';
 import style from "./setting.module.scss";
+import VoiceList from './voiclist/VoiceList';
 
 const ACSetting = () => {
 
@@ -25,7 +26,14 @@ const ACSetting = () => {
                     <List/>
                 </div>
             </div>
-            <div className={style.right}>hasan</div>
+            <div className={style.right}>
+                <div className={style.voiceHead}>
+                    <span>#</span>Recent Transaction
+                </div>
+                <div className={style.li}>
+                        <VoiceList/>
+                </div>
+            </div>
         </div>
        </div>
     </div>
