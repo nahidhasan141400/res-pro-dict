@@ -37,8 +37,23 @@
       display: flex;
       justify-content: space-between;
       padding: 10px;
-      cursor: pointer;
+      cursor: zoom-in;
       transition: all 0.3s;
+      a {
+        color: red;
+        font-size: 20px;
+        padding: 4px 10px;
+        transition: all 0.3s;
+        svg {
+          position: relative;
+          top: 3px;
+        }
+        &:hover {
+          color: rgb(163, 0, 0);
+          background-color: white;
+          border-radius: 5px;
+        }
+      }
     }
   }
 }

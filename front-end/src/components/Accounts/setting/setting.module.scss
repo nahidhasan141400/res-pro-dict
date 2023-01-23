@@ -89,7 +89,10 @@
 
         span {
           color: red;
-          margin-right: 5px;
+          margin-right: 10px;
+          font-size: 30px;
+          position: relative;
+          top: 3px;
         }
       }
       .li {
@@ -159,4 +162,8 @@
     top: -1px;
     color: #fff;
   }
+}
+
+.gap {
+  height: 35px;
 }
