@@ -62,7 +62,7 @@ const Sidebar = () => {
                                     </li>
                                     <li>
                                         <NavLink className={style.linkc} to="/query">
-                                            <span><span className={style.iconc}><GiArchiveResearch/></span> <p>query</p></span>
+                                            <span><span className={style.iconc}><GiArchiveResearch/></span> <p>List</p></span>
                                         </NavLink>
                                     </li>
                                     <li>
@@ -72,7 +72,7 @@ const Sidebar = () => {
                                     </li>
                                     <li>
                                         <NavLink className={style.linkc} to="/sendmassage">
-                                            <span><span className={style.iconc}><BsFillChatDotsFill/></span> <p>send SMS</p></span>
+                                            <span><span className={style.iconc}><BsFillChatDotsFill/></span> <p> Query </p></span>
                                         </NavLink>
                                     </li>
                                     <li>
