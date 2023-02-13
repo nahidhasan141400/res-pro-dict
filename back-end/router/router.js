@@ -20,6 +20,8 @@ const AminUserCon = require("../controller/Admin/AdminUserCon")
 const StudentAdmissionCon = require("../controller/Student/studentAdmissinon");
 // session com 
 const Session = require("../controller/ClassControler/SessionControler");
+//Account book controler 
+const BookCon = require("../controller/Account/BookCon.js")
 
 function rout(app){
            
@@ -110,6 +112,9 @@ function rout(app){
         app.get("/getallsession",auth,Session().getAll)
         app.get("/deletesession/:id",auth,Session().delete);
         app.get("/getsession/:id",auth,Session().getbyid);
+
+        // add books fro accounts ...
+        app.post("/addbooksfroac",auth,BookCon().AddBook)
     }
 
     module.exports = rout; 

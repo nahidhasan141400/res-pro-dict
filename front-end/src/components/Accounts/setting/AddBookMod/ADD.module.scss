@@ -1,0 +1,41 @@
+.mod {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.485);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  .body {
+    width: 500px;
+    // height: 400px;
+    position: relative;
+    background: linear-gradient(
+      83.2deg,
+      rgb(255, 0, 0) 10.8%,
+      rgb(12, 0, 4) 94.3%
+    );
+    border-radius: 10px;
+    padding: 2px;
+    .con {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.937);
+      border-radius: 10px;
+      position: relative;
+      .head {
+        padding: 4px;
+        text-align: center;
+        margin-bottom: 3px;
+      }
+      // form style start frok heare
+      .form {
+        width: 100%;
+      }
+    }
+  }
+}

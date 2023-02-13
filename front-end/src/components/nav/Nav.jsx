@@ -28,7 +28,7 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className={style.log}>
-                    <button onClick={logout}><span><MdOutlineLogout/></span> logout</button>
+                    <button onClick={logout} className="text-green-400" ><span><MdOutlineLogout/></span> logout</button>
                 </div>
             </div>
            

@@ -125,7 +125,7 @@ const Analisys = () => {
             <div className={style.h}>
               <h1><span>{load?<Loading color={"#ff0000"}/>:<AiOutlinePieChart/>}</span>Total visitor year {year}</h1>
               <div className={style.selectm}>
-            <span>chouse date to show data</span>
+            <span className="text-green-500">chouse date to show data</span>
             <select value= {year}  onChange={(e)=>{  setYear(e.target.value); }}>
               {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((e,i)=>{
                 return (<option key={i} value={d.getFullYear()-i}>{d.getFullYear()-i}</option>)

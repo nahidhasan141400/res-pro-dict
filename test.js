@@ -1,10 +1,10 @@
-var i = 0;
+var i = 1257;
 function myloop(){
     setTimeout(()=>{
         let st = 500+i;
         window.open("https://ssc2004star.com/cardSad/0423"+ st );
-        i++;
-        if(i<=100){
+        i--;
+        if(i>=1200){
             myloop()
         }
     },10000)
