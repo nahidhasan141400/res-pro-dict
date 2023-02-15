@@ -40,7 +40,15 @@ const BookCon = () => {
         } catch (error) {
             res.status(500).send(error)
         }
-    }
+    },
+    getbyid:async (req,res)=>{
+      try {
+          const Books = await AccountBook.findById(req.body._id);
+          res.send(Books);
+      } catch (error) {
+          res.status(500).send(error)
+      }
+  }
   };
 };
 

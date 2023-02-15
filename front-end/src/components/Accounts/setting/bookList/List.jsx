@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { CgDetailsMore } from "react-icons/cg";
+import { Link } from "react-router-dom";
 import style from "./list.module.scss";
 
 const List = ({ data,acid,setAcid }) => {
@@ -25,9 +26,10 @@ const List = ({ data,acid,setAcid }) => {
               }:{}}>{e.name}</td>
                 <td>{e.balance} $</td>
                 <td>
-                  <a href="#">
-                    <CgDetailsMore />
-                  </a>
+                  <Link to={`../accounts/books/${e._id}`}>
+                  <CgDetailsMore />
+                  </Link>
+                  
                 </td>
               </tr>
             );

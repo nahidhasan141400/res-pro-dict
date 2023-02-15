@@ -40,6 +40,8 @@ import SessionList from "../components/session/list/List";
 // accounts 
 import GenarelAccounts from "../components/Accounts/genarel/genarel";
 import ACSetting from "../components/Accounts/setting/ACSetting";
+//book for account 
+import BooikDes from "../components/Accounts/setting/bookdes/BookDes";
 
 
   const router = createBrowserRouter([
@@ -177,6 +179,10 @@ import ACSetting from "../components/Accounts/setting/ACSetting";
     {
         path: "/accounts/Setting",
         element: <SecretRoute Element={Layout} Ch={ACSetting}/>
+    },
+    {
+        path: "/accounts/books/:bookid",
+        element: <SecretRoute Element={Layout} Ch={BooikDes}/>
     },
    
   ]);
