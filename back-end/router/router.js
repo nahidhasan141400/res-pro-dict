@@ -115,6 +115,7 @@ function rout(app){
 
         // add books fro accounts ...
         app.post("/addbooksfroac",auth,BookCon().AddBook)
+        app.get("/ACBookall",auth,BookCon().getall)
     }
 
     module.exports = rout; 

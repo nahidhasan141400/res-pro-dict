@@ -40,6 +40,8 @@ import SessionList from "../components/session/list/List";
 // accounts 
 import GenarelAccounts from "../components/Accounts/genarel/genarel";
 import ACSetting from "../components/Accounts/setting/ACSetting";
+
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -176,6 +178,7 @@ import ACSetting from "../components/Accounts/setting/ACSetting";
         path: "/accounts/Setting",
         element: <SecretRoute Element={Layout} Ch={ACSetting}/>
     },
+   
   ]);
 
   export default router;

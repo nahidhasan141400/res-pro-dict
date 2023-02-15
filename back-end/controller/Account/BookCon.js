@@ -4,17 +4,19 @@ const BookCon = () => {
     AddBook: async (req, res, next) => {
       try {
         // console.log("🚀 ~ file: BookCon.js:4 ~ AddBook: ~ req.body", req.body)
-        const { name, des, Intb } = req.body;
+        const { name, des, IntB } = req.body;
+        console.log("🚀 ~ file: BookCon.js:8 ~ AddBook: ~ Intb", IntB)
+        
         const payLoad = new AccountBook({
           name,
           des,
-          balance: Intb,
+          balance: IntB,
         });
 
         const resDB = await payLoad.save();
         res.status(200).send("ok");
       } catch (error) {
-        console.log(error.keyPattern)
+        console.log(error)
         console.log(error.code )
         if(error.code === 11000){
             res.status(500).send({ dublicate:error.keyPattern})
@@ -31,6 +33,14 @@ const BookCon = () => {
 
       
     },
+    getall:async (req,res)=>{
+        try {
+            const allBooks = await AccountBook.find({}).sort({_id:-1});
+            res.send(allBooks);
+        } catch (error) {
+            res.status(500).send(error)
+        }
+    }
   };
 };
 

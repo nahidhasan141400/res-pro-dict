@@ -20,6 +20,11 @@ const BookSchema = new mongoose.Schema({
     required:true,
     default:[]
   },
+  status: {
+    type: Boolean,
+    required:true,
+    default:true
+  },
  
 },{ timestamps: true })
 

@@ -37,9 +37,11 @@ const SecretRoute = ({Element,Ch}) => {
       }
       getauth()
       
-    }, [navigate])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
   return (
     <>
+    
     <User.Provider value={user}>
 
         {load? <h1> </h1> :(<Element El={Ch} />)}

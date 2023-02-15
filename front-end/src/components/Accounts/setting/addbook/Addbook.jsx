@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { FaPowerOff } from "react-icons/fa";
 import { toast } from "react-toastify";
 import style from "./add.module.scss";
-const AddBook = ({ set }) => {
-  const [name, setName] = useState();
-  const [des, setDes] = useState();
+const AddBook = ({ set,setReload }) => {
+  const [name, setName] = useState("");
+  const [des, setDes] = useState("");
   const [IntB, setIntB] = useState(0);
 
   // handler function for the form
@@ -19,12 +19,13 @@ const AddBook = ({ set }) => {
       const res = await axios.post("/addbooksfroac", {
         name,
         des,
-        IntB,
+        IntB, 
       });
 
       // eslint-disable-next-line eqeqeq
       if (res.status == 200) {
         set(false);
+        setReload(new Date().getMilliseconds())
         toast.success("Book add successfully");
       } else {
         toast.error("somethings is wrong !");

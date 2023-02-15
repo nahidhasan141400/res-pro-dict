@@ -15,7 +15,7 @@ const LoadCont = ({children}) => {
   const value ={
     loading,setLoading
   }
-
+  
   return (
     <LoadContext.Provider value={value}>
         {children}

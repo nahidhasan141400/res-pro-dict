@@ -1,7 +1,8 @@
 import React from 'react';
 import style from "./list.module.scss";
  
-const VoiceList = ({data}) => {
+const VoiceList = ({list}) => {
+//   console.log("🚀 ~ file: VoiceList.jsx:5 ~ VoiceList ~ list", list)
   return (
     <div className={style.list}>
         <table>
