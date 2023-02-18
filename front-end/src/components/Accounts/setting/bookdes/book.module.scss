@@ -127,6 +127,7 @@
           font-size: 25px;
           font-weight: bold;
           transition: all 0.3s;
+          box-shadow: 10px 10px 20px -15px rgba(128, 0, 255, 0.544);
           &:hover {
             box-shadow: 0 10px 20px -15px rgb(101, 101, 101);
           }
@@ -145,6 +146,7 @@
             width: 40px;
             background-color: #00e600;
             left: -1%;
+            cursor: cell;
             border-radius: 10px;
             box-shadow: 13px 0px 10px -10px rgb(125, 209, 0),
               15px 0px 15px -10px rgb(47, 77, 2);
@@ -159,12 +161,41 @@
             width: 40px;
             background-color: #e60000;
             left: -1%;
+            cursor: cell;
             border-radius: 10px;
             box-shadow: 13px 0px 10px -10px rgb(209, 0, 0),
               15px 0px 15px -10px rgb(77, 2, 2);
           }
         }
+        .aa {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          flex-wrap: wrap;
+          div {
+            border: 1px solid gray;
+            background-color: rgb(200, 200, 200);
+            font-size: 16px;
+            padding: 6px;
+            box-shadow: 0px 20px 15px -10px #0000002e;
+            @media (max-width: 835px) {
+              font-size: 13px;
+              margin-left: 10px;
+              margin-bottom: 5px;
+              padding: 2px;
+            }
+          }
+        }
       }
+    }
+    .btngrop {
+      width: 100%;
+      position: relative;
+      margin-top: 10px;
+      background: #fff;
     }
   }
 }

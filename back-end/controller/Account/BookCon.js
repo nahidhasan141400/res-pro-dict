@@ -5,8 +5,8 @@ const BookCon = () => {
       try {
         // console.log("🚀 ~ file: BookCon.js:4 ~ AddBook: ~ req.body", req.body)
         const { name, des, IntB } = req.body;
-        console.log("🚀 ~ file: BookCon.js:8 ~ AddBook: ~ Intb", IntB)
-        
+        console.log("🚀 ~ file: BookCon.js:8 ~ AddBook: ~ Intb", IntB);
+
         const payLoad = new AccountBook({
           name,
           des,
@@ -16,39 +16,44 @@ const BookCon = () => {
         const resDB = await payLoad.save();
         res.status(200).send("ok");
       } catch (error) {
-        console.log(error)
-        console.log(error.code )
-        if(error.code === 11000){
-            res.status(500).send({ dublicate:error.keyPattern})
-        }else{
-            res.status(500).send({
-                err:{
-                    error,
-                    msg:error
-                }
-            })
+        console.log(error);
+        console.log(error.code);
+        if (error.code === 11000) {
+          res.status(500).send({ dublicate: error.keyPattern });
+        } else {
+          res.status(500).send({
+            err: {
+              error,
+              msg: error,
+            },
+          });
         }
-        
       }
-
-      
     },
-    getall:async (req,res)=>{
-        try {
-            const allBooks = await AccountBook.find({}).sort({_id:-1});
-            res.send(allBooks);
-        } catch (error) {
-            res.status(500).send(error)
-        }
-    },
-    getbyid:async (req,res)=>{
+    getall: async (req, res) => {
       try {
-          const Books = await AccountBook.findById(req.body._id);
-          res.send(Books);
+        const allBooks = await AccountBook.find({}).sort({ _id: -1 });
+        res.send(allBooks);
       } catch (error) {
-          res.status(500).send(error)
+        res.status(500).send(error);
       }
-  }
+    },
+    getbyid: async (req, res) => {
+      try {
+        const Books = await AccountBook.findById(req.body._id);
+        res.send(Books);
+      } catch (error) {
+        res.status(500).send(error);
+      }
+    },
+    updateStatus: async (req, res) => {
+      try {
+        const Books = await AccountBook.findByIdAndUpdate(req.body._id,{status:req.body.status},{returnOriginal:false});
+        res.send(Books);
+      } catch (error) {
+        res.status(500).send(error);
+      }
+    },
   };
 };
 

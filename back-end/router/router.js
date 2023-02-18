@@ -117,6 +117,7 @@ function rout(app){
         app.post("/addbooksfroac",auth,BookCon().AddBook)
         app.get("/ACBookall",auth,BookCon().getall)
         app.post("/getbookbyid",auth,BookCon().getbyid)
+        app.post("/accbookstatsuupdate",auth,BookCon().updateStatus)
     }
 
     module.exports = rout; 

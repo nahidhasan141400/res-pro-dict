@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { BiCheckCircle } from "react-icons/bi";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
@@ -28,7 +28,32 @@ const BookDes = () => {
       }
     };
     get();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bookid]);
+
+
+
+  // update book status .......
+  const update = useCallback(
+    (st) => {
+      const updaet = async(st)=>{
+        try {
+          const resdb = await axios.post("/accbookstatsuupdate",{status:st, _id: bookid});
+          const data = await resdb.data;
+          setBookdata(data)
+          toast.info("status Change ")
+        } catch (error) {
+          console.log(error)
+          toast.error("something is wrong!")
+        }
+      }
+      updaet(st);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  )
+  
+
 
   return (
     <div className={style.main}>
@@ -62,22 +87,34 @@ const BookDes = () => {
               <span className={style.ico}></span>
               <div className={style.text}>
                 <span className={style.ti}>total balance</span>
-                <span>20000202 $</span>
+                <span>{bookData.balance} tk</span>
               </div>
             </div>
           </div>
         </div>
         {/* name and balanced  */}
         <div className={style.analysis}>
-                <div className={style.box}>
-                    <div title={ bookData.status ? "Update to Deactive":"update to active"} className={`${style.status} ${bookData.status? style.ac : style.dc}`}>
+          {/* change stattus  start*/}
+                <div  className={style.box}>
+                    <div onClick={()=>{update(bookData.status?false:true)}} title={ bookData.status ? "Update to Deactive":"update to active"} className={`${style.status} ${bookData.status? style.ac : style.dc}`}>
                         <span>{ !bookData.status ? "Deactive":"active"}</span>
                         <span className={style.icon}>{bookData.status?<BiCheckCircle/>:<FiXCircle/>}</span>
                     </div>
                 </div>
-                <div className={style.box}>
-                    <div className={style.aa}></div>
+                {/* change status end */}
+                {/* details data about the tarnsiction  */}
+                <div style={{textAlign:"right"}} className={style.box}>
+                    <div className={style.aa}>
+                      <div>Total Income : 0000tk</div>
+                      <div>Total Expenses : 0000tk</div>
+                      <div>Total transiction : 0000tk</div>
+                    </div>
                 </div>
+                {/* details data about the tarnsiction  */}
+        </div>
+        {/* name and abalanced end  */}
+        <div className={style.btngrop}>
+          nahid
         </div>
       </div>
     </div>
