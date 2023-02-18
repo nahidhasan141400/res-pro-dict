@@ -1,13 +1,15 @@
 import axios from "axios";
 import React, { useCallback, useEffect } from "react";
-import { BiCheckCircle } from "react-icons/bi";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { BiCheckCircle, BiFilterAlt, BiKey } from "react-icons/bi";
+import { BsFileEarmarkPdf, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { FaBookOpen } from "react-icons/fa";
 import { FiXCircle } from "react-icons/fi";
+import { RiFileExcel2Line } from "react-icons/ri";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useLoad } from "../../../../context/LodingAuth";
 import style from "./book.module.scss";
+import Table from "./table/Table";
 const BookDes = () => {
   const { setLoading } = useLoad();
   const navigate = useNavigate();
@@ -113,9 +115,29 @@ const BookDes = () => {
                 {/* details data about the tarnsiction  */}
         </div>
         {/* name and abalanced end  */}
+        {/* btn group for opration start */}
         <div className={style.btngrop}>
-          nahid
+          <div className={style.btncon}>
+            <div className={style.btnwr}>
+              <button><span><BiKey/></span> user permision</button>
+            </div>
+            <div className={style.btnwr}>
+              <button><span><RiFileExcel2Line/></span> Excel</button>
+            </div>
+            <div className={style.btnwr}>
+              <button><span><BsFileEarmarkPdf/></span> PDF</button>
+            </div>
+            <div className={style.btnwr}>
+              <button><span><BiFilterAlt/></span> Filter</button>
+            </div>
+          </div>
         </div>
+        {/* btn group for opration start */}
+        {/* table start  */}
+          <div className={style.tableCon}>
+              <Table/>
+          </div>
+        {/* table end  */}
       </div>
     </div>
   );
