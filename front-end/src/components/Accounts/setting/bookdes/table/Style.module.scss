@@ -6,6 +6,12 @@
     width: 10px;
     height: 13px;
   }
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
   table {
     min-width: 100%;
     border-collapse: collapse;
@@ -17,11 +23,16 @@
       font-size: 20px;
       font-weight: 700;
       tr {
-        td {
+        th {
           padding: 5px;
           white-space: nowrap;
           word-wrap: Keep-all;
           min-width: auto;
+          text-align: left;
+          cursor: pointer;
+          &:last-child {
+            text-align: right;
+          }
         }
       }
     }
@@ -30,13 +41,27 @@
         &:nth-child(even) {
           background-color: rgb(206, 206, 206);
         }
+
         td {
           padding: 5px;
           white-space: nowrap;
           word-wrap: Keep-all;
           min-width: auto;
+          &:last-child {
+            text-align: right;
+          }
         }
       }
+    }
+  }
+  .pagination {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    button,
+    span {
+      margin-left: 20px;
     }
   }
 }
