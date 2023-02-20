@@ -1,4 +1,7 @@
 import React from "react";
+import { AiOutlineFileSearch } from "react-icons/ai";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { MdFirstPage, MdOutlineLastPage } from "react-icons/md";
 import {
   useGlobalFilter,
   usePagination,
@@ -8,36 +11,36 @@ import {
 import mocdata from "./MOCK_DATA.json";
 import style from "./Style.module.scss";
 
-const Person = [
-  {
-    invoice: "1201",
-    ammount: "300",
-    categiry: "income",
-    Date: "22-02-2023",
-    admin: "Nahid",
-  },
-  {
-    invoice: "1001",
-    ammount: "300",
-    categiry: "income",
-    Date: "22-02-2023",
-    admin: "Nahid",
-  },
-  {
-    invoice: "1001",
-    ammount: "300",
-    categiry: "income",
-    Date: "22-02-2023",
-    admin: "sabbir",
-  },
-  {
-    invoice: "1001",
-    ammount: "300",
-    categiry: "income",
-    Date: "22-01-2023",
-    admin: "sabbir",
-  },
-];
+// const Person = [
+//   {
+//     invoice: "1201",
+//     ammount: "300",
+//     categiry: "income",
+//     Date: "22-02-2023",
+//     admin: "Nahid",
+//   },
+//   {
+//     invoice: "1001",
+//     ammount: "300",
+//     categiry: "income",
+//     Date: "22-02-2023",
+//     admin: "Nahid",
+//   },
+//   {
+//     invoice: "1001",
+//     ammount: "300",
+//     categiry: "income",
+//     Date: "22-02-2023",
+//     admin: "sabbir",
+//   },
+//   {
+//     invoice: "1001",
+//     ammount: "300",
+//     categiry: "income",
+//     Date: "22-01-2023",
+//     admin: "sabbir",
+//   },
+// ];
 
 const Table = () => {
   const data = React.useMemo(() => mocdata, []);
@@ -52,11 +55,14 @@ const Table = () => {
         accessor: "invoice", // accessor is the "key" in the data
       },
       {
-        Header: "ammount",
+        Header: "Amount",
         accessor: "ammount",
+        Cell:(prop)=>{
+          return prop.row.original.id
+        }
       },
       {
-        Header: "categiry",
+        Header: "Category",
         accessor: "categiry",
       },
       {
@@ -64,7 +70,7 @@ const Table = () => {
         accessor: "Date",
       },
       {
-        Header: "admin",
+        Header: "Admin",
         accessor: "admin",
       },
     ],
@@ -72,7 +78,7 @@ const Table = () => {
   );
 
   const tableInstance = useTable(
-    { columns, data },
+    { columns, data, initialState: { pageIndex: 0 }, },
     useGlobalFilter,
     useSortBy,
     usePagination
@@ -92,14 +98,15 @@ const Table = () => {
     canPreviousPage,
     setGlobalFilter,
     gotoPage,
-    pageCount
+    pageCount,
+    setPageSize,
   } = tableInstance;
 
-  const { globalFilter,pageIndex } = state;
+  const { globalFilter,pageIndex,pageSize } = state;
   return (
     <div className={style.con}>
       <div className={style.filter}>
-        search anything...
+        <span><AiOutlineFileSearch/></span>Search Anything :
         <input
           type="text"
           value={globalFilter || ""}
@@ -169,13 +176,27 @@ const Table = () => {
         </tbody>
       </table>
       <div className={style.pagination}>
-        <button className="nhBtn" disabled={!canPreviousPage} onClick={()=>gotoPage(0)}>frist</button>
-        <button className="nhBtn" disabled={!canPreviousPage} onClick={()=>previousPage()}>prev</button>
-        <span>
-          page : {pageIndex+1 } of {pageOptions.length }
+        <button className="nhBtn" disabled={!canPreviousPage} onClick={()=>gotoPage(0)}> <span><MdFirstPage/></span>first </button>
+        <button className="nhBtn" disabled={!canPreviousPage} onClick={()=>previousPage()}><span><IoIosArrowBack/></span> prev</button>
+        <span className={style.pageindex}>
+          page : {pageIndex+1 } of {pageOptions.length }  <span> </span>
+          <select value={pageSize} onChange={(e)=>{setPageSize(Number(e.target.value))}}>
+            <option value="10">Show 10</option>
+            <option value="20">Show 20</option>
+            <option value="30">Show 30</option>
+            <option value="40">Show 40</option>
+            <option value="50">Show 50</option>
+            <option value="60">Show 60</option>
+            <option value="70">Show 70</option>
+            <option value="80">Show 80</option>
+            <option value="90">Show 90</option>
+            <option value="100">Show 100</option>
+            <option value="150">Show 150</option>
+            <option value="200">Show 200</option>
+          </select>
         </span>
-        <button className="nhBtn" disabled={!canNextPage} onClick={()=>nextPage()} >next</button>
-        <button className="nhBtn" disabled={!canNextPage} onClick={()=>gotoPage(pageCount - 1)} >last</button>
+        <button className="nhBtn" disabled={!canNextPage} onClick={()=>nextPage()} ><span><IoIosArrowForward/></span> next</button>
+        <button className="nhBtn" disabled={!canNextPage} onClick={()=>gotoPage(pageCount - 1)} ><span><MdOutlineLastPage/></span> last</button>
       </div>
     </div>
   );
