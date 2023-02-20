@@ -167,3 +167,22 @@
 .gap {
   height: 35px;
 }
+
+.head2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .b {
+    .te {
+      font-size: 25px;
+      color: red;
+      span {
+        position: relative;
+        top: 4px;
+        padding-right: 3px;
+        text-shadow: 2px 2px 4px -2px red;
+      }
+    }
+  }
+}
