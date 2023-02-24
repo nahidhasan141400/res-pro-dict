@@ -60,5 +60,42 @@
         }
       }
     }
+    .option {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      .con {
+        width: 95%;
+        padding: 10px;
+        position: relative;
+        background-image: linear-gradient(
+          180.6deg,
+          rgb(235, 240, 246) 11.2%,
+          rgba(244, 248, 252, 1) 91.1%
+        );
+        border-radius: 10px;
+        box-shadow: 3px 5px 4px -5px black;
+        overflow: hidden;
+        padding-left: 20px;
+        &::after {
+          content: " ";
+          display: block;
+          background-image: linear-gradient(
+            68.7deg,
+            rgba(29, 173, 235, 1) 13.2%,
+            rgba(137, 149, 250, 1) 29.8%,
+            rgba(229, 109, 212, 1) 48.9%,
+            rgba(255, 68, 128, 1) 68.2%,
+            rgba(255, 94, 0, 1) 86.4%
+          );
+          height: 100%;
+          width: 30px;
+          position: absolute;
+          top: 0px;
+          left: -20px;
+        }
+      }
+    }
   }
 }

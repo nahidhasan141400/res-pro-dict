@@ -1,4 +1,5 @@
 import React from 'react';
+import { GiArchiveRegister } from "react-icons/gi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import style from "./genarel.module.scss";
 import Table from "./table/Table";
@@ -47,6 +48,16 @@ const Genarel = () => {
                         <span>total expense</span>
                     </div>
                     <p>1000<span><TbCurrencyTaka/></span></p>
+                </div>
+            </div>
+            <div className={style.option}>
+                <div className={style.con}>
+                    <div className={style.box}>
+                        <button className='nhBtn' ><span><GiArchiveRegister/></span> New transaction</button>
+                    </div>
+                    <div className={style.box}>
+                        <button className='nhBtn' ><span><GiArchiveRegister/></span> New transaction</button>
+                    </div>
                 </div>
             </div>
             <div className={style.table}>
