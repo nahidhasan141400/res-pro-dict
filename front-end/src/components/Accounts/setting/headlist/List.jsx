@@ -1,9 +1,8 @@
 import React, { memo } from "react";
 import { CgDetailsMore } from "react-icons/cg";
-import { Link } from "react-router-dom";
 import style from "./list.module.scss";
 
-const HeadList = ({ data }) => {
+const HeadList = ({ data,sethead }) => {
   return (
     <div className={style.list}>
       <table>
@@ -32,9 +31,11 @@ const HeadList = ({ data }) => {
                 </td>
                 <td>{e.balance} $</td>
                 <td>
-                  <Link to={`#`}>
-                    <CgDetailsMore />
-                  </Link>
+                  <div onClick={()=>{sethead(e)}}>
+
+                     <CgDetailsMore />
+                  </div>
+                  
                 </td>
               </tr>
             );

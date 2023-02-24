@@ -31,6 +31,16 @@ const HeadCon = () => {
               } catch (error) {
                 res.status(500).send(error);
               }
+        },
+        updateStatus:async (req,res)=>{
+          try {
+            const _id = req.body.id
+            const AllHead = await AccountHead.findByIdAndUpdate({_id},{status:!req.body.status},{returnOriginal:false}).sort({ _id: -1 });
+              res.send(AllHead);
+          } catch (error) {
+            console.log(error)
+            res.status(500).send(error);
+          }
         }
   }
 };

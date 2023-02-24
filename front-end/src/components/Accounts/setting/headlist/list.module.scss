@@ -38,11 +38,13 @@
       padding: 10px;
       cursor: zoom-in;
       transition: all 0.3s;
-      a {
+      a,
+      div {
         color: red;
         font-size: 20px;
         padding: 4px 10px;
         transition: all 0.3s;
+        cursor: pointer;
         svg {
           position: relative;
           top: 3px;

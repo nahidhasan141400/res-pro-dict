@@ -117,10 +117,12 @@ function rout(app){
         // add books fro accounts ...
         app.post("/addbooksfroac",auth,BookCon().AddBook)
         app.get("/ACBookall",auth,BookCon().getall)
-        app.post("/getbookbyid",auth,BookCon().getbyid)
+        app.post("/getbookbyid",auth,BookCon().getbyid) 
+        app.post("/accbookstatsuupdate",auth,BookCon().updateStatus) 
         //accunt head controler 
         app.get("/ACHeadAll",auth,HeadCon().getall)
         app.post("/addheadsfroac",auth,HeadCon().AddHead);
+        app.post("/updateAcchead",auth,HeadCon().updateStatus)
         //add head for accounts ,
     }
 

@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import AddBook from "./addbook/Addbook";
 import AddHead from "./addhead/AddHead";
 import List from "./bookList/List";
+import HeadDes from "./HeadDes/HeadDes";
 import HeadList from "./headlist/List";
 import style from "./setting.module.scss";
 import VoiceList from "./voiclist/VoiceList";
@@ -18,13 +19,13 @@ const ACSetting = () => {
   const [HeadlList, setheadList] = useState([]);
   const [reload, setReload] = useState(0);
   const [acid, setAcid] = useState("");
+  const [HeadDetailse, setHeadDetailse] = useState();
 
   //load books list
   useEffect(() => {
     const getdata = async () => {
       try {
         const resdb = await axios.get("/ACBookall");
-        // console.log("🚀 ~ file: ACSetting.jsx:22 ~ getdata ~ resdb", resdb.data)
         setBookList(resdb.data);
         setAcid(resdb.data[0] ? resdb.data[0]._id : "");
       } catch (error) {
@@ -38,7 +39,6 @@ const ACSetting = () => {
       const getdata = async () => {
         try {
           const resdb = await axios.get("/ACHeadAll");
-          // console.log("🚀 ~ file: ACSetting.jsx:22 ~ getdata ~ resdb", resdb.data)
           setheadList(resdb.data);
         } catch (error) {
           toast.error("Head list data can't serve from db!");
@@ -51,6 +51,7 @@ const ACSetting = () => {
     <div className={style.main}>
       {AddbookMod ? <AddBook set={setAddbookMod} setReload={setReload} /> : ""}
       {AddHeadstate ? <AddHead set={setHeadstatus} setReload={setReload} head={AddHeadstate} /> : ""}
+      {HeadDetailse ? <HeadDes headdata={HeadDetailse} setReload={setReload} sethead={setHeadDetailse}/> : ""}
       <div className={style.con}>
         <div className={style.top}>
           <div className={style.left}>
@@ -59,7 +60,7 @@ const ACSetting = () => {
                 <span>
                   <BiBookAlt />
                 </span>
-                <p>Account books</p>
+                <p>Account books </p>
               </div>
               <div
                 onClick={() => setAddbookMod(true)}
@@ -105,7 +106,7 @@ const ACSetting = () => {
               </div>
             </div>
             <div className={style.listofacchead}>
-                    <HeadList data={HeadlList.filter((e)=> e.IOS)}/>
+                    <HeadList sethead={setHeadDetailse} data={HeadlList.filter((e)=> e.IOS)}/>
                 </div>
           </div>
           <div className={style.left +" "+ style.toppadding}>
@@ -121,7 +122,7 @@ const ACSetting = () => {
               </div>
             </div>
             <div className={style.listofacchead}>
-                    <HeadList data={HeadlList.filter((e)=> !e.IOS)}/>
+                    <HeadList sethead={setHeadDetailse} data={HeadlList.filter((e)=> !e.IOS)}/>
                 </div>
           </div>
         </div>
