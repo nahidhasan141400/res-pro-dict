@@ -22,6 +22,7 @@ const StudentAdmissionCon = require("../controller/Student/studentAdmissinon");
 const Session = require("../controller/ClassControler/SessionControler");
 //Account book controler 
 const BookCon = require("../controller/Account/BookCon.js")
+const HeadCon = require("../controller/Account/HeadCon.js")
 
 function rout(app){
            
@@ -117,7 +118,10 @@ function rout(app){
         app.post("/addbooksfroac",auth,BookCon().AddBook)
         app.get("/ACBookall",auth,BookCon().getall)
         app.post("/getbookbyid",auth,BookCon().getbyid)
-        app.post("/accbookstatsuupdate",auth,BookCon().updateStatus)
+        //accunt head controler 
+        app.get("/ACHeadAll",auth,HeadCon().getall)
+        app.post("/addheadsfroac",auth,HeadCon().AddHead);
+        //add head for accounts ,
     }
 
     module.exports = rout; 

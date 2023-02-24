@@ -1,0 +1,76 @@
+.list {
+  width: 100%;
+  position: relative;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      tr {
+        width: 100%;
+        text-align: center;
+        text-transform: capitalize;
+        background-color: white;
+        font-weight: bold;
+        color: gray;
+      }
+    }
+    tbody {
+      tr {
+        font-size: 15px;
+        text-transform: capitalize;
+        &:hover {
+          background: rgb(198, 198, 198);
+          color: rgb(31, 31, 31);
+        }
+        &:nth-child(even) {
+          background-color: #e8e8e8;
+          &:hover {
+            color: rgb(31, 31, 31);
+            background: rgb(207, 207, 207);
+          }
+        }
+      }
+    }
+    tr {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      cursor: zoom-in;
+      transition: all 0.3s;
+      a {
+        color: red;
+        font-size: 20px;
+        padding: 4px 10px;
+        transition: all 0.3s;
+        svg {
+          position: relative;
+          top: 3px;
+        }
+        &:hover {
+          color: rgb(163, 0, 0);
+          background-color: white;
+          border-radius: 5px;
+        }
+      }
+      td,
+      th {
+        flex: 3;
+        &:nth-child(1) {
+          text-align: left;
+        }
+        &:nth-child(2) {
+          text-align: center;
+        }
+        &:nth-child(3) {
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  background: #ff000058;
+}

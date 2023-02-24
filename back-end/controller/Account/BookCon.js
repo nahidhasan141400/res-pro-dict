@@ -16,8 +16,6 @@ const BookCon = () => {
         const resDB = await payLoad.save();
         res.status(200).send("ok");
       } catch (error) {
-        console.log(error);
-        console.log(error.code);
         if (error.code === 11000) {
           res.status(500).send({ dublicate: error.keyPattern });
         } else {
