@@ -78,6 +78,9 @@
         box-shadow: 3px 5px 4px -5px black;
         overflow: hidden;
         padding-left: 20px;
+        display: flex;
+        flex-wrap: wrap;
+
         &::after {
           content: " ";
           display: block;
@@ -94,6 +97,12 @@
           position: absolute;
           top: 0px;
           left: -20px;
+        }
+        .llink {
+          text-decoration: none;
+        }
+        button {
+          margin-right: 15px;
         }
       }
     }

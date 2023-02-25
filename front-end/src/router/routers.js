@@ -42,6 +42,8 @@ import GenarelAccounts from "../components/Accounts/genarel/genarel";
 import ACSetting from "../components/Accounts/setting/ACSetting";
 //book for account 
 import BooikDes from "../components/Accounts/setting/bookdes/BookDes";
+// account register 
+import NewTran from "../components/Accounts/genarel/NewTran/NewTran";
 
 
   const router = createBrowserRouter([
@@ -183,6 +185,10 @@ import BooikDes from "../components/Accounts/setting/bookdes/BookDes";
     {
         path: "/accounts/books/:bookid",
         element: <SecretRoute Element={Layout} Ch={BooikDes}/>
+    },
+    {
+        path: "/accounts/newtransiction",
+        element: <SecretRoute Element={Layout} Ch={NewTran}/>
     },
    
   ]);

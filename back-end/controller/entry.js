@@ -72,6 +72,16 @@ const entry = () => {
                 res.status(500).send(error)
             }
         },
+        all:async (req,res)=>{
+          
+            try {
+                let datadb =await Entry.find().sort({createdAt:-1});
+                res.status(200).json(datadb)
+            } catch (error) {
+                console.log(error)
+                res.status(500).send(error)
+            }
+        },
         getAppointment:async (req,res)=>{
             const{date} = req.body;
             if(date){

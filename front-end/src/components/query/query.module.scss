@@ -116,3 +116,14 @@
     }
   }
 }
+
+.bbn {
+  padding: 3px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.437);
+  &:hover {
+    background: rgba(255, 255, 255, 0.768);
+  }
+}
