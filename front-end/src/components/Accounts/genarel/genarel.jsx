@@ -1,5 +1,5 @@
 import React from "react";
-import { GiArchiveRegister } from "react-icons/gi";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import style from "./genarel.module.scss";
@@ -85,18 +85,18 @@ const Genarel = () => {
               <NavLink className={style.llink} to="newtransiction">
                 <button className="nhBtn">
                   <span>
-                    <GiArchiveRegister />
+                    <FaPlusCircle />
                   </span>{" "}
-                  New transaction
+                  Cash In
                 </button>
               </NavLink>
             </div>
             <div className={style.box}>
               <button className="nhBtn">
                 <span>
-                  <GiArchiveRegister />
+                  <FaMinusCircle />
                 </span>{" "}
-                New transaction
+                Cash out
               </button>
             </div>
           </div>

@@ -225,7 +225,16 @@ const entry = () => {
                         numbe = d.getFullYear()
                     }
                     const total = await Entry.find().countDocuments()
-                    const totaltoday = await Entry.find({date:d.getDate(),year:numbe,month:d.getMonth()}).countDocuments()
+                    const totaltoday = await Entry.find({
+                        createdAt: {
+                          $lte: d,
+                          $gte: new Date(
+                            d.getFullYear(),
+                            d.getMonth(),
+                            d.getDate()
+                          ),
+                        },
+                      }).countDocuments()
                     const resdb = await Entry.find({year:numbe})
                     res.status(200).json({data:resdb,c:{total,totaltoday}})
                 } catch (error) {
