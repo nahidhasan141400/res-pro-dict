@@ -11,7 +11,7 @@
     align-self: center;
     .box {
       width: 95%;
-      height: 300px;
+
       background-color: #fff;
       border-radius: 15px;
       box-shadow: 0px 19px 20px -19px rgb(68, 68, 68);
@@ -83,6 +83,83 @@
             font-size: 35px;
             position: relative;
             top: 8px;
+          }
+        }
+      }
+      .contet {
+        width: 100%;
+        position: relative;
+        padding: 20px;
+        .timerow {
+          width: 100%;
+          padding: 10px 0;
+          display: flex;
+          justify-content: space-between;
+          .datepikerc {
+            position: relative;
+            .lava {
+              margin-bottom: 10px;
+              font-weight: 600;
+              font-size: 16px;
+            }
+          }
+        }
+        .ammount {
+          width: 100%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          .inpg {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            flex-direction: column;
+            padding: 10px 0;
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              width: 90%;
+              background-image: linear-gradient(
+                48.7deg,
+                rgba(29, 173, 235, 1) 13.2%,
+                rgba(137, 149, 250, 1) 29.8%,
+                rgba(229, 109, 212, 1) 48.9%,
+                rgba(255, 68, 128, 1) 68.2%,
+                rgba(255, 94, 0, 1) 86.4%
+              );
+              height: 10px;
+              bottom: 0px;
+              filter: blur(25px);
+              animation: anim 1s infinite ease-in-out;
+            }
+            label {
+              margin-bottom: 10px;
+              font-weight: 600;
+              font-size: 16px;
+            }
+            input {
+              position: relative;
+              width: 95%;
+              margin-right: 10px;
+              font-size: 17px;
+              padding: 5px;
+              outline: none;
+              border: 2px solid #7d282b;
+              border-radius: 7px;
+              background-color: #fff;
+              &:focus {
+                box-shadow: 0 0 3px 2px #7d28285c;
+              }
+              &::placeholder {
+                color: #95329e83;
+                font-style: italic;
+                text-transform: capitalize;
+              }
+            }
           }
         }
       }
